@@ -39,7 +39,7 @@ const AboutPage = () => {
     <div ref={ref} className="pt-20 sm:pt-24 pb-16 sm:pb-20 bg-background">
       <SEO
         title="About Us -- 9+ Years of IT Excellence"
-        description="Learn about ARD TechLabs: a premier IT services firm with 40+ engineers, 150+ projects, and 9+ years of delivering software solutions across USA and Europe."
+        description="Learn about ARD TechLabs: a premier IT services firm with 40+ engineers, 150+ projects, and 9+ years of delivering software solutions across the USA, UK, Europe, and Australia."
         canonical="/about"
         jsonLd={aboutJsonLd}
       />
@@ -61,7 +61,7 @@ const AboutPage = () => {
           <div className="reveal-right">
             <SectionHeader eyebrow="About Us" title="Building the" accent="Future of Tech" />
             <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-              ARD TechLabs is a premier IT services and consulting company with 9+ years of experience delivering innovative software solutions for businesses across the USA and Europe.
+              ARD TechLabs is a premier IT services and consulting company with 9+ years of experience delivering innovative software solutions for businesses across the USA, UK, Europe, and Australia.
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
               From startups to Fortune 500 enterprises, we partner with ambitious organisations to design, build, and scale technology that drives real business growth.

@@ -6,6 +6,7 @@ import SEO from "@/components/SEO";
 import { Check, Clock, Shield, CreditCard, Zap, Brain, Cloud, Code, Smartphone, Database, Globe } from "lucide-react";
 import { toast } from "sonner";
 import { publicApi } from "@/services/api";
+import { complianceContent } from "@/lib/siteContent";
 
 const stats = [
   { value: "6+", label: "Years of Experience" },
@@ -46,7 +47,8 @@ const countries = [
 const FreeTrialPage = () => {
   const ref = useScrollReveal();
   const [formData, setFormData] = useState({
-    firstName: "", email: "", country: "", phone: "", message: "",
+    firstName: "", email: "", country: "", phone: "", company: "", role: "", trialFocus: "", message: "",
+    privacyAccepted: false, cookieConsentAccepted: false,
   });
   const [submitting, setSubmitting] = useState(false);
 
@@ -59,16 +61,25 @@ const FreeTrialPage = () => {
         lastName: "",
         email: formData.email,
         phone: formData.phone,
-        company: "",
-        service: "Free Trial Week",
+        company: formData.company,
+        country: formData.country,
+        source: "free-trial",
+        service: formData.trialFocus || "Free Trial Week",
+        privacyAccepted: formData.privacyAccepted,
+        cookieConsentAccepted: formData.cookieConsentAccepted,
         budget: "",
-        message: `[Free Trial Request] Country: ${formData.country}\n\n${formData.message}`,
+        message: `[Free Trial Request]
+Role Needed: ${formData.role || "Not specified"}
+Country: ${formData.country}
+Trial Focus: ${formData.trialFocus || "General trial request"}
+
+${formData.message}`,
       });
       toast.success("Free trial request submitted! We'll get back to you within 2 business hours.");
-      setFormData({ firstName: "", email: "", country: "", phone: "", message: "" });
+      setFormData({ firstName: "", email: "", country: "", phone: "", company: "", role: "", trialFocus: "", message: "", privacyAccepted: false, cookieConsentAccepted: false });
     } catch {
       toast.success("Free trial request submitted! We'll get back to you within 2 business hours.");
-      setFormData({ firstName: "", email: "", country: "", phone: "", message: "" });
+      setFormData({ firstName: "", email: "", country: "", phone: "", company: "", role: "", trialFocus: "", message: "", privacyAccepted: false, cookieConsentAccepted: false });
     }
     setSubmitting(false);
   };
@@ -80,7 +91,7 @@ const FreeTrialPage = () => {
     <div ref={ref}>
       <SEO
         title="Free Trial Week -- Try Before You Hire | ARD TechLabs"
-        description="Get a free one-week trial with a senior developer. 40 hours of dedicated work on your real project. No credit card, no contracts, no obligation."
+        description="Get a free one-week trial with a senior developer. 40 hours of dedicated work on your real project for the USA, UK, Europe, and Australia. No credit card, no contracts, no obligation."
         canonical="/free-trial"
       />
 
@@ -177,6 +188,16 @@ const FreeTrialPage = () => {
                 />
               </div>
               <div>
+                <label className={labelClass}>Company</label>
+                <input
+                  type="text"
+                  className={inputClass}
+                  value={formData.company}
+                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                  placeholder="Your company or startup"
+                />
+              </div>
+              <div>
                 <label className={labelClass}>Country *</label>
                 <select
                   required
@@ -200,6 +221,40 @@ const FreeTrialPage = () => {
                   placeholder="Enter Phone Number"
                 />
               </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className={labelClass}>Role Needed</label>
+                  <select
+                    className={inputClass}
+                    value={formData.role}
+                    onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                  >
+                    <option value="">Select role</option>
+                    <option>Full-Stack Developer</option>
+                    <option>Frontend Developer</option>
+                    <option>Backend Developer</option>
+                    <option>AI / ML Engineer</option>
+                    <option>Cloud & DevOps Engineer</option>
+                    <option>Mobile Developer</option>
+                  </select>
+                </div>
+                <div>
+                  <label className={labelClass}>Trial Focus</label>
+                  <select
+                    className={inputClass}
+                    value={formData.trialFocus}
+                    onChange={(e) => setFormData({ ...formData, trialFocus: e.target.value })}
+                  >
+                    <option value="">Select focus</option>
+                    <option>MVP Build Sprint</option>
+                    <option>Bug Fixing & Stabilization</option>
+                    <option>UI / UX Refinement</option>
+                    <option>AI Feature Prototype</option>
+                    <option>Cloud Migration Task</option>
+                    <option>Dedicated Team Evaluation</option>
+                  </select>
+                </div>
+              </div>
               <div>
                 <label className={labelClass}>Message</label>
                 <textarea
@@ -210,6 +265,29 @@ const FreeTrialPage = () => {
                   placeholder="Type Message Here"
                 />
               </div>
+              <label className="flex items-start gap-3 rounded-[10px] border border-green-400/20 bg-green-400/[0.04] px-4 py-3 text-xs text-muted-foreground">
+                <input
+                  type="checkbox"
+                  required
+                  checked={formData.privacyAccepted}
+                  onChange={(e) => setFormData({ ...formData, privacyAccepted: e.target.checked })}
+                  className="mt-0.5 h-4 w-4 accent-green-400"
+                />
+                <span>
+                  I agree to the Privacy Policy, Terms of Service, and secure lead handling standards under {complianceContent.items.join(", ")}.
+                </span>
+              </label>
+              <label className="flex items-start gap-3 rounded-[10px] border border-green-400/20 bg-green-400/[0.04] px-4 py-3 text-xs text-muted-foreground">
+                <input
+                  type="checkbox"
+                  checked={formData.cookieConsentAccepted}
+                  onChange={(e) => setFormData({ ...formData, cookieConsentAccepted: e.target.checked })}
+                  className="mt-0.5 h-4 w-4 accent-green-400"
+                />
+                <span>
+                  I consent to essential cookie/preference storage for this free-trial application.
+                </span>
+              </label>
               <button
                 type="submit"
                 disabled={submitting}
@@ -218,7 +296,7 @@ const FreeTrialPage = () => {
                 {submitting ? "Submitting..." : "Submit Now"}
               </button>
               <p className="text-center text-[0.65rem] text-muted-foreground">
-                No credit card required . No contracts . 100% free
+                No credit card required. No contracts. 100% free.
               </p>
             </form>
           </div>

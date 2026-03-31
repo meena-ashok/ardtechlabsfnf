@@ -20,8 +20,12 @@ public class ContactMessage {
 
     private String phone;
     private String company;
+    private String country;
+    private String source;
     private String service;
     private String budget;
+    private Boolean privacyAccepted;
+    private Boolean cookieConsentAccepted;
 
     @Column(columnDefinition = "TEXT")
     private String message;
@@ -35,5 +39,8 @@ public class ContactMessage {
     protected void onCreate() {
         createdAt = LocalDateTime.now();
         if (read == null) read = false;
+        if (privacyAccepted == null) privacyAccepted = false;
+        if (cookieConsentAccepted == null) cookieConsentAccepted = false;
+        if (source == null || source.isBlank()) source = "contact";
     }
 }

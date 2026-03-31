@@ -36,7 +36,7 @@ const FAQPage = () => {
     <div ref={ref} className="pt-20 sm:pt-24 pb-16 sm:pb-20 bg-background">
       <SEO
         title="FAQ -- IT Services, Pricing, Timelines & Hiring"
-        description="Frequently asked questions about ARD TechLabs' IT services, pricing models, project timelines, GDPR compliance, and hiring dedicated developers for USA & Europe."
+        description="Frequently asked questions about ARD TechLabs' IT services, pricing models, project timelines, GDPR compliance, and hiring dedicated developers for the USA, UK, Europe, and Australia."
         canonical="/faq"
         jsonLd={faqJsonLd}
       />

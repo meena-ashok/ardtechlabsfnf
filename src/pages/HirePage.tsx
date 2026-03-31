@@ -47,7 +47,7 @@ const HirePage = () => {
     <div ref={ref} className="pt-20 sm:pt-24 pb-16 sm:pb-20 bg-background-alt">
       <SEO
         title="Hire Dedicated Developers -- Senior Engineers On-Demand"
-        description="Hire pre-vetted senior developers, AI engineers, cloud architects, and designers from ARD TechLabs. Timezone-aligned for USA & Europe. Start in 48 hours."
+        description="Hire pre-vetted senior developers, AI engineers, cloud architects, and designers from ARD TechLabs. Timezone-aligned for the USA, UK, Europe, and Australia. Start in 48 hours."
         canonical="/hire"
       />
       <div className="container">
@@ -55,7 +55,7 @@ const HirePage = () => {
           eyebrow="Hire Talent"
           title="Dedicated Tech"
           accent="Talent On-Demand"
-          description="Scale your team instantly with pre-vetted senior engineers -- USA & European businesses welcome."
+          description="Scale your team instantly with pre-vetted senior engineers for teams across the USA, UK, Europe, and Australia."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">

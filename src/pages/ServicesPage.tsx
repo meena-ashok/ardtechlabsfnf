@@ -46,7 +46,7 @@ const ServicesPage = () => {
     <div ref={ref} className="pt-20 sm:pt-24 pb-16 sm:pb-20 bg-background">
       <SEO
         title="IT Services -- Full-Stack, AI, Cloud, Mobile & DevOps"
-        description="Comprehensive IT services including full-stack web development, mobile apps, AI/ML, cloud solutions, and DevOps for USA and European businesses."
+        description="Comprehensive IT services including full-stack web development, mobile apps, AI/ML, cloud solutions, and DevOps for businesses across the USA, UK, Europe, and Australia."
         canonical="/services"
         jsonLd={serviceJsonLd}
       />
@@ -55,7 +55,7 @@ const ServicesPage = () => {
           eyebrow="What We Do"
           title="Comprehensive IT"
           accent="Services"
-          description="From concept to deployment -- full-spectrum technology solutions tailored to businesses across the USA and Europe."
+          description="From concept to deployment -- full-spectrum technology solutions tailored to businesses across the USA, UK, Europe, and Australia."
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {services.map((svc: any, i: number) => (

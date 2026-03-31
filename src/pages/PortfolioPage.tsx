@@ -31,7 +31,7 @@ const PortfolioPage = () => {
     <div ref={ref} className="pt-20 sm:pt-24 pb-16 sm:pb-20 bg-background-alt">
       <SEO
         title="Portfolio -- Web, Mobile, AI & Cloud Projects"
-        description="Browse ARD TechLabs' portfolio of web apps, mobile apps, AI/ML solutions, and cloud projects delivered for clients across USA and Europe."
+        description="Browse ARD TechLabs' portfolio of web apps, mobile apps, AI/ML solutions, and cloud projects delivered for clients across the USA, UK, Europe, and Australia."
         canonical="/portfolio"
       />
       <div className="container">
@@ -39,7 +39,7 @@ const PortfolioPage = () => {
           eyebrow="Portfolio"
           title="Projects We're"
           accent="Proud Of"
-          description="Standout work across industries and technologies -- USA & Europe."
+          description="Standout work across industries and technologies across the USA, UK, Europe, and Australia."
         />
 
         <div className="flex flex-wrap gap-2 mb-6 sm:mb-8 reveal-up">

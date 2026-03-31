@@ -11,11 +11,25 @@ async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   }
 
   const res = await fetch(`${API_BASE}${path}`, { ...options, headers });
+  const contentType = res.headers.get('content-type') || '';
+  const isJson = contentType.includes('application/json');
+
   if (!res.ok) {
-    const error = await res.json().catch(() => ({ error: res.statusText }));
+    const error = isJson
+      ? await res.json().catch(() => ({ error: res.statusText }))
+      : { error: res.statusText };
     throw new Error(error.error || error.message || `Request failed: ${res.status}`);
   }
-  return res.json();
+
+  if (res.status === 204) {
+    return undefined as T;
+  }
+
+  if (isJson) {
+    return res.json();
+  }
+
+  return undefined as T;
 }
 
 // Public API

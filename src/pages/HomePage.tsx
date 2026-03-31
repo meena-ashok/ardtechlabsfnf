@@ -5,9 +5,9 @@ import { useApiData } from "@/hooks/useApiData";
 import { publicApi } from "@/services/api";
 import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
-import { Code, Smartphone, Cloud, Shield, Globe, Headphones, Award, RefreshCw } from "lucide-react";
-
-const heroWords = ["Technology", "Innovation", "Excellence", "The Future"];
+import { Code, Smartphone, Cloud, Shield, Globe, Headphones, Award, RefreshCw, ArrowUpRight, CheckCircle2, LockKeyhole, Radar } from "lucide-react";
+import { defaultSiteSettings } from "@/lib/siteContent";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
 
 const stats = [
   { value: "150+", label: "Projects Delivered" },
@@ -21,7 +21,7 @@ const whyUs = [
   { icon: <RefreshCw className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />, title: "Agile Delivery", desc: "2-week sprint cycles, always on time" },
   { icon: <Shield className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />, title: "Security-First", desc: "ISO 27001 & GDPR compliant" },
   { icon: <Headphones className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />, title: "24/7 Support", desc: "Always here when you need us" },
-  { icon: <Globe className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />, title: "Global Reach", desc: "USA & Europe -- 20+ countries" },
+  { icon: <Globe className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />, title: "Global Reach", desc: "USA, UK, Europe & Australia -- 20+ countries" },
 ];
 
 const fallbackTestimonials = [
@@ -30,52 +30,59 @@ const fallbackTestimonials = [
   { id: 3, text: "Their DevOps setup reduced deployment time from 3 hours to 8 minutes. The cloud migration was flawless. ARD TechLabs is our go-to partner.", name: "Emma Lawson", role: "VP Engineering, LogiChain -- Germany", featured: false },
 ];
 
-const marqueeItems = ["React.js", "Python", "Flutter", "AWS", "OpenAI", "Docker", "Kubernetes", "Terraform", "TypeScript", "Node.js", "Firebase", "PostgreSQL"];
-
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "ARD TechLabs",
-  url: "https://ardtechlabs.lovable.app",
-  logo: "https://ardtechlabs.lovable.app/favicon.ico",
-  description: "ARD TechLabs delivers award-winning full-stack development, mobile apps, AI/ML, cloud & DevOps for businesses across USA and Europe.",
-  foundingDate: "2015",
-  numberOfEmployees: { "@type": "QuantitativeValue", minValue: 40 },
-  areaServed: [
-    { "@type": "Country", name: "United States" },
-    { "@type": "Country", name: "United Kingdom" },
-    { "@type": "Country", name: "Germany" },
-    { "@type": "Country", name: "France" },
-    { "@type": "Country", name: "Netherlands" },
-  ],
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+1-555-123-4567",
-    contactType: "sales",
-    email: "hello@ardtechlabs.com",
-    availableLanguage: ["English"],
-    areaServed: ["US", "GB", "DE", "FR", "NL"],
-  },
-  sameAs: [],
-  knowsAbout: ["Full-Stack Development", "Mobile Apps", "AI/ML", "Cloud Computing", "DevOps"],
-};
-
 const HomePage = () => {
-  const typed = useTypewriter(heroWords);
+  const { companyEmail, companyPhone, companyAddress, heroWords, marqueeItems } = useSiteSettings();
+  const typed = useTypewriter(heroWords.length ? heroWords : defaultSiteSettings.heroWords);
   const revealRef = useScrollReveal();
   const { data: testimonials } = useApiData(() => publicApi.getTestimonials(), fallbackTestimonials);
+
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "ARD TechLabs",
+    url: "https://www.ardtechlabs.com",
+    logo: "https://www.ardtechlabs.com/favicon.ico",
+    description: "ARD TechLabs delivers award-winning full-stack development, mobile apps, AI/ML, cloud & DevOps for businesses across the USA, UK, Europe, and Australia.",
+    foundingDate: "2015",
+    numberOfEmployees: { "@type": "QuantitativeValue", minValue: 40 },
+    areaServed: [
+      { "@type": "Country", name: "United States" },
+      { "@type": "Country", name: "United Kingdom" },
+      { "@type": "Country", name: "Germany" },
+      { "@type": "Country", name: "France" },
+      { "@type": "Country", name: "Netherlands" },
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: companyPhone,
+      contactType: "sales",
+      email: companyEmail,
+      availableLanguage: ["English"],
+      areaServed: ["US", "GB", "DE", "FR", "NL"],
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: companyAddress,
+      addressLocality: "Ahmedabad",
+      addressRegion: "Gujarat",
+      postalCode: "380060",
+      addressCountry: "IN",
+    },
+    sameAs: [],
+    knowsAbout: ["Full-Stack Development", "Mobile Apps", "AI/ML", "Cloud Computing", "DevOps"],
+  };
 
   return (
     <div ref={revealRef}>
       <SEO
         title="ARD TechLabs | IT Services & Consulting -- Full-Stack, AI, Cloud & DevOps"
-        description="ARD TechLabs delivers award-winning full-stack development, mobile apps, AI/ML, cloud & DevOps for businesses across USA and Europe. 150+ projects . 80+ clients . 9+ years."
+        description="ARD TechLabs delivers award-winning full-stack development, mobile apps, AI/ML, cloud & DevOps for businesses across the USA, UK, Europe, and Australia. 150+ projects . 80+ clients . 9+ years."
         canonical="/"
         jsonLd={organizationJsonLd}
       />
 
       {/* Hero */}
-      <section className="min-h-[100svh] flex items-center pt-16 relative overflow-hidden">
+      <section className="min-h-[100svh] flex items-center pt-[5.25rem] sm:pt-24 relative overflow-hidden">
         {/* Grid background */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -94,46 +101,46 @@ const HomePage = () => {
           }}
         />
 
-        <div className="relative z-[2] w-full container py-8 sm:py-12 md:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="relative z-[2] w-full container py-7 sm:py-12 md:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 sm:gap-8 lg:gap-16 items-center">
             <div className="text-center lg:text-left">
-              <span className="eyebrow-badge reveal-up text-[0.65rem] sm:text-[0.72rem]">
+              <span className="eyebrow-badge reveal-up text-[0.62rem] sm:text-[0.72rem] font-bold px-3 sm:px-4">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary" style={{ animation: "blink-dot 2s infinite" }} />
-                IT Services & Consulting . USA & Europe
+                IT Services & Consulting . USA . UK . Europe . Australia
               </span>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground mt-4 sm:mt-5 mb-3 sm:mb-4 leading-[1.08] reveal-up" style={{ transitionDelay: "0.1s" }}>
+              <h1 className="text-[2rem] sm:text-5xl md:text-6xl lg:text-[4.15rem] font-extrabold tracking-[-0.03em] text-foreground mt-3.5 sm:mt-6 mb-3.5 sm:mb-5 leading-[1.04] reveal-up" style={{ transitionDelay: "0.1s" }}>
                 We Build
                 <br />
                 <span className="text-primary">{typed}</span>
                 <span className="inline-block w-[3px] h-[0.85em] bg-primary align-[-0.05em] ml-0.5" style={{ animation: "cursor-blink 1s infinite" }} />
               </h1>
 
-              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6 sm:mb-8 max-w-[520px] mx-auto lg:mx-0 reveal-up" style={{ transitionDelay: "0.2s" }}>
-                ARD TechLabs delivers award-winning full-stack development, mobile apps, AI/ML, cloud & DevOps for businesses across USA and Europe. 150+ projects . 80+ clients . 9+ years.
+              <p className="text-[0.93rem] sm:text-[1.03rem] text-muted-foreground leading-relaxed mb-6 sm:mb-9 max-w-[560px] mx-auto lg:mx-0 reveal-up" style={{ transitionDelay: "0.2s" }}>
+                ARD TechLabs delivers award-winning full-stack development, mobile apps, AI/ML, cloud & DevOps for businesses across the USA, UK, Europe, and Australia. 150+ projects . 80+ clients . 9+ years.
               </p>
 
-              <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center lg:justify-start mb-8 sm:mb-10 reveal-up" style={{ transitionDelay: "0.3s" }}>
+              <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-3 justify-center lg:justify-start mb-8 sm:mb-11 reveal-up" style={{ transitionDelay: "0.3s" }}>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-2 font-bold text-sm px-7 py-3 rounded-[14px] text-primary-foreground shadow-[var(--shadow-orange)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-orange-lg)] active:scale-95 min-h-[48px] w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 font-bold text-sm px-6 sm:px-7 py-3 rounded-[14px] text-primary-foreground shadow-[var(--shadow-orange)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-orange-lg)] active:scale-95 min-h-[48px] w-full sm:w-auto"
                   style={{ background: "var(--gradient-orange)" }}
                 >
                   Get Free Consultation
                 </Link>
                 <Link
                   to="/portfolio"
-                  className="inline-flex items-center justify-center gap-2 font-bold text-sm px-7 py-3 rounded-[14px] text-foreground bg-foreground/[0.04] border border-foreground/10 backdrop-blur-sm transition-all hover:border-primary hover:text-primary hover:bg-primary/10 hover:-translate-y-0.5 min-h-[48px] w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 font-bold text-sm px-6 sm:px-7 py-3 rounded-[14px] text-foreground bg-foreground/[0.04] border border-foreground/10 backdrop-blur-sm transition-all hover:border-primary hover:text-primary hover:bg-primary/10 hover:-translate-y-0.5 min-h-[48px] w-full sm:w-auto"
                 >
                   View Our Work
                 </Link>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 items-center reveal-up" style={{ transitionDelay: "0.4s" }}>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-6 lg:gap-8 items-center reveal-up" style={{ transitionDelay: "0.4s" }}>
                 {stats.map((s) => (
-                  <div key={s.label} className="text-center lg:text-left">
-                    <span className="text-xl sm:text-2xl md:text-3xl font-extrabold text-primary leading-none tabular-nums block">{s.value}</span>
-                    <span className="text-[0.65rem] sm:text-[0.7rem] text-muted-foreground font-medium tracking-wide mt-0.5 block">{s.label}</span>
+                  <div key={s.label} className="text-center lg:text-left rounded-xl border border-secondary/15 bg-background/35 px-2.5 py-2.5 sm:px-4 sm:py-3.5">
+                    <span className="text-[1.1rem] sm:text-2xl md:text-3xl font-extrabold text-primary leading-none tabular-nums block">{s.value}</span>
+                    <span className="text-[0.62rem] sm:text-[0.7rem] text-muted-foreground font-semibold tracking-wide mt-1 block">{s.label}</span>
                   </div>
                 ))}
               </div>
@@ -237,8 +244,83 @@ const HomePage = () => {
         </div>
       </section>
 
+      <section className="py-14 sm:py-24 bg-background">
+        <div className="container">
+          <SectionHeader
+            eyebrow="Master Delivery"
+            title="Built for serious"
+            accent="business outcomes"
+            description="A sharper homepage experience that reflects how ARD TechLabs delivers strategy, engineering execution, and operational reliability together."
+            centered
+          />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
+            {[
+              {
+                icon: <Radar className="w-5 h-5 text-primary" />,
+                title: "Discovery to Delivery",
+                copy: "We translate ideas into roadmaps, architecture, sprint plans, and measurable releases without losing momentum.",
+              },
+              {
+                icon: <LockKeyhole className="w-5 h-5 text-primary" />,
+                title: "Secure by Design",
+                copy: "Security, compliance, observability, and QA are designed into each release cycle instead of added at the end.",
+              },
+              {
+                icon: <CheckCircle2 className="w-5 h-5 text-primary" />,
+                title: "High-Trust Partnership",
+                copy: "Clear communication, predictable execution, and accountable leadership for product teams across India, USA, and Europe.",
+              },
+            ].map((item, index) => (
+              <article
+                key={item.title}
+                className="glass-card p-6 sm:p-7 reveal-up"
+                style={{ transitionDelay: `${index * 0.1}s` }}
+              >
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+                  {item.icon}
+                </div>
+                <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{item.copy}</p>
+                <Link to="/services" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-orange-light transition-colors">
+                  Explore capabilities
+                  <ArrowUpRight className="w-4 h-4" />
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-14 sm:py-24 bg-background-alt">
+        <div className="container">
+          <div className="glass-card p-6 sm:p-8 lg:p-10">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5">
+              {[
+                {
+                  title: "Strategic Consulting",
+                  copy: "Architecture and roadmap guidance for teams planning product launches, modernization, or scale.",
+                },
+                {
+                  title: "Execution Excellence",
+                  copy: "Senior engineers delivering quality code, design, QA, and DevOps workflows with clear sprint visibility.",
+                },
+                {
+                  title: "Long-Term Partnership",
+                  copy: "Reliable support, transparent communication, and measurable improvements across each release cycle.",
+                },
+              ].map((item) => (
+                <article key={item.title} className="rounded-2xl border border-secondary/20 bg-background/60 p-5 sm:p-6">
+                  <h3 className="text-base sm:text-lg font-bold text-foreground">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.copy}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
-      <section className="py-14 sm:py-20 bg-background">
+      <section className="py-14 sm:py-24 bg-background">
         <div className="container">
           <SectionHeader eyebrow="Client Love" title="What Our Clients" accent="Say" centered />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
@@ -285,13 +367,13 @@ const HomePage = () => {
             animation: "dots-shift 15s linear infinite",
           }}
         />
-        <div className="relative z-[1] max-w-[700px] mx-auto py-14 sm:py-20 px-4 text-center reveal-up">
+        <div className="relative z-[1] max-w-[700px] mx-auto py-16 sm:py-24 px-4 text-center reveal-up">
           <span className="eyebrow-badge mb-4 inline-flex">Start Today</span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-primary-foreground mb-4 leading-tight">
             Ready to <span className="text-primary">Accelerate</span> Your Digital Journey?
           </h2>
           <p className="text-sm sm:text-base text-primary-foreground/65 mb-6 sm:mb-8 leading-relaxed">
-            Let's build something extraordinary together. Free consultation for USA & European businesses.
+            Let's build something extraordinary together. Free consultation for teams in the USA, UK, Europe, and Australia.
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-3.5 justify-center">
             <Link

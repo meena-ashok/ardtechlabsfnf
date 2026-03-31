@@ -3,6 +3,17 @@ import { adminApi } from "@/services/api";
 import { Save } from "lucide-react";
 import { toast } from "sonner";
 
+const labels: Record<string, string> = {
+  company_name: "Company Name",
+  company_email: "Company Email",
+  company_phone: "Company Phone",
+  company_address: "Company Address",
+  site_url: "Site URL",
+  seo_regions: "SEO Regions",
+  hero_words: "Homepage Hero Words",
+  marquee_items: "Homepage Marquee Items",
+};
+
 export default function AdminSettingsPage() {
   const [settings, setSettings] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -46,7 +57,7 @@ export default function AdminSettingsPage() {
           <div key={setting.settingKey} className="bg-background-card/70 border border-secondary/20 rounded-xl p-4">
             <div className="flex items-center justify-between mb-2">
               <div>
-                <label className="text-xs font-bold text-foreground">{setting.settingKey}</label>
+                <label className="text-xs font-bold text-foreground">{labels[setting.settingKey] || setting.settingKey}</label>
                 {setting.description && (
                   <p className="text-[0.65rem] text-muted-foreground">{setting.description}</p>
                 )}

@@ -7,6 +7,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BackgroundOrbs from "@/components/BackgroundOrbs";
+import CookieBanner from "@/components/CookieBanner";
 import HomePage from "@/pages/HomePage";
 import ServicesPage from "@/pages/ServicesPage";
 import TechnologyPage from "@/pages/TechnologyPage";
@@ -17,6 +18,9 @@ import HirePage from "@/pages/HirePage";
 import FAQPage from "@/pages/FAQPage";
 import ContactPage from "@/pages/ContactPage";
 import FreeTrialPage from "@/pages/FreeTrialPage";
+import PrivacyPolicyPage from "@/pages/PrivacyPolicyPage";
+import TermsOfServicePage from "@/pages/TermsOfServicePage";
+import CookiePolicyPage from "@/pages/CookiePolicyPage";
 import NotFound from "@/pages/NotFound";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -90,10 +94,14 @@ const App = () => (
                           <Route path="/faq" element={<FAQPage />} />
                           <Route path="/free-trial" element={<FreeTrialPage />} />
                           <Route path="/contact" element={<ContactPage />} />
+                          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                          <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+                          <Route path="/cookie-policy" element={<CookiePolicyPage />} />
                           <Route path="*" element={<NotFound />} />
                         </Routes>
                       </main>
                       <Footer />
+                      <CookieBanner />
                     </div>
                   </>
                 }

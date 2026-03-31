@@ -21,7 +21,7 @@ const WorkPage = () => {
   return (
     <div ref={ref} className="pt-20 sm:pt-24 pb-16 sm:pb-20 bg-background">
       <SEO
-        title="Case Studies -- Real Results for USA & European Businesses"
+        title="Case Studies -- Real Results for USA, UK, Europe & Australia"
         description="Explore ARD TechLabs case studies: AI fraud detection for US FinTech, telemedicine in the UK, headless commerce in Europe, and smart logistics in Germany."
         canonical="/work"
       />
@@ -30,7 +30,7 @@ const WorkPage = () => {
           eyebrow="Case Studies"
           title="Work That"
           accent="Delivers Results"
-          description="Real-world projects, measurable outcomes across USA and Europe."
+          description="Real-world projects, measurable outcomes across the USA, UK, Europe, and Australia."
         />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {cases.map((c: any, i: number) => {

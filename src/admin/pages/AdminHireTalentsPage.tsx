@@ -35,5 +35,5 @@ export default function AdminHireTalentsPage() {
     load();
   };
 
-  return <AdminCrudTable title="Hire Talents" data={data} columns={columns} onSave={handleSave} onDelete={handleDelete} loading={loading} />;
+  return <AdminCrudTable title="Hire Talent" data={data} columns={columns} onSave={handleSave} onDelete={handleDelete} loading={loading} />;
 }

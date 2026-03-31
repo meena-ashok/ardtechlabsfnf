@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://ardtechlabs.lovable.app/sitemap.xml
+Sitemap: https://www.ardtechlabs.com/sitemap.xml

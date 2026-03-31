@@ -5,36 +5,42 @@ import SEO from "@/components/SEO";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { toast } from "sonner";
 import { publicApi } from "@/services/api";
-
-const contactInfo = [
-  { icon: <Mail className="w-5 h-5 text-primary" />, title: "Email Us", value: "hello@ardtechlabs.com" },
-  { icon: <Phone className="w-5 h-5 text-primary" />, title: "Call Us", value: "+1 (555) 123-4567" },
-  { icon: <MapPin className="w-5 h-5 text-primary" />, title: "Headquarters", value: "Ahmedabad, Gujarat, India" },
-];
-
-const contactJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ContactPage",
-  mainEntity: {
-    "@type": "Organization",
-    name: "ARD TechLabs",
-    email: "hello@ardtechlabs.com",
-    telephone: "+1-555-123-4567",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Ahmedabad",
-      addressRegion: "Gujarat",
-      addressCountry: "IN",
-    },
-  },
-};
+import { useSiteSettings } from "@/hooks/useSiteSettings";
+import { complianceContent } from "@/lib/siteContent";
 
 const ContactPage = () => {
   const ref = useScrollReveal();
+  const { companyEmail, companyPhone, companyAddress } = useSiteSettings();
   const [formData, setFormData] = useState({
-    firstName: "", lastName: "", email: "", phone: "", company: "", service: "", budget: "", message: "",
+    firstName: "", lastName: "", email: "", phone: "", company: "", country: "", service: "", budget: "", message: "",
+    privacyAccepted: false, cookieConsentAccepted: false,
   });
   const [submitting, setSubmitting] = useState(false);
+
+  const contactInfo = [
+    { icon: <Mail className="w-5 h-5 text-primary" />, title: "Email Us", value: companyEmail },
+    { icon: <Phone className="w-5 h-5 text-primary" />, title: "Call Us", value: companyPhone },
+    { icon: <MapPin className="w-5 h-5 text-primary" />, title: "Headquarters", value: companyAddress },
+  ];
+
+  const contactJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    mainEntity: {
+      "@type": "Organization",
+      name: "ARD TechLabs",
+      email: companyEmail,
+      telephone: companyPhone,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: companyAddress,
+        addressLocality: "Ahmedabad",
+        addressRegion: "Gujarat",
+        postalCode: "380060",
+        addressCountry: "IN",
+      },
+    },
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,11 +48,11 @@ const ContactPage = () => {
     try {
       await publicApi.submitContact(formData);
       toast.success("Message sent successfully! We'll get back to you shortly.");
-      setFormData({ firstName: "", lastName: "", email: "", phone: "", company: "", service: "", budget: "", message: "" });
+      setFormData({ firstName: "", lastName: "", email: "", phone: "", company: "", country: "", service: "", budget: "", message: "", privacyAccepted: false, cookieConsentAccepted: false });
     } catch {
       // Fallback for when backend is not running
       toast.success("Message sent successfully! We'll get back to you shortly.");
-      setFormData({ firstName: "", lastName: "", email: "", phone: "", company: "", service: "", budget: "", message: "" });
+      setFormData({ firstName: "", lastName: "", email: "", phone: "", company: "", country: "", service: "", budget: "", message: "", privacyAccepted: false, cookieConsentAccepted: false });
     }
     setSubmitting(false);
   };
@@ -57,8 +63,8 @@ const ContactPage = () => {
   return (
     <div ref={ref} className="pt-20 sm:pt-24 pb-16 sm:pb-20 bg-background-alt">
       <SEO
-        title="Contact Us -- Free IT Consultation for USA & Europe"
-        description="Contact ARD TechLabs for a free IT consultation. Serving businesses across the USA and Europe with custom software solutions."
+        title="Contact Us -- Free IT Consultation for USA, UK, Europe & Australia"
+        description="Contact ARD TechLabs for a free IT consultation. Serving businesses across the USA, UK, Europe, and Australia with custom software solutions."
         canonical="/contact"
         jsonLd={contactJsonLd}
       />
@@ -67,7 +73,7 @@ const ContactPage = () => {
           eyebrow="Get In Touch"
           title="Start Your"
           accent="Project Today"
-          description="Fill in the form below and we'll get back to you within 24 hours with a free consultation."
+          description="Share your goals, preferred service, and region. We reply within 24 hours with a clear next-step recommendation."
         />
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           <div className="lg:col-span-2 reveal-left">
@@ -92,12 +98,16 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <label className={labelClass}>Phone</label>
-                  <input type="tel" className={inputClass} value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} placeholder="+1 (555) 000-0000" />
+                  <input type="tel" className={inputClass} value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} placeholder="+91 98765 43210" />
                 </div>
               </div>
               <div>
                 <label className={labelClass}>Company</label>
                 <input type="text" className={inputClass} value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} placeholder="Company name" />
+              </div>
+              <div>
+                <label className={labelClass}>Country / Region</label>
+                <input type="text" className={inputClass} value={formData.country} onChange={(e) => setFormData({ ...formData, country: e.target.value })} placeholder="USA, UK, Germany, Australia..." />
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <div>
@@ -129,6 +139,29 @@ const ContactPage = () => {
                 <label className={labelClass}>Message *</label>
                 <textarea required rows={4} className={inputClass} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="Tell us about your project..." />
               </div>
+              <label className="flex items-start gap-3 rounded-[10px] border border-secondary/20 bg-background/40 px-4 py-3 text-xs text-muted-foreground">
+                <input
+                  type="checkbox"
+                  required
+                  checked={formData.privacyAccepted}
+                  onChange={(e) => setFormData({ ...formData, privacyAccepted: e.target.checked })}
+                  className="mt-0.5 h-4 w-4 accent-[hsl(var(--primary))]"
+                />
+                <span>
+                  I agree to the Privacy Policy, Terms of Service, and secure processing of my enquiry data under {complianceContent.items.join(", ")} practices.
+                </span>
+              </label>
+              <label className="flex items-start gap-3 rounded-[10px] border border-secondary/20 bg-background/40 px-4 py-3 text-xs text-muted-foreground">
+                <input
+                  type="checkbox"
+                  checked={formData.cookieConsentAccepted}
+                  onChange={(e) => setFormData({ ...formData, cookieConsentAccepted: e.target.checked })}
+                  className="mt-0.5 h-4 w-4 accent-[hsl(var(--primary))]"
+                />
+                <span>
+                  I consent to essential cookie-based preference storage for this enquiry session.
+                </span>
+              </label>
               <button
                 type="submit"
                 disabled={submitting}
@@ -151,7 +184,11 @@ const ContactPage = () => {
             ))}
             <div className="glass-card p-4 sm:p-5">
               <h3 className="text-xs sm:text-sm font-bold text-foreground mb-1.5 sm:mb-2">Response Time</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">We typically respond within 24 hours for all enquiries from USA and European businesses.</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">We typically respond within 24 hours for enquiries from the USA, UK, Europe, Australia, and global delivery partners.</p>
+            </div>
+            <div className="glass-card p-4 sm:p-5">
+              <h3 className="text-xs sm:text-sm font-bold text-foreground mb-1.5 sm:mb-2">{complianceContent.eyebrow}</h3>
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{complianceContent.description}</p>
             </div>
           </div>
         </div>

@@ -16,7 +16,7 @@ const navItems = [
   { label: "FAQs", path: "/admin/faqs", icon: HelpCircle },
   { label: "Team", path: "/admin/team", icon: Users },
   { label: "Tech Stack", path: "/admin/tech-stack", icon: Cpu },
-  { label: "Hire Talents", path: "/admin/hire-talents", icon: UserCheck },
+  { label: "Hire Talent", path: "/admin/hire-talents", icon: UserCheck },
   { label: "Messages", path: "/admin/messages", icon: MessageSquare },
   { label: "Settings", path: "/admin/settings", icon: Settings },
 ];

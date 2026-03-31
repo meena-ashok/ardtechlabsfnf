@@ -3,6 +3,7 @@ import { useApiData } from "@/hooks/useApiData";
 import { publicApi } from "@/services/api";
 import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
+import TechIcon from "@/components/TechIcon";
 
 const fallbackStacks = [
   { id: 1, label: "Frontend", items: "React.js / Next.js,Vue.js / Nuxt.js,Angular,TypeScript,Tailwind CSS" },
@@ -33,7 +34,7 @@ const TechnologyPage = () => {
           eyebrow="Our Stack"
           title="Technology"
           accent="Expertise"
-          description="Battle-tested technologies across every layer of the stack -- chosen for performance, scalability, and long-term maintainability."
+          description="Battle-tested technologies across every layer of the stack, selected for performance, scalability, compliance, and long-term maintainability."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-10 sm:mb-12">
@@ -45,14 +46,17 @@ const TechnologyPage = () => {
                 className="reveal-up bg-background-card/70 border border-secondary/20 rounded-[16px] sm:rounded-[18px] p-4 sm:p-5 transition-all hover:border-primary/30 hover:-translate-y-1"
                 style={{ transitionDelay: `${(i % 4) * 0.1}s` }}
               >
-                <div className="text-xs font-bold text-primary tracking-widest uppercase mb-3 pb-3 border-b border-secondary/20">
-                  {stack.label}
+                <div className="mb-3 flex items-center gap-3 border-b border-secondary/20 pb-3">
+                  <TechIcon name={stack.label} size={40} />
+                  <div className="text-xs font-bold text-primary tracking-widest uppercase">
+                    {stack.label}
+                  </div>
                 </div>
                 <ul className="space-y-2">
                   {itemsArr.map((item: string) => (
                     <li key={item} className="text-xs sm:text-sm text-muted-foreground flex items-center gap-2 hover:text-foreground transition-colors">
-                      <span className="w-1.5 h-1.5 rounded-sm bg-navy-light flex-shrink-0 hover:bg-primary transition-colors" />
-                      {item.trim()}
+                      <TechIcon name={item.trim()} size={28} />
+                      <span>{item.trim()}</span>
                     </li>
                   ))}
                 </ul>
@@ -66,10 +70,12 @@ const TechnologyPage = () => {
           {tools.map((tool, i) => (
             <div
               key={tool}
-              className="reveal-up bg-background-card/70 border border-secondary/20 rounded-[12px] sm:rounded-[14px] py-3 sm:py-4 px-3 text-center transition-all hover:border-primary/30 hover:-translate-y-1.5 hover:scale-[1.04] hover:bg-primary/[0.05] cursor-default"
+              className="reveal-up bg-background-card/70 border border-secondary/20 rounded-[12px] sm:rounded-[14px] py-4 sm:py-5 px-3 text-center transition-all hover:border-primary/30 hover:-translate-y-1.5 hover:scale-[1.04] hover:bg-primary/[0.05] cursor-default"
               style={{ transitionDelay: `${(i % 6) * 0.1}s` }}
             >
-              <span className="text-xl sm:text-2xl block mb-1.5 sm:mb-2">\u26A1</span>
+              <div className="mb-2 flex justify-center">
+                <TechIcon name={tool} size={48} />
+              </div>
               <span className="text-[0.68rem] sm:text-xs text-muted-foreground font-medium">{tool}</span>
             </div>
           ))}

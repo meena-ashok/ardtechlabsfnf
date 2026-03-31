@@ -42,17 +42,17 @@ const Navbar = () => {
     <>
       {/* Free Trial Banner */}
       {bannerVisible && (
-        <div className="fixed top-0 left-0 right-0 z-[950] h-8 sm:h-9 flex items-center justify-center gap-2 text-[0.68rem] sm:text-xs font-semibold text-primary-foreground"
+        <div className="fixed top-0 left-0 right-0 z-[950] min-h-8 sm:h-9 flex items-center justify-center gap-1.5 sm:gap-2 px-8 sm:px-10 py-1 text-[0.62rem] sm:text-xs font-semibold text-primary-foreground text-center leading-tight"
           style={{ background: "var(--gradient-orange)" }}
         >
           <span className="hidden sm:inline">Get Free Trial</span>
-          <span className="mx-1 opacity-60">--</span>
+          <span className="mx-1 opacity-60 hidden sm:inline">--</span>
           <Link to="/free-trial" className="underline underline-offset-2 hover:opacity-90 transition-opacity">
             One Week Developer Access. Try Before You Hire.
           </Link>
           <button
             onClick={() => setBannerVisible(false)}
-            className="absolute right-2 sm:right-4 p-0.5 rounded hover:bg-white/20 transition-colors"
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-0.5 rounded hover:bg-white/20 transition-colors"
             aria-label="Close banner"
           >
             <X className="w-3.5 h-3.5" />
@@ -61,7 +61,7 @@ const Navbar = () => {
       )}
 
       <header
-        className="fixed left-0 right-0 z-[900] h-14 sm:h-16 transition-all duration-400"
+        className="fixed left-0 right-0 z-[900] h-[3.35rem] sm:h-16 transition-all duration-400"
         style={{ top: bannerVisible ? "2rem" : "0" }}
       >
         <div
@@ -123,7 +123,7 @@ const Navbar = () => {
           </div>
 
           <button
-            className="lg:hidden flex flex-col gap-[5px] p-2 -mr-2"
+            className="lg:hidden flex flex-col gap-[5px] p-2.5 -mr-2 rounded-lg hover:bg-foreground/[0.05] transition-colors"
             onClick={toggleMobile}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
@@ -139,12 +139,12 @@ const Navbar = () => {
 
       {/* Mobile nav */}
       {mobileOpen && (
-        <div className="fixed inset-0 bg-background/[0.97] backdrop-blur-[32px] z-[850] flex flex-col items-center justify-center gap-2 sm:gap-4 p-6 sm:p-8 animate-in fade-in overflow-y-auto">
+        <div className="fixed inset-0 bg-background/[0.97] backdrop-blur-[32px] z-[850] flex flex-col items-center justify-center gap-2.5 sm:gap-4 p-5 sm:p-8 animate-in fade-in overflow-y-auto">
           {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
-              className={`text-lg sm:text-2xl font-bold px-6 py-2 rounded-xl transition-all ${
+              className={`text-[1.1rem] sm:text-2xl font-bold px-6 py-2.5 rounded-xl transition-all min-h-[46px] inline-flex items-center ${
                 location.pathname === item.path
                   ? "text-primary bg-primary/10"
                   : "text-foreground hover:text-primary hover:bg-primary/10"
@@ -155,13 +155,13 @@ const Navbar = () => {
           ))}
           <Link
             to="/free-trial"
-            className="text-lg sm:text-2xl font-bold text-green-400 px-6 py-2 rounded-xl transition-all hover:bg-green-400/10"
+            className="text-[1.1rem] sm:text-2xl font-bold text-green-400 px-6 py-2.5 rounded-xl transition-all hover:bg-green-400/10 min-h-[46px] inline-flex items-center"
           >
             Free Trial
           </Link>
           <Link
             to="/contact"
-            className="text-lg sm:text-2xl font-bold text-primary-foreground px-6 py-2.5 rounded-xl mt-2 min-h-[48px] inline-flex items-center"
+            className="text-[1.1rem] sm:text-2xl font-bold text-primary-foreground px-6 py-2.5 rounded-xl mt-2 min-h-[48px] inline-flex items-center"
             style={{ background: "var(--gradient-orange)" }}
           >
             Contact Us

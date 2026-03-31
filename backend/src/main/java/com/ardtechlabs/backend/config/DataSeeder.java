@@ -158,10 +158,12 @@ public class DataSeeder implements CommandLineRunner {
     private void seedSettings() {
         if (settingRepo.count() > 0) return;
         settingRepo.save(SiteSetting.builder().settingKey("company_name").settingValue("ARD TechLabs").description("Company name").build());
-        settingRepo.save(SiteSetting.builder().settingKey("company_email").settingValue("hello@ardtechlabs.com").description("Company email").build());
-        settingRepo.save(SiteSetting.builder().settingKey("company_phone").settingValue("+1 (555) 123-4567").description("Company phone").build());
-        settingRepo.save(SiteSetting.builder().settingKey("company_address").settingValue("Ahmedabad, Gujarat, India").description("Company address").build());
-        settingRepo.save(SiteSetting.builder().settingKey("hero_words").settingValue("Technology,Innovation,Excellence,The Future").description("Hero section rotating words").build());
-        settingRepo.save(SiteSetting.builder().settingKey("marquee_items").settingValue("React.js,Python,Flutter,AWS,OpenAI,Docker,Kubernetes,Terraform,TypeScript,Node.js,Firebase,PostgreSQL").description("Tech marquee items").build());
+        settingRepo.save(SiteSetting.builder().settingKey("company_email").settingValue("info@ardtechlabs.com").description("Company email").build());
+        settingRepo.save(SiteSetting.builder().settingKey("company_phone").settingValue("+91 (635) 317-0644").description("Company phone").build());
+        settingRepo.save(SiteSetting.builder().settingKey("company_address").settingValue("Ahmedabad, Gujarat, India - 380060").description("Company address").build());
+        settingRepo.save(SiteSetting.builder().settingKey("hero_words").settingValue("Technology,Innovation,Intelligence,Digital Growth").description("Hero section rotating words").build());
+        settingRepo.save(SiteSetting.builder().settingKey("marquee_items").settingValue("React.js,Python,Flutter,AWS,OpenAI,Docker,Kubernetes,Terraform,TypeScript,Node.js,Spring Boot,PostgreSQL").description("Tech marquee items").build());
+        settingRepo.save(SiteSetting.builder().settingKey("site_url").settingValue("https://www.ardtechlabs.com").description("Primary production website URL").build());
+        settingRepo.save(SiteSetting.builder().settingKey("seo_regions").settingValue("United States,United Kingdom,Europe,Australia").description("Primary SEO target regions").build());
     }
 }
