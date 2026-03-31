@@ -49,6 +49,7 @@ const FreeTrialPage = () => {
     firstName: "", email: "", country: "", phone: "", message: "",
   });
   const [submitting, setSubmitting] = useState(false);
+  const [gdprConsent, setGdprConsent] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -66,9 +67,11 @@ const FreeTrialPage = () => {
       });
       toast.success("Free trial request submitted! We'll get back to you within 2 business hours.");
       setFormData({ firstName: "", email: "", country: "", phone: "", message: "" });
+      setGdprConsent(false);
     } catch {
       toast.success("Free trial request submitted! We'll get back to you within 2 business hours.");
       setFormData({ firstName: "", email: "", country: "", phone: "", message: "" });
+      setGdprConsent(false);
     }
     setSubmitting(false);
   };
@@ -210,9 +213,14 @@ const FreeTrialPage = () => {
                   placeholder="Type Message Here"
                 />
               </div>
+
+              <label className="flex items-start gap-2 text-xs text-muted-foreground">
+                <input type="checkbox" required checked={gdprConsent} onChange={(e) => setGdprConsent(e.target.checked)} className="mt-0.5" />
+                <span>I agree to GDPR data processing and the <Link to="/privacy-policy" className="text-primary hover:underline">Privacy Policy</Link>.</span>
+              </label>
               <button
                 type="submit"
-                disabled={submitting}
+                disabled={submitting || !gdprConsent}
                 className="w-full py-3 rounded-[14px] text-sm font-bold text-white bg-green-500 shadow-[0_4px_20px_rgba(74,222,128,0.35)] transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_36px_rgba(74,222,128,0.5)] disabled:opacity-50 min-h-[48px]"
               >
                 {submitting ? "Submitting..." : "Submit Now"}

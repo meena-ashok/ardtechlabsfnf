@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useApiData } from "@/hooks/useApiData";
 import { publicApi } from "@/services/api";

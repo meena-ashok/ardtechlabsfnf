@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
@@ -35,6 +36,7 @@ const ContactPage = () => {
     firstName: "", lastName: "", email: "", phone: "", company: "", service: "", budget: "", message: "",
   });
   const [submitting, setSubmitting] = useState(false);
+  const [gdprConsent, setGdprConsent] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,10 +45,12 @@ const ContactPage = () => {
       await publicApi.submitContact(formData);
       toast.success("Message sent successfully! We'll get back to you shortly.");
       setFormData({ firstName: "", lastName: "", email: "", phone: "", company: "", service: "", budget: "", message: "" });
+      setGdprConsent(false);
     } catch {
       // Fallback for when backend is not running
       toast.success("Message sent successfully! We'll get back to you shortly.");
       setFormData({ firstName: "", lastName: "", email: "", phone: "", company: "", service: "", budget: "", message: "" });
+      setGdprConsent(false);
     }
     setSubmitting(false);
   };
@@ -129,9 +133,14 @@ const ContactPage = () => {
                 <label className={labelClass}>Message *</label>
                 <textarea required rows={4} className={inputClass} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="Tell us about your project..." />
               </div>
+
+              <label className="flex items-start gap-2 text-xs text-muted-foreground">
+                <input type="checkbox" required checked={gdprConsent} onChange={(e) => setGdprConsent(e.target.checked)} className="mt-0.5" />
+                <span>I consent to data processing under the <Link to="/privacy-policy" className="text-primary hover:underline">Privacy Policy</Link>.</span>
+              </label>
               <button
                 type="submit"
-                disabled={submitting}
+                disabled={submitting || !gdprConsent}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-bold text-sm px-8 py-3 rounded-[14px] text-primary-foreground shadow-[var(--shadow-orange)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-orange-lg)] disabled:opacity-50 min-h-[48px]"
                 style={{ background: "var(--gradient-orange)" }}
               >

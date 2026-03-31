@@ -18,6 +18,10 @@ import FAQPage from "@/pages/FAQPage";
 import ContactPage from "@/pages/ContactPage";
 import FreeTrialPage from "@/pages/FreeTrialPage";
 import NotFound from "@/pages/NotFound";
+import PrivacyPolicyPage from "@/pages/PrivacyPolicyPage";
+import TermsOfServicePage from "@/pages/TermsOfServicePage";
+import CookiePolicyPage from "@/pages/CookiePolicyPage";
+import CookieConsent from "@/components/CookieConsent";
 import ScrollToTop from "@/components/ScrollToTop";
 
 // Admin imports
@@ -90,10 +94,14 @@ const App = () => (
                           <Route path="/faq" element={<FAQPage />} />
                           <Route path="/free-trial" element={<FreeTrialPage />} />
                           <Route path="/contact" element={<ContactPage />} />
+                          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                          <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+                          <Route path="/cookie-policy" element={<CookiePolicyPage />} />
                           <Route path="*" element={<NotFound />} />
                         </Routes>
                       </main>
                       <Footer />
+                      <CookieConsent />
                     </div>
                   </>
                 }
