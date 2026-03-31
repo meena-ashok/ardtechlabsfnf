@@ -1,0 +1,21 @@
+package com.ardtechlabs.backend.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Table(name = "site_settings")
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
+public class SiteSetting {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(unique = true, nullable = false)
+    private String settingKey;
+
+    @Column(columnDefinition = "TEXT", nullable = false)
+    private String settingValue;
+
+    private String description;
+}
