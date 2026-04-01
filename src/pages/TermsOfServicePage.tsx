@@ -3,24 +3,28 @@ import SectionHeader from "@/components/SectionHeader";
 
 const sections = [
   {
-    title: "Service Scope",
-    body: "Project scope, deliverables, timelines, and engagement terms are defined in written proposals, statements of work, or subscription agreements approved by both parties.",
+    title: "1. Service Scope & Delivery",
+    body: "Project scope, deliverables, timelines, and engagement terms are strictly defined in written proposals, statements of work (SOW), or subscription agreements. We operate on 2-week agile sprint cycles to ensure maximum transparency and quality control.",
   },
   {
-    title: "Free Trial Terms",
-    body: "Free trial requests are subject to capacity, internal review, and fit assessment. Trial work is provided without guarantee of long-term engagement and may be limited to agreed evaluation tasks.",
+    title: "2. Free Trial & Consultation",
+    body: "Free trial requests are subject to capacity and fit assessment. The trial is intended to demonstrate our engineering capabilities and does not constitute a full project commitment until a formal SOW is signed.",
   },
   {
-    title: "Client Responsibilities",
-    body: "Clients are responsible for timely feedback, access to systems or assets, lawful use of delivered software, and accuracy of project requirements shared during discovery and delivery.",
+    title: "3. Regional Compliance & Anti-Spam",
+    body: "Both ARD TechLabs and its clients must comply with the CAN-SPAM Act (USA), CASL (Canada), and relevant anti-spam laws in the UK and Australia. We reserve the right to terminate services if they are used for deceptive marketing or unlawful data collection.",
   },
   {
-    title: "Intellectual Property",
-    body: "Unless otherwise agreed in writing, final deliverables created for paid engagements transfer according to the signed contract. Pre-existing tools, accelerators, and third-party assets remain subject to their respective licenses.",
+    title: "4. Data Protection (GDPR & Local Laws)",
+    body: "We are fully compliant with GDPR (Europe) and local data protection laws. All client data, source code, and project assets are handled with the highest security standards, aligning with ISO 27001 and SOC 2 Type II frameworks.",
   },
   {
-    title: "Compliance and Acceptable Use",
-    body: "Both ARD TechLabs and its clients must comply with applicable laws, data protection obligations, and anti-spam or anti-abuse regulations relevant to each engagement region.",
+    title: "5. Intellectual Property Rights",
+    body: "Upon full payment, all custom-developed source code, designs, and project deliverables transfer to the client. ARD TechLabs retains rights to its pre-existing proprietary tools, libraries, and frameworks used in delivery.",
+  },
+  {
+    title: "6. Liability & Jurisdiction",
+    body: "Our services are provided with professional diligence. Any legal disputes arising from engagements in the USA, UK, Europe, or Australia will be governed by the jurisdiction specified in the primary service agreement.",
   },
 ];
 

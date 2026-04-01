@@ -3,24 +3,28 @@ import SectionHeader from "@/components/SectionHeader";
 
 const sections = [
   {
-    title: "Information We Collect",
-    body: "We collect business contact details, project requirements, company details, and communication history when you contact us, request a free trial, or engage our services.",
+    title: "1. Information We Collect",
+    body: "We collect business contact details (name, email, phone), project requirements, company details, LinkedIn profiles, and communication history when you contact us, request a free trial, or engage our services. We only collect data necessary to provide high-quality IT consulting and development services.",
   },
   {
-    title: "How We Use Data",
-    body: "We use submitted information to respond to enquiries, scope work, provide project updates, deliver support, and maintain lawful records required for security and compliance.",
+    title: "2. Lawful Basis for Processing (GDPR)",
+    body: "Under European GDPR (General Data Protection Regulation), we process your data based on 'Contractual Necessity' (to fulfill service requests) or 'Legitimate Interests' (to provide technical consulting). All data processing is documented and transparent, with strict retention limits in place across our UK and European operations.",
   },
   {
-    title: "Regional Compliance",
-    body: "ARD TechLabs supports GDPR, CAN-SPAM Act, CASL, and aligned regional privacy principles. We process data with clear business purpose, limited retention, and appropriate safeguards.",
+    title: "3. Email Marketing Compliance (CAN-SPAM & CASL)",
+    body: "We strictly adhere to the CAN-SPAM Act (USA) and CASL (Canada). This means we always provide a clear way to unsubscribe, include our physical mailing address in all electronic communications, and never use deceptive subject lines or headers. We ensure explicit opt-in for our Australian and global prospects before sending marketing materials.",
   },
   {
-    title: "Security Controls",
-    body: "Lead and client data is handled with role-based access, secure development practices, monitoring, and administrative safeguards aligned with ISO 27001 and SOC 2 Type II operating standards.",
+    title: "4. Security Standards (ISO 27001 & SOC 2)",
+    body: "Regional data is handled with the highest security standards. We align our internal operations with ISO 27001 (Information Security Management) and SOC 2 Type II (Trust Services Criteria) standards. This includes encrypted data at rest and in transit, multi-factor authentication for all engineers, and regular internal security audits.",
   },
   {
-    title: "Your Rights",
-    body: "Depending on your region, you may request access, correction, deletion, portability, or restriction of your personal data. You may also withdraw consent for optional communications.",
+    title: "5. International Data Transfers",
+    body: "Data collected from US, UK, Europe, or Australia may be processed in secure facilities globally. We use Standard Contractual Clauses (SCCs) to ensure your data remains protected under the same high standards regardless of where it is processed.",
+  },
+  {
+    title: "6. Your Global Rights",
+    body: "Regardless of where you are located, we grant you the right to access, rectify, or delete your personal data. You may contact our Data Protection Officer at privacy@ardtechlabs.com for any requests related to your data portability or right to be forgotten.",
   },
 ];
 

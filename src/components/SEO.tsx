@@ -52,6 +52,13 @@ const SEO = ({ title, description, canonical = "", type = "website", jsonLd }: S
       {/* Geo targeting */}
       <meta name="geo.region" content="US" />
       <meta name="geo.placename" content="United States" />
+      <meta name="geo.region" content="GB" />
+      <meta name="geo.placename" content="United Kingdom" />
+      <meta name="geo.region" content="AU" />
+      <meta name="geo.placename" content="Australia" />
+
+      {/* Compliance Mentions */}
+      <meta name="compliance" content="GDPR, CAN-SPAM, CASL, ISO 27001, SOC 2 Type II" />
 
       {jsonLd && (
         <script type="application/ld+json">

@@ -44,16 +44,26 @@ export default function AdminLayout() {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 bottom-0 w-64 bg-background-alt border-r border-secondary/20 z-[999] transition-transform lg:translate-x-0 lg:static lg:z-auto ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed top-0 left-0 bottom-0 w-64 bg-background-alt border-r border-secondary/20 z-[999] transition-transform lg:translate-x-0 lg:static lg:z-auto ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
       >
-        <div className="flex items-center justify-between h-14 px-4 border-b border-secondary/20">
-          <Link to="/admin" className="text-sm font-bold text-primary">
-            ARD Admin
+        <div className="flex items-center justify-between h-20 px-4 border-b border-secondary/20">
+          <Link to="/admin" className="flex items-center gap-3 group">
+            <div className="relative">
+              <img
+                src="/src/assets/logo.png"
+                alt="ARD Logo"
+                className="w-10 h-10 object-contain brightness-110 group-hover:scale-105 transition-transform"
+              />
+              <div className="absolute inset-0 bg-primary/20 blur-lg rounded-full -z-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm font-bold text-foreground leading-none">ARD TechLabs</span>
+              <span className="text-[0.65rem] font-semibold text-primary/80 uppercase tracking-wider mt-0.5">Admin Control</span>
+            </div>
           </Link>
           <button
-            className="lg:hidden p-1 text-muted-foreground hover:text-foreground"
+            className="lg:hidden p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-foreground/5 transition-colors"
             onClick={() => setSidebarOpen(false)}
           >
             <X className="w-5 h-5" />
@@ -70,11 +80,10 @@ export default function AdminLayout() {
                 key={item.path}
                 to={item.path}
                 onClick={() => setSidebarOpen(false)}
-                className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-[0.8rem] font-medium transition-all ${
-                  isActive
-                    ? "bg-primary/10 text-primary border border-primary/20"
-                    : "text-muted-foreground hover:text-foreground hover:bg-foreground/[0.04]"
-                }`}
+                className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-[0.8rem] font-medium transition-all ${isActive
+                  ? "bg-primary/10 text-primary border border-primary/20"
+                  : "text-muted-foreground hover:text-foreground hover:bg-foreground/[0.04]"
+                  }`}
               >
                 <item.icon className="w-4 h-4 flex-shrink-0" />
                 {item.label}
