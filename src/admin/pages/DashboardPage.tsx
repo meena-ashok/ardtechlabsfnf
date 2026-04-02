@@ -3,7 +3,7 @@ import { adminApi } from "@/services/api";
 import { Link } from "react-router-dom";
 import {
   Code, FolderOpen, Briefcase, Star, HelpCircle,
-  Users, MessageSquare, MessageCircle
+  Users, MessageSquare, MessageCircle, Shield, Lock
 } from "lucide-react";
 
 interface Stats {
