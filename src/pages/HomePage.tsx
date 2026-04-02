@@ -123,23 +123,23 @@ const HomePage = () => {
               <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-3 justify-center lg:justify-start mb-8 sm:mb-11 reveal-up" style={{ transitionDelay: "0.3s" }}>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-2 font-bold text-sm px-6 sm:px-7 py-3 rounded-[14px] text-primary-foreground shadow-[var(--shadow-orange)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-orange-lg)] active:scale-95 min-h-[48px] w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 font-bold text-sm px-6 sm:px-7 py-3 rounded-[14px] text-primary-foreground shadow-[var(--shadow-orange)] transition-all hover:-translate-y-1.5 hover:shadow-[var(--shadow-orange-lg)] active:scale-95 active:translate-y-0 min-h-[48px] w-full sm:w-auto group"
                   style={{ background: "var(--gradient-orange)" }}
                 >
-                  Get Free Consultation
+                  <span className="group-hover:scale-105 transition-transform">Get Free Consultation</span>
                 </Link>
                 <Link
                   to="/portfolio"
-                  className="inline-flex items-center justify-center gap-2 font-bold text-sm px-6 sm:px-7 py-3 rounded-[14px] text-foreground bg-foreground/[0.04] border border-foreground/10 backdrop-blur-sm transition-all hover:border-primary hover:text-primary hover:bg-primary/10 hover:-translate-y-0.5 min-h-[48px] w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 font-bold text-sm px-6 sm:px-7 py-3 rounded-[14px] text-foreground bg-foreground/[0.04] border border-foreground/10 backdrop-blur-sm transition-all hover:border-primary/60 hover:text-primary hover:bg-primary/[0.12] hover:-translate-y-0.5 active:scale-95 min-h-[48px] w-full sm:w-auto"
                 >
                   View Our Work
                 </Link>
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-6 lg:gap-8 items-center reveal-up" style={{ transitionDelay: "0.4s" }}>
-                {stats.map((s) => (
-                  <div key={s.label} className="text-center lg:text-left rounded-xl border border-secondary/15 bg-background/35 px-2.5 py-2.5 sm:px-4 sm:py-3.5">
-                    <span className="text-[1.1rem] sm:text-2xl md:text-3xl font-extrabold text-primary leading-none tabular-nums block">{s.value}</span>
+                {stats.map((s, idx) => (
+                  <div key={s.label} className="text-center lg:text-left rounded-xl border border-secondary/15 bg-background/35 px-2.5 py-2.5 sm:px-4 sm:py-3.5 backdrop-blur-sm hover:border-primary/40 hover:bg-primary/[0.08] transition-all duration-300 group" style={{ animation: `reveal-up 0.6s ease-out ${idx * 0.1}s both` }}>
+                    <span className="text-[1.1rem] sm:text-2xl md:text-3xl font-extrabold text-primary leading-none tabular-nums block group-hover:scale-110 transition-transform">{s.value}</span>
                     <span className="text-[0.62rem] sm:text-[0.7rem] text-muted-foreground font-semibold tracking-wide mt-1 block">{s.label}</span>
                   </div>
                 ))}
@@ -174,9 +174,9 @@ const HomePage = () => {
                     { icon: <Cloud className="w-5 h-5 text-primary" />, title: "Cloud & DevOps", sub: "AWS . K8s . Terraform" },
                     { icon: <Shield className="w-5 h-5 text-navy-light" />, title: "Data & Analytics", sub: "Spark . Snowflake . dbt" },
                   ].map((item) => (
-                    <div key={item.title} className="bg-foreground/[0.03] border border-foreground/[0.06] rounded-xl p-4 transition-all hover:bg-primary/[0.06] hover:border-primary/20 cursor-default">
-                      {item.icon}
-                      <h5 className="text-sm font-bold text-foreground mt-1.5 mb-0.5">{item.title}</h5>
+                    <div key={item.title} className="bg-foreground/[0.03] border border-foreground/[0.06] rounded-xl p-4 transition-all duration-300 hover:bg-primary/[0.08] hover:border-primary/30 cursor-default group transform hover:scale-105 hover:-translate-y-1">
+                      <div className="transition-transform group-hover:scale-110">{item.icon}</div>
+                      <h5 className="text-sm font-bold text-foreground mt-1.5 mb-0.5 group-hover:text-primary transition-colors">{item.title}</h5>
                       <p className="text-[0.7rem] text-muted-foreground">{item.sub}</p>
                     </div>
                   ))}
@@ -231,13 +231,13 @@ const HomePage = () => {
             {whyUs.map((item, i) => (
               <div
                 key={item.title}
-                className="reveal-up bg-background-card/65 border border-secondary/20 rounded-[16px] sm:rounded-[18px] p-4 sm:p-5 text-center transition-all relative overflow-hidden group hover:-translate-y-1.5 hover:border-primary/30 hover:bg-primary/[0.04]"
-                style={{ transitionDelay: `${i * 0.1}s` }}
+                className="reveal-up bg-background-card/65 border border-secondary/20 rounded-[16px] sm:rounded-[18px] p-4 sm:p-5 text-center transition-all relative overflow-hidden group hover:-translate-y-2 hover:border-primary/40 hover:bg-primary/[0.06] hover:shadow-[0_8px_24px_rgba(244,124,32,0.1)]"
+                style={{ transitionDelay: `${i * 0.08}s` }}
               >
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 rounded transition-all duration-400 group-hover:w-[70%]" style={{ background: "var(--gradient-rule)" }} />
-                <div className="mb-2 sm:mb-2.5 transition-transform group-hover:scale-110 group-hover:-rotate-[5deg]">{item.icon}</div>
-                <h4 className="text-xs sm:text-sm font-bold text-foreground mb-1">{item.title}</h4>
-                <p className="text-[0.68rem] sm:text-xs text-muted-foreground">{item.desc}</p>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 rounded transition-all duration-500 group-hover:w-[80%]" style={{ background: "var(--gradient-rule)" }} />
+                <div className="mb-2 sm:mb-2.5 transition-all duration-300 group-hover:scale-125 group-hover:rotate-6">{item.icon}</div>
+                <h4 className="text-xs sm:text-sm font-bold text-foreground mb-1 transition-colors group-hover:text-primary">{item.title}</h4>
+                <p className="text-[0.68rem] sm:text-xs text-muted-foreground group-hover:text-muted-foreground leading-snug">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -273,17 +273,17 @@ const HomePage = () => {
             ].map((item, index) => (
               <article
                 key={item.title}
-                className="glass-card p-6 sm:p-7 reveal-up"
+                className="glass-card p-6 sm:p-7 reveal-up hover:border-primary/40 group transition-all duration-300"
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 group-hover:bg-primary/20 transition-all">
                   {item.icon}
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
+                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">{item.copy}</p>
-                <Link to="/services" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-orange-light transition-colors">
+                <Link to="/services" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-orange-light transition-all group/link">
                   Explore capabilities
-                  <ArrowUpRight className="w-4 h-4" />
+                  <ArrowUpRight className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
                 </Link>
               </article>
             ))}
@@ -327,22 +327,22 @@ const HomePage = () => {
             {testimonials.map((t: any, i: number) => (
               <article
                 key={t.id || t.name}
-                className={`reveal-up glass-card p-5 sm:p-7 flex flex-col ${t.featured ? "border-primary/20" : ""}`}
+                className={`reveal-up glass-card p-5 sm:p-7 flex flex-col transition-all duration-300 ${t.featured ? "md:col-span-1 md:row-span-2 border-primary/30 md:scale-105" : ""} hover:border-primary/40`}
                 style={{ transitionDelay: `${i * 0.1}s` }}
               >
                 <div className="flex gap-1 mb-3 sm:mb-3.5 text-primary">
                   {[...Array(5)].map((_, j) => (
-                    <span key={j} className="text-sm sm:text-base">{"\u2605"}</span>
+                    <span key={j} className="text-sm sm:text-base transition-transform hover:scale-110">{"\u2605"}</span>
                   ))}
                 </div>
-                <blockquote className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4 sm:mb-5">"{t.text}"</blockquote>
+                <blockquote className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4 sm:mb-5 italic">&quot;{t.text}&quot;</blockquote>
                 <div className="flex items-center gap-3 mt-auto">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex-shrink-0 flex items-center justify-center text-sm border-2 border-foreground/[0.08]" style={{ background: "var(--gradient-orange)" }}>
-                    {"\uD83D\uDC64"}
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex-shrink-0 flex items-center justify-center text-sm border-2 border-foreground/[0.08] font-bold text-primary-foreground" style={{ background: "var(--gradient-orange)" }}>
+                    {t.name?.charAt(0) || "👤"}
                   </div>
                   <div>
                     <div className="text-sm font-bold text-foreground">{t.name}</div>
-                    <div className="text-xs text-muted-foreground">{t.role}</div>
+                    <div className="text-xs text-muted-foreground line-clamp-1">{t.role}</div>
                   </div>
                 </div>
               </article>
@@ -378,14 +378,14 @@ const HomePage = () => {
           <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-3.5 justify-center">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center gap-2 font-bold text-sm px-7 py-3 rounded-[14px] text-primary-foreground shadow-[var(--shadow-orange)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-orange-lg)] min-h-[48px] w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 font-bold text-sm px-7 py-3 rounded-[14px] text-primary-foreground shadow-[var(--shadow-orange)] transition-all hover:-translate-y-1.5 hover:shadow-[var(--shadow-orange-lg)] active:scale-95 active:translate-y-0 min-h-[48px] w-full sm:w-auto group"
               style={{ background: "var(--gradient-orange)" }}
             >
-              Get Free Consultation
+              <span className="group-hover:scale-105 transition-transform">Get Free Consultation</span>
             </Link>
             <Link
               to="/hire"
-              className="inline-flex items-center justify-center gap-2 font-bold text-sm px-7 py-3 rounded-[14px] text-primary-foreground/90 bg-primary-foreground/[0.04] border border-primary-foreground/20 transition-all hover:border-primary hover:text-primary hover:-translate-y-0.5 min-h-[48px] w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 font-bold text-sm px-7 py-3 rounded-[14px] text-primary-foreground/90 bg-primary-foreground/[0.06] border border-primary-foreground/30 transition-all hover:border-primary/60 hover:text-primary hover:bg-primary/20 hover:-translate-y-0.5 active:scale-95 min-h-[48px] w-full sm:w-auto"
             >
               Hire Dedicated Talent
             </Link>
