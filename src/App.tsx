@@ -1,0 +1,117 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { AuthProvider } from "@/contexts/AuthContext";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import BackgroundOrbs from "@/components/BackgroundOrbs";
+import CookieBanner from "@/components/CookieBanner";
+import HomePage from "@/pages/HomePage";
+import ServicesPage from "@/pages/ServicesPage";
+import TechnologyPage from "@/pages/TechnologyPage";
+import WorkPage from "@/pages/WorkPage";
+import PortfolioPage from "@/pages/PortfolioPage";
+import AboutPage from "@/pages/AboutPage";
+import HirePage from "@/pages/HirePage";
+import FAQPage from "@/pages/FAQPage";
+import ContactPage from "@/pages/ContactPage";
+import FreeTrialPage from "@/pages/FreeTrialPage";
+import PrivacyPolicyPage from "@/pages/PrivacyPolicyPage";
+import TermsOfServicePage from "@/pages/TermsOfServicePage";
+import CookiePolicyPage from "@/pages/CookiePolicyPage";
+import NotFound from "@/pages/NotFound";
+import ScrollToTop from "@/components/ScrollToTop";
+
+// Admin imports
+import AdminLayout from "@/admin/components/AdminLayout";
+import ProtectedRoute from "@/admin/components/ProtectedRoute";
+import LoginPage from "@/admin/pages/LoginPage";
+import DashboardPage from "@/admin/pages/DashboardPage";
+import AdminServicesPage from "@/admin/pages/AdminServicesPage";
+import AdminProjectsPage from "@/admin/pages/AdminProjectsPage";
+import AdminCaseStudiesPage from "@/admin/pages/AdminCaseStudiesPage";
+import AdminTestimonialsPage from "@/admin/pages/AdminTestimonialsPage";
+import AdminFaqsPage from "@/admin/pages/AdminFaqsPage";
+import AdminTeamPage from "@/admin/pages/AdminTeamPage";
+import AdminTechStackPage from "@/admin/pages/AdminTechStackPage";
+import AdminHireTalentsPage from "@/admin/pages/AdminHireTalentsPage";
+import AdminMessagesPage from "@/admin/pages/AdminMessagesPage";
+import AdminSettingsPage from "@/admin/pages/AdminSettingsPage";
+
+const queryClient = new QueryClient();
+
+const App = () => (
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <AuthProvider>
+          <Sonner />
+          <BrowserRouter>
+            <ScrollToTop />
+            <Routes>
+              {/* Admin Routes */}
+              <Route path="/admin/login" element={<LoginPage />} />
+              <Route
+                path="/admin"
+                element={
+                  <ProtectedRoute>
+                    <AdminLayout />
+                  </ProtectedRoute>
+                }
+              >
+                <Route index element={<DashboardPage />} />
+                <Route path="services" element={<AdminServicesPage />} />
+                <Route path="projects" element={<AdminProjectsPage />} />
+                <Route path="case-studies" element={<AdminCaseStudiesPage />} />
+                <Route path="testimonials" element={<AdminTestimonialsPage />} />
+                <Route path="faqs" element={<AdminFaqsPage />} />
+                <Route path="team" element={<AdminTeamPage />} />
+                <Route path="tech-stack" element={<AdminTechStackPage />} />
+                <Route path="hire-talents" element={<AdminHireTalentsPage />} />
+                <Route path="messages" element={<AdminMessagesPage />} />
+                <Route path="settings" element={<AdminSettingsPage />} />
+              </Route>
+
+              {/* Public Routes */}
+              <Route
+                path="*"
+                element={
+                  <>
+                    <BackgroundOrbs />
+                    <div className="relative z-[2]">
+                      <Navbar />
+                      <main>
+                        <Routes>
+                          <Route path="/" element={<HomePage />} />
+                          <Route path="/services" element={<ServicesPage />} />
+                          <Route path="/technology" element={<TechnologyPage />} />
+                          <Route path="/work" element={<WorkPage />} />
+                          <Route path="/portfolio" element={<PortfolioPage />} />
+                          <Route path="/about" element={<AboutPage />} />
+                          <Route path="/hire" element={<HirePage />} />
+                          <Route path="/faq" element={<FAQPage />} />
+                          <Route path="/free-trial" element={<FreeTrialPage />} />
+                          <Route path="/contact" element={<ContactPage />} />
+                          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                          <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+                          <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+                          <Route path="*" element={<NotFound />} />
+                        </Routes>
+                      </main>
+                      <Footer />
+                      <CookieBanner />
+                    </div>
+                  </>
+                }
+              />
+            </Routes>
+          </BrowserRouter>
+        </AuthProvider>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
+);
+
+export default App;

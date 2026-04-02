@@ -1,0 +1,7 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Orange ARD text -->
+  <text x="64" y="50" font-size="48" font-weight="900" text-anchor="middle" fill="#FF8C00" font-family="Arial, sans-serif">ARD</text>
+  
+  <!-- Blue TechLabs text -->
+  <text x="64" y="85" font-size="24" font-weight="bold" text-anchor="middle" fill="#1B3B8A" font-family="Arial, sans-serif">TechLabs</text>
+</svg>
