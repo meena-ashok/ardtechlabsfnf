@@ -74,7 +74,7 @@ public class DataSeeder implements CommandLineRunner {
 
     private void seedServices() {
         if (serviceRepo.count() > 0) return;
-        serviceRepo.save(Service.builder().title("Full-Stack Web Development").description("End-to-end web applications built with modern frameworks -- scalable, secure, and performance-optimized.").icon("Code").variant("orange").chips("React,Next.js,Node.js,Django,PostgreSQL").sortOrder(1).active(true).build());
+        serviceRepo.save(Service.builder().title("Full-Stack Web Development").description("End-to-end web applications built with modern frameworks -- scalable, secure, and performance-optimized.").icon("Code").variant("orange").chips("React,Spring Boot,Django,PostgreSQL").sortOrder(1).active(true).build());
         serviceRepo.save(Service.builder().title("Mobile App Development").description("Native and cross-platform iOS & Android applications with exceptional UX and seamless performance.").icon("Smartphone").variant("navy").chips("Flutter,React Native,Swift,Kotlin").sortOrder(2).active(true).build());
         serviceRepo.save(Service.builder().title("AI & Machine Learning").description("NLP, computer vision, predictive analytics, and LLM integrations that automate and enhance your business.").icon("Brain").variant("orange").chips("OpenAI,LangChain,TensorFlow,PyTorch").sortOrder(3).active(true).build());
         serviceRepo.save(Service.builder().title("Cloud Solutions").description("Cloud architecture design, migration, and optimization across AWS, Azure, and GCP.").icon("Cloud").variant("navy").chips("AWS,Azure,GCP,Terraform,CDK").sortOrder(4).active(true).build());
@@ -86,11 +86,11 @@ public class DataSeeder implements CommandLineRunner {
 
     private void seedProjects() {
         if (projectRepo.count() > 0) return;
-        projectRepo.save(Project.builder().title("RetailPro Dashboard").description("Multi-tenant SaaS analytics for US retail chains with real-time inventory.").category("web").chips("React,Node.js,MongoDB").sortOrder(1).active(true).build());
+        projectRepo.save(Project.builder().title("RetailPro Dashboard").description("Multi-tenant SaaS analytics for US retail chains with real-time inventory.").category("web").chips("React,Spring Boot,MongoDB").sortOrder(1).active(true).build());
         projectRepo.save(Project.builder().title("MedTrack App").description("Medication tracking & reminder app with caregiver portal for UK NHS.").category("mobile").chips("Flutter,Firebase,AWS").sortOrder(2).active(true).build());
         projectRepo.save(Project.builder().title("DocuAI Extractor").description("Intelligent document processing using OCR, NLP, and LLMs for legal firms.").category("ai").chips("Python,OpenAI,LangChain").sortOrder(3).active(true).build());
         projectRepo.save(Project.builder().title("DataVault Migration").description("Zero-downtime migration of 50TB enterprise database to AWS.").category("cloud").chips("AWS,Terraform,PostgreSQL").sortOrder(4).active(true).build());
-        projectRepo.save(Project.builder().title("RideNow Driver App").description("Real-time ride-hailing with navigation and earnings analytics.").category("mobile").chips("React Native,Node.js,Socket.io").sortOrder(5).active(true).build());
+        projectRepo.save(Project.builder().title("RideNow Driver App").description("Real-time ride-hailing with navigation and earnings analytics.").category("mobile").chips("React Native,Spring Boot,Socket.io").sortOrder(5).active(true).build());
         projectRepo.save(Project.builder().title("TradePulse Platform").description("Algorithmic trading dashboard with live charts & backtesting engine.").category("web").chips("Next.js,Python,Redis").sortOrder(6).active(true).build());
         projectRepo.save(Project.builder().title("EduBot Tutor").description("Adaptive AI tutoring with personalised learning paths for European schools.").category("ai").chips("GPT-4,FastAPI,Vue.js").sortOrder(7).active(true).build());
         projectRepo.save(Project.builder().title("FactoryIoT Hub").description("Industrial IoT on Azure for real-time machine monitoring in Germany.").category("cloud").chips("Azure IoT,Kubernetes,Grafana").sortOrder(8).active(true).build());
@@ -136,7 +136,7 @@ public class DataSeeder implements CommandLineRunner {
     private void seedTechStack() {
         if (techStackRepo.count() > 0) return;
         techStackRepo.save(TechStack.builder().label("Frontend").items("React.js / Next.js,Vue.js / Nuxt.js,Angular,TypeScript,Tailwind CSS").sortOrder(1).active(true).build());
-        techStackRepo.save(TechStack.builder().label("Backend").items("Node.js / Express,Python / Django / FastAPI,Go (Golang),Java / Spring Boot,GraphQL / REST").sortOrder(2).active(true).build());
+        techStackRepo.save(TechStack.builder().label("Backend").items("Spring Boot / Java,Django / Python,Go (Golang),GraphQL / REST").sortOrder(2).active(true).build());
         techStackRepo.save(TechStack.builder().label("Mobile").items("Flutter,React Native,Swift (iOS),Kotlin (Android),Ionic").sortOrder(3).active(true).build());
         techStackRepo.save(TechStack.builder().label("AI / ML").items("OpenAI / GPT-4,LangChain / LlamaIndex,TensorFlow / PyTorch,Hugging Face,Pinecone / Weaviate").sortOrder(4).active(true).build());
         techStackRepo.save(TechStack.builder().label("Cloud").items("AWS (Solutions Architect),Microsoft Azure,Google Cloud Platform,Terraform / Pulumi,Serverless Framework").sortOrder(5).active(true).build());
@@ -147,7 +147,7 @@ public class DataSeeder implements CommandLineRunner {
 
     private void seedHireTalents() {
         if (hireTalentRepo.count() > 0) return;
-        hireTalentRepo.save(HireTalent.builder().title("Full-Stack Developer").description("React/Node.js or Python/Django experts with API design, database architecture, and cloud deployment experience.").icon("Code").chips("React,Node.js,PostgreSQL,AWS").rate("From $35/hr").sortOrder(1).active(true).build());
+        hireTalentRepo.save(HireTalent.builder().title("Full-Stack Developer").description("React/Spring Boot or Python/Django experts with API design, database architecture, and cloud deployment experience.").icon("Code").chips("React,Spring Boot,PostgreSQL,AWS").rate("From $35/hr").sortOrder(1).active(true).build());
         hireTalentRepo.save(HireTalent.builder().title("Mobile Developer").description("Flutter and React Native specialists building cross-platform apps with native-level performance.").icon("Smartphone").chips("Flutter,React Native,Firebase,Swift").rate("From $38/hr").sortOrder(2).active(true).build());
         hireTalentRepo.save(HireTalent.builder().title("AI / ML Engineer").description("Data scientists specialising in LLMs, computer vision, NLP, and predictive modelling solutions.").icon("Brain").chips("Python,TensorFlow,OpenAI,LangChain").rate("From $45/hr").sortOrder(3).active(true).build());
         hireTalentRepo.save(HireTalent.builder().title("Cloud / DevOps Engineer").description("AWS/Azure/GCP certified architects who design, migrate, and optimise cloud-native infrastructure.").icon("Cloud").chips("AWS,Kubernetes,Terraform,Docker").rate("From $40/hr").sortOrder(4).active(true).build());
@@ -162,7 +162,7 @@ public class DataSeeder implements CommandLineRunner {
         settingRepo.save(SiteSetting.builder().settingKey("company_phone").settingValue("+91 (635) 317-0644").description("Company phone").build());
         settingRepo.save(SiteSetting.builder().settingKey("company_address").settingValue("Ahmedabad, Gujarat, India - 380060").description("Company address").build());
         settingRepo.save(SiteSetting.builder().settingKey("hero_words").settingValue("Technology,Innovation,Intelligence,Digital Growth").description("Hero section rotating words").build());
-        settingRepo.save(SiteSetting.builder().settingKey("marquee_items").settingValue("React.js,Python,Flutter,AWS,OpenAI,Docker,Kubernetes,Terraform,TypeScript,Node.js,Spring Boot,PostgreSQL").description("Tech marquee items").build());
+        settingRepo.save(SiteSetting.builder().settingKey("marquee_items").settingValue("React.js,Python,Flutter,AWS,OpenAI,Docker,Kubernetes,Terraform,TypeScript,Spring Boot,PostgreSQL").description("Tech marquee items").build());
         settingRepo.save(SiteSetting.builder().settingKey("site_url").settingValue("https://www.ardtechlabs.com").description("Primary production website URL").build());
         settingRepo.save(SiteSetting.builder().settingKey("seo_regions").settingValue("United States,United Kingdom,Europe,Australia").description("Primary SEO target regions").build());
     }

@@ -8,6 +8,7 @@ import SEO from "@/components/SEO";
 import { Code, Smartphone, Cloud, Shield, Globe, Headphones, Award, RefreshCw, ArrowUpRight, CheckCircle2, LockKeyhole, Radar } from "lucide-react";
 import { defaultSiteSettings } from "@/lib/siteContent";
 import { useSiteSettings } from "@/hooks/useSiteSettings";
+import { motion } from "framer-motion";
 
 const stats = [
   { value: "150+", label: "Projects Delivered" },
@@ -49,8 +50,7 @@ const HomePage = () => {
       { "@type": "Country", name: "United States" },
       { "@type": "Country", name: "United Kingdom" },
       { "@type": "Country", name: "Germany" },
-      { "@type": "Country", name: "France" },
-      { "@type": "Country", name: "Netherlands" },
+      { "@type": "Country", name: "Australia" },
     ],
     contactPoint: {
       "@type": "ContactPoint",
@@ -73,325 +73,86 @@ const HomePage = () => {
   };
 
   return (
-    <div ref={revealRef}>
-      <SEO
-        title="ARD TechLabs | IT Services & Consulting -- Full-Stack, AI, Cloud & DevOps"
-        description="ARD TechLabs delivers award-winning full-stack development, mobile apps, AI/ML, cloud & DevOps for businesses across the USA, UK, Europe, and Australia. 150+ projects . 80+ clients . 9+ years."
-        canonical="/"
-        jsonLd={organizationJsonLd}
-      />
-
-      {/* Hero */}
-      <section className="min-h-[100svh] flex items-center pt-[5.25rem] sm:pt-24 relative overflow-hidden">
-        {/* Grid background */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: "linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-            maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent)",
-            animation: "grid-pan 20s linear infinite",
-          }}
-        />
-        {/* Glow */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: "radial-gradient(ellipse 70% 60% at 65% 30%, rgba(27,59,138,0.28), transparent 70%), radial-gradient(ellipse 50% 40% at 10% 75%, rgba(244,124,32,0.12), transparent 65%)",
-          }}
-        />
-
-        <div className="relative z-[2] w-full container py-7 sm:py-12 md:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 sm:gap-8 lg:gap-16 items-center">
-            <div className="text-center lg:text-left">
-              <span className="eyebrow-badge reveal-up text-[0.62rem] sm:text-[0.72rem] font-bold px-3 sm:px-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary" style={{ animation: "blink-dot 2s infinite" }} />
-                IT Services & Consulting . USA . UK . Europe . Australia
-              </span>
-
-              <h1 className="text-[2rem] sm:text-5xl md:text-6xl lg:text-[4.15rem] font-extrabold tracking-[-0.03em] text-foreground mt-3.5 sm:mt-6 mb-3.5 sm:mb-5 leading-[1.04] reveal-up" style={{ transitionDelay: "0.1s" }}>
-                We Build
-                <br />
-                <span className="text-primary">{typed}</span>
-                <span className="inline-block w-[3px] h-[0.85em] bg-primary align-[-0.05em] ml-0.5" style={{ animation: "cursor-blink 1s infinite" }} />
-              </h1>
-
-              <p className="text-[0.93rem] sm:text-[1.03rem] text-muted-foreground leading-relaxed mb-6 sm:mb-9 max-w-[560px] mx-auto lg:mx-0 reveal-up" style={{ transitionDelay: "0.2s" }}>
-                ARD TechLabs delivers award-winning full-stack development, mobile apps, AI/ML, cloud & DevOps for businesses across the USA, UK, Europe, and Australia. 150+ projects . 80+ clients . 9+ years.
-              </p>
-
-              <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-3 justify-center lg:justify-start mb-8 sm:mb-11 reveal-up" style={{ transitionDelay: "0.3s" }}>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center gap-2 font-bold text-sm px-6 sm:px-7 py-3 rounded-[14px] text-primary-foreground shadow-[var(--shadow-orange)] transition-all hover:-translate-y-1.5 hover:shadow-[var(--shadow-orange-lg)] active:scale-95 active:translate-y-0 min-h-[48px] w-full sm:w-auto group"
-                  style={{ background: "var(--gradient-orange)" }}
-                >
-                  <span className="group-hover:scale-105 transition-transform">Get Free Consultation</span>
-                </Link>
-                <Link
-                  to="/portfolio"
-                  className="inline-flex items-center justify-center gap-2 font-bold text-sm px-6 sm:px-7 py-3 rounded-[14px] text-foreground bg-foreground/[0.04] border border-foreground/10 backdrop-blur-sm transition-all hover:border-primary/60 hover:text-primary hover:bg-primary/[0.12] hover:-translate-y-0.5 active:scale-95 min-h-[48px] w-full sm:w-auto"
-                >
-                  View Our Work
-                </Link>
-              </div>
-
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-6 lg:gap-8 items-center reveal-up" style={{ transitionDelay: "0.4s" }}>
-                {stats.map((s, idx) => (
-                  <div key={s.label} className="text-center lg:text-left rounded-xl border border-secondary/15 bg-background/35 px-2.5 py-2.5 sm:px-4 sm:py-3.5 backdrop-blur-sm hover:border-primary/40 hover:bg-primary/[0.08] transition-all duration-300 group" style={{ animation: `reveal-up 0.6s ease-out ${idx * 0.1}s both` }}>
-                    <span className="text-[1.1rem] sm:text-2xl md:text-3xl font-extrabold text-primary leading-none tabular-nums block group-hover:scale-110 transition-transform">{s.value}</span>
-                    <span className="text-[0.62rem] sm:text-[0.7rem] text-muted-foreground font-semibold tracking-wide mt-1 block">{s.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Hero Visual Card */}
-            <div className="relative p-4 sm:p-6 hidden lg:block reveal-right" style={{ transitionDelay: "0.3s" }}>
-              {/* Floating chip top */}
-              <div className="absolute -top-4 -right-3 z-[3] backdrop-blur-2xl bg-background/[0.85] border border-primary/25 rounded-[14px] px-4 py-3 flex items-center gap-3 shadow-[0_8px_32px_rgba(0,0,0,0.4)]" style={{ animation: "chip-float-1 4s ease-in-out infinite" }}>
-                <span className="text-xl" role="img" aria-label="AI Solutions">{"\uD83E\uDD16"}</span>
-                <div>
-                  <strong className="text-sm font-bold text-foreground block">AI Solutions</strong>
-                  <span className="text-xs text-muted-foreground">LLMs . ML . NLP</span>
-                </div>
-              </div>
-
-              <div className="glass-card p-7" style={{ borderRadius: 24 }}>
-                <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "var(--gradient-border-scan)", animation: "border-scan 4s ease-in-out infinite" }} />
-                <div className="flex items-center justify-between mb-5">
-                  <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
-                  </div>
-                  <span className="text-[0.72rem] font-semibold text-muted-foreground tracking-wide">ARD TechLabs Platform</span>
-                </div>
-                <div className="grid grid-cols-2 gap-3 mb-4">
-                  {[
-                    { icon: <Code className="w-5 h-5 text-primary" />, title: "Full-Stack Dev", sub: "React . Node . Next.js" },
-                    { icon: <Smartphone className="w-5 h-5 text-navy-light" />, title: "Mobile Apps", sub: "Flutter . React Native" },
-                    { icon: <Cloud className="w-5 h-5 text-primary" />, title: "Cloud & DevOps", sub: "AWS . K8s . Terraform" },
-                    { icon: <Shield className="w-5 h-5 text-navy-light" />, title: "Data & Analytics", sub: "Spark . Snowflake . dbt" },
-                  ].map((item) => (
-                    <div key={item.title} className="bg-foreground/[0.03] border border-foreground/[0.06] rounded-xl p-4 transition-all duration-300 hover:bg-primary/[0.08] hover:border-primary/30 cursor-default group transform hover:scale-105 hover:-translate-y-1">
-                      <div className="transition-transform group-hover:scale-110">{item.icon}</div>
-                      <h5 className="text-sm font-bold text-foreground mt-1.5 mb-0.5 group-hover:text-primary transition-colors">{item.title}</h5>
-                      <p className="text-[0.7rem] text-muted-foreground">{item.sub}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="grid grid-cols-3 gap-2.5">
-                  {[
-                    { val: "150+", label: "Projects" },
-                    { val: "99%", label: "Uptime SLA" },
-                    { val: "40+", label: "Engineers" },
-                  ].map((n, i) => (
-                    <div
-                      key={n.label}
-                      className="bg-primary/10 border border-primary/30 rounded-xl py-3 text-center"
-                      style={{ animation: `num-pulse 3s ease-in-out infinite ${i * 0.5}s` }}
-                    >
-                      <strong className="block text-lg font-extrabold text-primary">{n.val}</strong>
-                      <span className="text-[0.66rem] text-muted-foreground">{n.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Floating chip bottom */}
-              <div className="absolute -bottom-4 -left-3 z-[3] backdrop-blur-2xl bg-background/[0.85] border border-primary/25 rounded-[14px] px-4 py-3 flex items-center gap-3 shadow-[0_8px_32px_rgba(0,0,0,0.4)]" style={{ animation: "chip-float-2 4.5s ease-in-out infinite" }}>
-                <span className="text-xl" role="img" aria-label="Cloud DevOps">{"\u2601\uFE0F"}</span>
-                <div>
-                  <strong className="text-sm font-bold text-foreground block">Cloud & DevOps</strong>
-                  <span className="text-xs text-muted-foreground">CI/CD . Docker . K8s</span>
-                </div>
-              </div>
-            </div>
+    <div className="bg-gray-50">
+      <SEO title="Home - ARD TechLabs" description="Award-winning full-stack development, mobile apps, AI/ML, cloud & DevOps." />
+      <header className="relative bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+        <div className="container mx-auto px-6 py-16 text-center">
+          <motion.h1
+            className="text-4xl sm:text-6xl font-bold"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            {typed}
+          </motion.h1>
+          <p className="mt-4 text-lg sm:text-xl">
+            Empowering businesses with cutting-edge technology solutions.
+          </p>
+          <div className="mt-6">
+            <Link to="/contact" className="btn btn-primary">
+              Get Started
+            </Link>
           </div>
         </div>
-      </section>
+      </header>
 
-      {/* Marquee */}
-      <div className="bg-background-alt border-y border-secondary/20 overflow-hidden py-3">
-        <div className="flex gap-0 will-change-transform" style={{ animation: "marquee 30s linear infinite" }}>
-          {[...marqueeItems, ...marqueeItems].map((item, i) => (
-            <div key={`${item}-${i}`} className="flex items-center gap-2 whitespace-nowrap px-5 sm:px-8 text-muted-foreground text-xs sm:text-sm font-medium border-r border-secondary/20 flex-shrink-0 hover:text-primary transition-colors">
-              {item}
-            </div>
+      <main className="container mx-auto px-6 py-12">
+        <SectionHeader title="Why Choose Us?" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {whyUs.map((item, index) => (
+            <motion.div
+              key={index}
+              className="p-6 bg-white rounded-lg shadow-md"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.2 }}
+            >
+              {item.icon}
+              <h3 className="mt-4 text-xl font-semibold">{item.title}</h3>
+              <p className="mt-2 text-gray-600">{item.desc}</p>
+            </motion.div>
           ))}
         </div>
-      </div>
 
-      {/* Why Us */}
-      <section className="py-14 sm:py-20 bg-background-alt">
-        <div className="container">
-          <SectionHeader eyebrow="Why Choose Us" title="The ARD TechLabs" accent="Advantage" centered />
-          <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
-            {whyUs.map((item, i) => (
-              <div
-                key={item.title}
-                className="reveal-up bg-background-card/65 border border-secondary/20 rounded-[16px] sm:rounded-[18px] p-4 sm:p-5 text-center transition-all relative overflow-hidden group hover:-translate-y-2 hover:border-primary/40 hover:bg-primary/[0.06] hover:shadow-[0_8px_24px_rgba(244,124,32,0.1)]"
-                style={{ transitionDelay: `${i * 0.08}s` }}
-              >
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 rounded transition-all duration-500 group-hover:w-[80%]" style={{ background: "var(--gradient-rule)" }} />
-                <div className="mb-2 sm:mb-2.5 transition-all duration-300 group-hover:scale-125 group-hover:rotate-6">{item.icon}</div>
-                <h4 className="text-xs sm:text-sm font-bold text-foreground mb-1 transition-colors group-hover:text-primary">{item.title}</h4>
-                <p className="text-[0.68rem] sm:text-xs text-muted-foreground group-hover:text-muted-foreground leading-snug">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-14 sm:py-24 bg-background">
-        <div className="container">
-          <SectionHeader
-            eyebrow="Master Delivery"
-            title="Built for serious"
-            accent="business outcomes"
-            description="A sharper homepage experience that reflects how ARD TechLabs delivers strategy, engineering execution, and operational reliability together."
-            centered
-          />
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
-            {[
-              {
-                icon: <Radar className="w-5 h-5 text-primary" />,
-                title: "Discovery to Delivery",
-                copy: "We translate ideas into roadmaps, architecture, sprint plans, and measurable releases without losing momentum.",
-              },
-              {
-                icon: <LockKeyhole className="w-5 h-5 text-primary" />,
-                title: "Secure by Design",
-                copy: "Security, compliance, observability, and QA are designed into each release cycle instead of added at the end.",
-              },
-              {
-                icon: <CheckCircle2 className="w-5 h-5 text-primary" />,
-                title: "High-Trust Partnership",
-                copy: "Clear communication, predictable execution, and accountable leadership for product teams across India, USA, and Europe.",
-              },
-            ].map((item, index) => (
-              <article
-                key={item.title}
-                className="glass-card p-6 sm:p-7 reveal-up hover:border-primary/40 group transition-all duration-300"
-                style={{ transitionDelay: `${index * 0.1}s` }}
-              >
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 group-hover:bg-primary/20 transition-all">
-                  {item.icon}
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">{item.copy}</p>
-                <Link to="/services" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-orange-light transition-all group/link">
-                  Explore capabilities
-                  <ArrowUpRight className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-14 sm:py-24 bg-background-alt">
-        <div className="container">
-          <div className="glass-card p-6 sm:p-8 lg:p-10">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5">
-              {[
-                {
-                  title: "Strategic Consulting",
-                  copy: "Architecture and roadmap guidance for teams planning product launches, modernization, or scale.",
-                },
-                {
-                  title: "Execution Excellence",
-                  copy: "Senior engineers delivering quality code, design, QA, and DevOps workflows with clear sprint visibility.",
-                },
-                {
-                  title: "Long-Term Partnership",
-                  copy: "Reliable support, transparent communication, and measurable improvements across each release cycle.",
-                },
-              ].map((item) => (
-                <article key={item.title} className="rounded-2xl border border-secondary/20 bg-background/60 p-5 sm:p-6">
-                  <h3 className="text-base sm:text-lg font-bold text-foreground">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.copy}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-14 sm:py-24 bg-background">
-        <div className="container">
-          <SectionHeader eyebrow="Client Love" title="What Our Clients" accent="Say" centered />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-            {testimonials.map((t: any, i: number) => (
-              <article
-                key={t.id || t.name}
-                className={`reveal-up glass-card p-5 sm:p-7 flex flex-col transition-all duration-300 ${t.featured ? "md:col-span-1 md:row-span-2 border-primary/30 md:scale-105" : ""} hover:border-primary/40`}
-                style={{ transitionDelay: `${i * 0.1}s` }}
-              >
-                <div className="flex gap-1 mb-3 sm:mb-3.5 text-primary">
-                  {[...Array(5)].map((_, j) => (
-                    <span key={j} className="text-sm sm:text-base transition-transform hover:scale-110">{"\u2605"}</span>
-                  ))}
-                </div>
-                <blockquote className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4 sm:mb-5 italic">&quot;{t.text}&quot;</blockquote>
-                <div className="flex items-center gap-3 mt-auto">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex-shrink-0 flex items-center justify-center text-sm border-2 border-foreground/[0.08] font-bold text-primary-foreground" style={{ background: "var(--gradient-orange)" }}>
-                    {t.name?.charAt(0) || "👤"}
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold text-foreground">{t.name}</div>
-                    <div className="text-xs text-muted-foreground line-clamp-1">{t.role}</div>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Band */}
-      <section className="relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: "radial-gradient(ellipse 60% 70% at 80% 50%, rgba(244,124,32,0.15), transparent), radial-gradient(ellipse 40% 50% at 20% 50%, rgba(37,80,184,0.2), transparent)",
-          }}
-        />
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
-            animation: "dots-shift 15s linear infinite",
-          }}
-        />
-        <div className="relative z-[1] max-w-[700px] mx-auto py-16 sm:py-24 px-4 text-center reveal-up">
-          <span className="eyebrow-badge mb-4 inline-flex">Start Today</span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-primary-foreground mb-4 leading-tight">
-            Ready to <span className="text-primary">Accelerate</span> Your Digital Journey?
-          </h2>
-          <p className="text-sm sm:text-base text-primary-foreground/65 mb-6 sm:mb-8 leading-relaxed">
-            Let's build something extraordinary together. Free consultation for teams in the USA, UK, Europe, and Australia.
-          </p>
-          <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-3.5 justify-center">
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center gap-2 font-bold text-sm px-7 py-3 rounded-[14px] text-primary-foreground shadow-[var(--shadow-orange)] transition-all hover:-translate-y-1.5 hover:shadow-[var(--shadow-orange-lg)] active:scale-95 active:translate-y-0 min-h-[48px] w-full sm:w-auto group"
-              style={{ background: "var(--gradient-orange)" }}
+        <SectionHeader title="Our Achievements" />
+        <div className="flex justify-center space-x-8">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              className="text-center"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2 }}
             >
-              <span className="group-hover:scale-105 transition-transform">Get Free Consultation</span>
-            </Link>
-            <Link
-              to="/hire"
-              className="inline-flex items-center justify-center gap-2 font-bold text-sm px-7 py-3 rounded-[14px] text-primary-foreground/90 bg-primary-foreground/[0.06] border border-primary-foreground/30 transition-all hover:border-primary/60 hover:text-primary hover:bg-primary/20 hover:-translate-y-0.5 active:scale-95 min-h-[48px] w-full sm:w-auto"
-            >
-              Hire Dedicated Talent
-            </Link>
-          </div>
+              <h4 className="text-3xl font-bold text-primary">{stat.value}</h4>
+              <p className="text-gray-600">{stat.label}</p>
+            </motion.div>
+          ))}
         </div>
-      </section>
+
+        <SectionHeader title="What Our Clients Say" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial) => (
+            <motion.div
+              key={testimonial.id}
+              className="p-6 bg-white rounded-lg shadow-md"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <p className="text-gray-600">"{testimonial.text}"</p>
+              <h5 className="mt-4 font-semibold">{testimonial.name}</h5>
+              <p className="text-sm text-gray-500">{testimonial.role}</p>
+            </motion.div>
+          ))}
+        </div>
+      </main>
+
+      <footer className="bg-gray-800 text-white py-6">
+        <div className="container mx-auto text-center">
+          <p>&copy; 2026 ARD TechLabs. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 };
