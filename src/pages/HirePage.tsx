@@ -31,12 +31,12 @@ const steps = [
 ];
 
 const fallbackTalents = [
-  { id: 1, icon: "Code", title: "Full-Stack Developer", description: "React/Node.js or Python/Django experts with API design, database architecture, and cloud deployment experience.", chips: "React,Node.js,PostgreSQL,AWS", rate: "From $35/hr" },
-  { id: 2, icon: "Smartphone", title: "Mobile Developer", description: "Flutter and React Native specialists building cross-platform apps with native-level performance.", chips: "Flutter,React Native,Firebase,Swift", rate: "From $38/hr" },
-  { id: 3, icon: "Brain", title: "AI / ML Engineer", description: "Data scientists specialising in LLMs, computer vision, NLP, and predictive modelling solutions.", chips: "Python,TensorFlow,OpenAI,LangChain", rate: "From $45/hr" },
-  { id: 4, icon: "Cloud", title: "Cloud / DevOps Engineer", description: "AWS/Azure/GCP certified architects who design, migrate, and optimise cloud-native infrastructure.", chips: "AWS,Kubernetes,Terraform,Docker", rate: "From $40/hr" },
-  { id: 5, icon: "Palette", title: "UI / UX Designer", description: "Product designers combining user research, interaction design, and visual craft into delightful experiences.", chips: "Figma,Prototyping,Design Systems", rate: "From $30/hr" },
-  { id: 6, icon: "Database", title: "Data Engineer", description: "Big data specialists building scalable pipelines, data warehouses, and BI solutions for enterprises.", chips: "Spark,Airflow,Snowflake,dbt", rate: "From $42/hr" },
+  { id: 1, icon: "Code", title: "Full-Stack Developer", description: "React/Node.js or Python/Django experts with API design, database architecture, and cloud deployment experience.", chips: "React,Node.js,PostgreSQL,AWS", rate: "From $25/hr" },
+  { id: 2, icon: "Smartphone", title: "Mobile Developer", description: "Flutter and React Native specialists building cross-platform apps with native-level performance.", chips: "Flutter,React Native,Firebase,Swift", rate: "From $25/hr" },
+  { id: 3, icon: "Brain", title: "AI / ML Engineer", description: "Data scientists specialising in LLMs, computer vision, NLP, and predictive modelling solutions.", chips: "Python,TensorFlow,OpenAI,LangChain", rate: "From $35/hr" },
+  { id: 4, icon: "Cloud", title: "Cloud / DevOps Engineer", description: "AWS/Azure/GCP certified architects who design, migrate, and optimise cloud-native infrastructure.", chips: "AWS,Kubernetes,AzuTerraform,Docker", rate: "From $25/hr" },
+  { id: 5, icon: "Palette", title: "UI / UX Designer", description: "Product designers combining user research, interaction design, and visual craft into delightful experiences.", chips: "Figma,Prototyping,Design Systems", rate: "From $20/hr" },
+  { id: 6, icon: "Database", title: "Data Engineer", description: "Big data specialists building scalable pipelines, data warehouses, and BI solutions for enterprises.", chips: "Spark,Airflow,Snowflake,dbt", rate: "From $25/hr" },
 ];
 
 const HirePage = () => {
