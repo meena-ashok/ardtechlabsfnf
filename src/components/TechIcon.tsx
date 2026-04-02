@@ -1,97 +1,162 @@
-const iconMap: Record<string, { bg: string; fg: string; label: string; accent?: string }> = {
-  react: { bg: "#06131d", fg: "#61DAFB", label: "React", accent: "#61DAFB" },
-  "next.js": { bg: "#111111", fg: "#FFFFFF", label: "Next", accent: "#FFFFFF" },
-  vue: { bg: "#0f172a", fg: "#42B883", label: "Vue", accent: "#35495E" },
-  angular: { bg: "#22060a", fg: "#DD0031", label: "Angular", accent: "#C3002F" },
-  typescript: { bg: "#0b1b33", fg: "#3178C6", label: "TS", accent: "#3178C6" },
-  tailwind: { bg: "#082f38", fg: "#38BDF8", label: "TW", accent: "#38BDF8" },
-  node: { bg: "#0f1f10", fg: "#68A063", label: "Node", accent: "#68A063" },
-  python: { bg: "#122033", fg: "#FFD43B", label: "Py", accent: "#3776AB" },
-  django: { bg: "#092e20", fg: "#FFFFFF", label: "Dj", accent: "#44B78B" },
-  fastapi: { bg: "#08251f", fg: "#009688", label: "FA", accent: "#009688" },
-  go: { bg: "#0a2131", fg: "#00ADD8", label: "Go", accent: "#00ADD8" },
-  java: { bg: "#26150d", fg: "#F89820", label: "Java", accent: "#5382A1" },
-  graphql: { bg: "#2b0d21", fg: "#E10098", label: "GQL", accent: "#E10098" },
-  flutter: { bg: "#081924", fg: "#54C5F8", label: "Flutter", accent: "#02569B" },
-  "react native": { bg: "#06131d", fg: "#61DAFB", label: "RN", accent: "#61DAFB" },
-  swift: { bg: "#331707", fg: "#F05138", label: "Swift", accent: "#F05138" },
-  kotlin: { bg: "#21122f", fg: "#A97BFF", label: "Kt", accent: "#7F52FF" },
-  ionic: { bg: "#091d3d", fg: "#3880FF", label: "Ionic", accent: "#3880FF" },
-  openai: { bg: "#101010", fg: "#FFFFFF", label: "OpenAI", accent: "#74AA9C" },
-  langchain: { bg: "#122515", fg: "#71C562", label: "LC", accent: "#71C562" },
-  tensorflow: { bg: "#2c1705", fg: "#FF6F00", label: "TF", accent: "#FF6F00" },
-  pytorch: { bg: "#331108", fg: "#EE4C2C", label: "Torch", accent: "#EE4C2C" },
-  aws: { bg: "#1b1305", fg: "#FF9900", label: "AWS", accent: "#FF9900" },
-  azure: { bg: "#071f31", fg: "#0078D4", label: "Azure", accent: "#0078D4" },
-  "google cloud": { bg: "#111827", fg: "#4285F4", label: "GCP", accent: "#34A853" },
-  terraform: { bg: "#171123", fg: "#7B42BC", label: "TF", accent: "#7B42BC" },
-  docker: { bg: "#071f31", fg: "#2496ED", label: "Docker", accent: "#2496ED" },
-  kubernetes: { bg: "#081b38", fg: "#326CE5", label: "K8s", accent: "#326CE5" },
-  "github actions": { bg: "#0a1830", fg: "#2088FF", label: "GH", accent: "#2088FF" },
-  jenkins: { bg: "#2a1a16", fg: "#D24939", label: "Jenkins", accent: "#D24939" },
-  postgres: { bg: "#102033", fg: "#336791", label: "PG", accent: "#336791" },
-  mysql: { bg: "#102033", fg: "#00758F", label: "MySQL", accent: "#F29111" },
-  mongodb: { bg: "#0f2014", fg: "#47A248", label: "Mongo", accent: "#47A248" },
-  redis: { bg: "#2f0d0d", fg: "#DC382D", label: "Redis", accent: "#DC382D" },
-  elasticsearch: { bg: "#101d26", fg: "#FEC514", label: "ES", accent: "#00BFB3" },
-  snowflake: { bg: "#052734", fg: "#29B5E8", label: "Snow", accent: "#29B5E8" },
-  bigquery: { bg: "#0e1d30", fg: "#669DF6", label: "BQ", accent: "#669DF6" },
-  jest: { bg: "#291118", fg: "#C21325", label: "Jest", accent: "#99425B" },
-  playwright: { bg: "#0f2216", fg: "#45BA4B", label: "PW", accent: "#45BA4B" },
-  cypress: { bg: "#102018", fg: "#69D3A7", label: "Cypress", accent: "#69D3A7" },
-  selenium: { bg: "#142510", fg: "#43B02A", label: "Sel", accent: "#43B02A" },
-  firebase: { bg: "#281d08", fg: "#FFCA28", label: "FB", accent: "#F57C00" },
+interface TechIconConfig {
+  bg: string;
+  color: string;
+  name: string;
+  darkMode?: boolean;
+}
+
+const iconMap: Record<string, TechIconConfig> = {
+  // Frontend
+  react: { bg: "#E7F4FC", color: "#61DAFB", name: "React", darkMode: true },
+  "next.js": { bg: "#000000", color: "#FFFFFF", name: "Next.js", darkMode: true },
+  nuxt: { bg: "#003D3D", color: "#00DC82", name: "Nuxt", darkMode: true },
+  vue: { bg: "#F5F7FA", color: "#42B883", name: "Vue.js", darkMode: true },
+  angular: { bg: "#DD0031", color: "#FFFFFF", name: "Angular", darkMode: true },
+  typescript: { bg: "#3178C6", color: "#FFFFFF", name: "TypeScript", darkMode: true },
+  "tailwind css": { bg: "#F0F9FF", color: "#38BDF8", name: "Tailwind CSS", darkMode: true },
+  
+  // Backend
+  "node.js": { bg: "#68A063", color: "#FFFFFF", name: "Node.js", darkMode: true },
+  express: { bg: "#FFFFFF", color: "#000000", name: "Express", darkMode: false },
+  python: { bg: "#366994", color: "#FFD43B", name: "Python", darkMode: true },
+  django: { bg: "#092E20", color: "#44B78B", name: "Django", darkMode: true },
+  fastapi: { bg: "#009688", color: "#FFFFFF", name: "FastAPI", darkMode: true },
+  go: { bg: "#00ADD8", color: "#FFFFFF", name: "Go", darkMode: true },
+  golang: { bg: "#00ADD8", color: "#FFFFFF", name: "Go", darkMode: true },
+  java: { bg: "#F89820", color: "#FFFFFF", name: "Java", darkMode: true },
+  "spring boot": { bg: "#68A064", color: "#FFFFFF", name: "Spring Boot", darkMode: true },
+  graphql: { bg: "#E10098", color: "#FFFFFF", name: "GraphQL", darkMode: true },
+  
+  // Mobile
+  flutter: { bg: "#02569B", color: "#54C5F8", name: "Flutter", darkMode: true },
+  "react native": { bg: "#61DAFB", color: "#FFFFFF", name: "React Native", darkMode: true },
+  swift: { bg: "#F05138", color: "#FFFFFF", name: "Swift", darkMode: true },
+  kotlin: { bg: "#7F52FF", color: "#FFFFFF", name: "Kotlin", darkMode: true },
+  ionic: { bg: "#3880FF", color: "#FFFFFF", name: "Ionic", darkMode: true },
+  
+  // AI/ML
+  openai: { bg: "#000000", color: "#FFFFFF", name: "OpenAI", darkMode: true },
+  langchain: { bg: "#1C3C3C", color: "#88D18C", name: "LangChain", darkMode: true },
+  llamaindex: { bg: "#0066FF", color: "#FFFFFF", name: "LlamaIndex", darkMode: true },
+  tensorflow: { bg: "#FF6F00", color: "#FFFFFF", name: "TensorFlow", darkMode: true },
+  pytorch: { bg: "#EE4C2C", color: "#FFFFFF", name: "PyTorch", darkMode: true },
+  "hugging face": { bg: "#FFD21E", color: "#000000", name: "Hugging Face", darkMode: false },
+  pinecone: { bg: "#00B8D4", color: "#FFFFFF", name: "Pinecone", darkMode: true },
+  weaviate: { bg: "#12A48A", color: "#FFFFFF", name: "Weaviate", darkMode: true },
+  
+  // Cloud
+  aws: { bg: "#FF9900", color: "#FFFFFF", name: "AWS", darkMode: true },
+  "amazon web services": { bg: "#FF9900", color: "#FFFFFF", name: "AWS", darkMode: true },
+  azure: { bg: "#0078D4", color: "#FFFFFF", name: "Azure", darkMode: true },
+  "google cloud": { bg: "#4285F4", color: "#FFFFFF", name: "Google Cloud", darkMode: true },
+  gcp: { bg: "#4285F4", color: "#FFFFFF", name: "GCP", darkMode: true },
+  terraform: { bg: "#7B42BC", color: "#FFFFFF", name: "Terraform", darkMode: true },
+  pulumi: { bg: "#8A3391", color: "#FFFFFF", name: "Pulumi", darkMode: true },
+  
+  // DevOps
+  docker: { bg: "#2496ED", color: "#FFFFFF", name: "Docker", darkMode: true },
+  kubernetes: { bg: "#326CE5", color: "#FFFFFF", name: "Kubernetes", darkMode: true },
+  k8s: { bg: "#326CE5", color: "#FFFFFF", name: "K8s", darkMode: true },
+  jenkins: { bg: "#D24939", color: "#FFFFFF", name: "Jenkins", darkMode: true },
+  circleci: { bg: "#343434", color: "#68C3E2", name: "CircleCI", darkMode: true },
+  argocd: { bg: "#EB6E20", color: "#FFFFFF", name: "ArgoCD", darkMode: true },
+  prometheus: { bg: "#E6522C", color: "#FFFFFF", name: "Prometheus", darkMode: true },
+  grafana: { bg: "#F05A28", color: "#FFFFFF", name: "Grafana", darkMode: true },
+  "github actions": { bg: "#2088FF", color: "#FFFFFF", name: "GitHub Actions", darkMode: true },
+  
+  // Databases
+  postgresql: { bg: "#336791", color: "#FFFFFF", name: "PostgreSQL", darkMode: true },
+  postgres: { bg: "#336791", color: "#FFFFFF", name: "PostgreSQL", darkMode: true },
+  mysql: { bg: "#00758F", color: "#FFFFFF", name: "MySQL", darkMode: true },
+  mongodb: { bg: "#13AA52", color: "#FFFFFF", name: "MongoDB", darkMode: true },
+  redis: { bg: "#DC382D", color: "#FFFFFF", name: "Redis", darkMode: true },
+  elasticsearch: { bg: "#005571", color: "#45B7D1", name: "Elasticsearch", darkMode: true },
+  snowflake: { bg: "#29B5E8", color: "#FFFFFF", name: "Snowflake", darkMode: true },
+  bigquery: { bg: "#669DF6", color: "#FFFFFF", name: "BigQuery", darkMode: true },
+  
+  // Testing
+  jest: { bg: "#15C213", color: "#FFFFFF", name: "Jest", darkMode: true },
+  playwright: { bg: "#45BA4B", color: "#FFFFFF", name: "Playwright", darkMode: true },
+  cypress: { bg: "#17202C", color: "#69D3A7", name: "Cypress", darkMode: true },
+  selenium: { bg: "#43B02A", color: "#FFFFFF", name: "Selenium", darkMode: true },
+  
+  // Other
+  firebase: { bg: "#FFCA28", color: "#000000", name: "Firebase", darkMode: false },
 };
 
-function normalizeName(name: string) {
+function normalizeName(name: string): string {
   return name
     .toLowerCase()
-    .replace(/\(.*?\)/g, "")
     .replace(/\s+/g, " ")
+    .replace(/\(.*?\)/g, "")
     .trim();
 }
 
-function resolveIcon(name: string) {
+function resolveIcon(name: string): TechIconConfig | undefined {
   const normalized = normalizeName(name);
   const candidates = [
-    normalized,
-    normalized.split("/")[0].trim(),
-    normalized.split(",")[0].trim(),
-    normalized.replace(".js", ""),
-    normalized.replace("css", ""),
+    iconMap[normalized],
+    iconMap[normalized.split("/")[0].trim()],
+    iconMap[normalized.split(",")[0].trim()],
+    iconMap[normalized.replace(".js", "")],
+    iconMap[normalized.replace(".ts", "")],
+    iconMap[normalized.replace("css", "").trim()],
   ];
-
-  return candidates
-    .map((candidate) => iconMap[candidate])
-    .find(Boolean);
+  return candidates.find(Boolean);
 }
 
 export default function TechIcon({ name, size = 44 }: { name: string; size?: number }) {
   const resolved = resolveIcon(name);
-  const label = resolved?.label || name.split(/[(/,]/)[0].trim().slice(0, 3).toUpperCase();
-  const bg = resolved?.bg || "#162033";
-  const fg = resolved?.fg || "#F47C20";
-  const accent = resolved?.accent || fg;
+  const config = resolved || {
+    bg: "#162033",
+    color: "#F47C20",
+    name: name.split(/[(/,]/)[0].trim(),
+    darkMode: true,
+  };
+
+  const label = config.name.split(" ")[0].slice(0, 3).toUpperCase();
 
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 48 48"
-      aria-hidden="true"
-      className="flex-shrink-0"
+      viewBox="0 0 56 56"
+      aria-label={config.name}
+      className="flex-shrink-0 drop-shadow-sm"
     >
-      <rect x="2.5" y="2.5" width="43" height="43" rx="14" fill={bg} stroke="rgba(255,255,255,0.08)" />
-      <circle cx="36" cy="12" r="3" fill={accent} opacity="0.9" />
-      <path d="M10 32c8-8 20-8 28 0" stroke={accent} strokeWidth="2.2" strokeLinecap="round" opacity="0.22" />
+      {/* Background with gradient and border */}
+      <defs>
+        <linearGradient id={`grad-${name}`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor={config.bg} stopOpacity="1" />
+          <stop offset="100%" stopColor={config.bg} stopOpacity="0.85" />
+        </linearGradient>
+      </defs>
+      
+      {/* Card background */}
+      <rect
+        x="2"
+        y="2"
+        width="52"
+        height="52"
+        rx="12"
+        fill={`url(#grad-${name})`}
+        stroke={config.darkMode ? "rgba(244,124,32,0.2)" : "rgba(100,150,200,0.2)"}
+        strokeWidth="1.2"
+      />
+
+      {/* Subtle accent dot */}
+      <circle cx="46" cy="10" r="2.5" fill={config.color} opacity="0.7" />
+
+      {/* Icon text */}
       <text
-        x="24"
-        y="28"
+        x="28"
+        y="33"
         textAnchor="middle"
-        fill={fg}
-        fontSize={label.length > 5 ? "9" : "11"}
-        fontWeight="700"
-        fontFamily="Arial, sans-serif"
+        fill={config.color}
+        fontSize={size > 40 ? "18" : "14"}
+        fontWeight="800"
+        fontFamily="'Plus Jakarta Sans', Arial, sans-serif"
+        letterSpacing="-0.5"
       >
         {label}
       </text>
