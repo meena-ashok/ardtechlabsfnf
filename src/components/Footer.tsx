@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Sparkles, Mail, MapPin, Phone } from "lucide-react";
-import logo from "@/assets/logo.png";
+import { ArrowUpRight, Sparkles, Mail, MapPin, Phone, Linkedin, Twitter, Facebook } from "lucide-react";
 import { useSiteSettings } from "@/hooks/useSiteSettings";
 
 const Footer = () => {
@@ -51,7 +50,7 @@ const Footer = () => {
         {/* Brand column */}
         <div className="col-span-2 lg:col-span-4">
           <Link to="/" className="inline-block mb-3.5 sm:mb-5 transition-transform hover:scale-[1.03]" aria-label="ARD TechLabs Home">
-            <img src={logo} alt="ARD TechLabs" className="h-12 sm:h-14 w-auto" />
+            <img src="/logo.png" alt="ARD TechLabs" className="h-12 sm:h-14 w-auto" />
           </Link>
           <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-[300px] mb-4 sm:mb-6">
             Premier IT services delivering full-stack, AI, cloud, and DevOps solutions for businesses across the USA, UK, Europe, and Australia.
@@ -130,6 +129,17 @@ const Footer = () => {
           <p className="text-[0.65rem] sm:text-xs text-muted-foreground text-center sm:text-left">
             © {new Date().getFullYear()} ARD TechLabs. All rights reserved.
           </p>
+          <div className="flex items-center gap-4">
+            <a href="https://www.linkedin.com/company/ardtechlabs/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer">
+              <Linkedin className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
+            </a>
+            <a href="https://twitter.com/ardtechlabs" target="_blank" rel="noopener noreferrer">
+              <Twitter className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
+            </a>
+            <a href="https://facebook.com/ardtechlabs" target="_blank" rel="noopener noreferrer">
+              <Facebook className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
+            </a>
+          </div>
           <div className="flex gap-3 sm:gap-5 flex-wrap justify-center">
             {[
               { label: "Privacy Policy", path: "/privacy-policy" },

@@ -18,6 +18,8 @@ Changes made via Lovable will be committed automatically to this repo.
 
 If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
+### Frontend Setup
+
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
 Follow these steps:
@@ -35,6 +37,25 @@ npm i
 # Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
+
+### Backend Setup
+
+**Prerequisites**
+
+- Java 17+
+- Maven 3.6+
+- PostgreSQL 14+
+
+**Database Setup**
+
+1.  Create a PostgreSQL database named `ardtechlabs`.
+2.  Create a user `user` with password `password` and grant all privileges to the `ardtechlabs` database.
+
+**Running the Backend**
+
+1.  Navigate to the `backend` directory.
+2.  Run `mvn clean install` to build the project and install dependencies.
+3.  Run `mvn spring-boot:run` to start the backend server.
 
 **Edit a file directly in GitHub**
 
@@ -59,10 +80,12 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
+- Java Spring Boot
+- PostgreSQL
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Simply open [Lovable](https://lovable.dev/projects/REPLACE_with_project_id) and click on Share -> Publish.
 
 ## Can I connect a custom domain to my Lovable project?
 
@@ -70,4 +93,4 @@ Yes, you can!
 
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Read more here: [Setting up a custom domain](https.docs.lovable.dev/features/custom-domain#custom-domain)

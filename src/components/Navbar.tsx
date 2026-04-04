@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo.png";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -78,7 +77,7 @@ const Navbar = () => {
             aria-label="ARD TechLabs Home"
           >
             <img
-              src={logo}
+              src="/logo.png"
               alt="ARD TechLabs"
               className="h-9 sm:h-11 w-auto"
             />

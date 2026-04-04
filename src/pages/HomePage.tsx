@@ -3,7 +3,8 @@ import { useTypewriter } from "@/hooks/useTypewriter";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
-import { Code, Smartphone, Cloud, Shield, Globe, Headphones, Award, RefreshCw, ArrowRight } from "lucide-react";
+import { FiCode, FiSmartphone, FiCloud, FiShield, FiGlobe, FiHeadphones, FiAward, FiRefreshCw, FiArrowRight } from "react-icons/fi";
+import TechIcon from "@/components/TechIcon";
 
 const heroWords = ["Technology", "Innovation", "Excellence", "The Future"];
 
@@ -15,11 +16,11 @@ const stats = [
 ];
 
 const whyUs = [
-  { icon: <Award className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />, title: "Award-Winning", desc: "Recognised excellence in software delivery" },
-  { icon: <RefreshCw className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />, title: "Agile Delivery", desc: "2-week sprint cycles, always on time" },
-  { icon: <Shield className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />, title: "Security-First", desc: "ISO 27001 & GDPR compliant" },
-  { icon: <Headphones className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />, title: "24/7 Support", desc: "Always here when you need us" },
-  { icon: <Globe className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />, title: "Global Reach", desc: "USA & Europe — 20+ countries" },
+  { icon: <FiAward className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />, title: "Award-Winning", desc: "Recognised excellence in software delivery" },
+  { icon: <FiRefreshCw className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />, title: "Agile Delivery", desc: "2-week sprint cycles, always on time" },
+  { icon: <FiShield className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />, title: "Security-First", desc: "ISO 27001 & GDPR compliant" },
+  { icon: <FiHeadphones className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />, title: "24/7 Support", desc: "Always here when you need us" },
+  { icon: <FiGlobe className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />, title: "Global Reach", desc: "USA & Europe — 20+ countries" },
 ];
 
 const processes = [
@@ -117,7 +118,7 @@ const HomePage = () => {
                   className="inline-flex items-center justify-center gap-2 font-bold text-sm px-7 py-3 rounded-[14px] text-primary-foreground shadow-[var(--shadow-orange)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-orange-lg)] active:scale-95 min-h-[48px] w-full sm:w-auto"
                   style={{ background: "var(--gradient-orange)" }}
                 >
-                  Get Free Consultation →
+                  Get Free Consultation <FiArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   to="/portfolio"
@@ -151,10 +152,10 @@ const HomePage = () => {
                 </div>
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   {[
-                    { icon: <Code className="w-5 h-5 text-primary" />, title: "Full-Stack Dev", sub: "React · Spring · Next.js" },
-                    { icon: <Smartphone className="w-5 h-5 text-navy-light" />, title: "Mobile Apps", sub: "Flutter · React Native" },
-                    { icon: <Cloud className="w-5 h-5 text-primary" />, title: "Cloud & DevOps", sub: "AWS · K8s · Terraform" },
-                    { icon: <Shield className="w-5 h-5 text-navy-light" />, title: "Data & Analytics", sub: "Spark · Snowflake · dbt" },
+                    { icon: <FiCode className="w-5 h-5 text-primary" />, title: "Full-Stack Dev", sub: "React · Spring · Next.js" },
+                    { icon: <FiSmartphone className="w-5 h-5 text-navy-light" />, title: "Mobile Apps", sub: "Flutter · React Native" },
+                    { icon: <FiCloud className="w-5 h-5 text-primary" />, title: "Cloud & DevOps", sub: "AWS · K8s · Terraform" },
+                    { icon: <FiShield className="w-5 h-5 text-navy-light" />, title: "Data & Analytics", sub: "Spark · Snowflake · dbt" },
                   ].map((item) => (
                     <div key={item.title} className="bg-background-elevated/[0.4] border border-white/[0.05] rounded-[20px] p-5 transition-all hover:bg-primary/[0.08] hover:border-primary/30 cursor-default group">
                       <div className="group-hover:scale-110 transition-transform mb-3 opacity-90">{item.icon}</div>
@@ -219,10 +220,10 @@ const HomePage = () => {
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {[
-              { icon: <Code className="w-6 h-6 text-primary" />, title: "Full-Stack Web", desc: "Enterprise-grade web applications using React, Spring, and modern frameworks.", link: "/services" },
-              { icon: <Smartphone className="w-6 h-6 text-navy-light" />, title: "Mobile Apps", desc: "Native-performance iOS & Android apps via Flutter and React Native.", link: "/services" },
-              { icon: <Cloud className="w-6 h-6 text-primary" />, title: "Cloud & DevOps", desc: "Automated pipelines and scalable infrastructure on AWS & Azure.", link: "/services" },
-              { icon: <Shield className="w-6 h-6 text-navy-light" />, title: "Data Engineering", desc: "Robust data pipelines and real-time analytics for business intelligence.", link: "/services" },
+              { icon: <FiCode className="w-6 h-6 text-primary" />, title: "Full-Stack Web", desc: "Enterprise-grade web applications using React, Spring, and modern frameworks.", link: "/services" },
+              { icon: <FiSmartphone className="w-6 h-6 text-navy-light" />, title: "Mobile Apps", desc: "Native-performance iOS & Android apps via Flutter and React Native.", link: "/services" },
+              { icon: <FiCloud className="w-6 h-6 text-primary" />, title: "Cloud & DevOps", desc: "Automated pipelines and scalable infrastructure on AWS & Azure.", link: "/services" },
+              { icon: <FiShield className="w-6 h-6 text-navy-light" />, title: "Data Engineering", desc: "Robust data pipelines and real-time analytics for business intelligence.", link: "/services" },
             ].map((svc, i) => (
               <Link
                 key={svc.title}
@@ -236,7 +237,7 @@ const HomePage = () => {
                 <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{svc.title}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed mb-4">{svc.desc}</p>
                 <span className="text-[0.65rem] font-bold text-primary uppercase tracking-widest flex items-center gap-2">
-                  Learn More <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  Learn More <span className="group-hover:translate-x-1 transition-transform"><FiArrowRight /></span>
                 </span>
               </Link>
             ))}
@@ -280,32 +281,28 @@ const HomePage = () => {
                 ))}
               </div>
               <Link to="/technology" className="inline-flex items-center gap-2 font-bold text-sm text-primary mt-12 hover:underline">
-                View All Technologies <ArrowRight className="w-4 h-4" />
+                View All Technologies <FiArrowRight className="w-4 h-4" />
               </Link>
             </div>
             <div className="reveal-right">
               <div className="grid grid-cols-3 sm:grid-cols-4 gap-4 sm:gap-5">
                 {[
-                  { name: "React", id: "react" },
-                  { name: "Python", id: "python" },
-                  { name: "AWS", id: "amazonwebservices" },
-                  { name: "Spring Boot", id: "spring" },
-                  { name: "Docker", id: "docker" },
-                  { name: "PostgreSQL", id: "postgresql" },
-                  { name: "Kubernetes", id: "kubernetes" },
-                  { name: "Terraform", id: "terraform" },
-                  { name: "OpenAI", id: "openai" },
-                  { name: "Java", id: "java" },
-                  { name: "TypeScript", id: "typescript" },
-                  { name: "Flutter", id: "flutter" },
+                  "React",
+                  "Python",
+                  "AWS",
+                  "Spring Boot",
+                  "Docker",
+                  "PostgreSQL",
+                  "Kubernetes",
+                  "Terraform",
+                  "OpenAI",
+                  "Java",
+                  "TypeScript",
+                  "Flutter",
                 ].map((tech, i) => (
-                  <div key={tech.name} className="glass-card shadow-lg bg-background-elevated/[0.4] border border-white/5 rounded-2xl p-5 text-center hover:-translate-y-2 hover:border-primary/40 hover:bg-primary/[0.08] transition-all duration-300" style={{ transitionDelay: `${i * 0.05}s` }}>
-                    <img 
-                      src={`https://cdn.simpleicons.org/${tech.id}/${i % 2 === 0 ? "F47C20" : "ffffff"}`} 
-                      alt={tech.name} 
-                      className="w-10 h-10 mx-auto mb-3 object-contain drop-shadow-md"
-                    />
-                    <span className="text-[0.65rem] font-black text-muted-foreground uppercase tracking-widest">{tech.name}</span>
+                  <div key={tech} className="glass-card shadow-lg bg-background-elevated/[0.4] border border-white/5 rounded-2xl p-5 text-center hover:-translate-y-2 hover:border-primary/40 hover:bg-primary/[0.08] transition-all duration-300" style={{ transitionDelay: `${i * 0.05}s` }}>
+                    <TechIcon name={tech} size={40} />
+                    <span className="text-[0.65rem] font-black text-muted-foreground uppercase tracking-widest mt-3 block">{tech}</span>
                   </div>
                 ))}
               </div>
@@ -435,7 +432,7 @@ const HomePage = () => {
                 className="inline-flex items-center justify-center gap-2 font-bold text-sm px-8 py-4 rounded-[14px] text-primary-foreground shadow-[var(--shadow-orange)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-orange-lg)] min-h-[56px] w-full sm:w-auto"
                 style={{ background: "var(--gradient-orange)" }}
               >
-                Get Free Consultation →
+                Get Free Consultation <FiArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 to="/hire"

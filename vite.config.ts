@@ -18,6 +18,7 @@ export default defineConfig(({ mode }) => ({
       }
     }
   },
+  assetsInclude: ["**/*.png"],
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {

@@ -415,3 +415,9 @@ body::before {
     transform: translateY(0) translateX(0) scale(1);
   }
 }
+
+@media (max-width: 768px) {
+  .glass-card {
+    border-radius: 16px;
+  }
+}

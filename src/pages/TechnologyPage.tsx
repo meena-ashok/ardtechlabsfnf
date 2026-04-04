@@ -13,7 +13,7 @@ const fallbackStacks = [
   { id: 5, label: "Cloud", items: "AWS,Azure,Google Cloud,Terraform,Pulumi" },
   { id: 6, label: "DevOps", items: "Docker,Kubernetes,GitHub Actions,Jenkins,CircleCI,ArgoCD,Prometheus,Grafana" },
   { id: 7, label: "Databases", items: "PostgreSQL,MySQL,MongoDB,Redis,Elasticsearch,Snowflake,BigQuery" },
-  { id: 8, label: "Testing & QA", items: "Jest,Playwright,Cypress,Selenium,K6,JMeter,SonarQube" },
+  { id: 8, label: "Testing & QA", items: "Jest,Playwright,Cypress,Selenium" },
 ];
 
 const tools = [

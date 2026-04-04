@@ -51,7 +51,7 @@ export default function AdminLayout() {
           <Link to="/admin" className="flex items-center gap-3 group">
             <div className="relative">
               <img
-                src="/src/assets/logo.png"
+                src="/logo.png"
                 alt="ARD Logo"
                 className="w-10 h-10 object-contain brightness-110 group-hover:scale-105 transition-transform"
               />
