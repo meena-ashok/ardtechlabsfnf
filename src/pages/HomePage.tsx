@@ -154,7 +154,7 @@ const HomePage = () => {
                     { icon: "Code", title: "Full-Stack Dev", sub: "React · Spring · Next.js" },
                     { icon: "Smartphone", title: "Mobile Apps", sub: "Flutter · React Native" },
                     { icon: "Cloud", title: "Cloud & DevOps", sub: "AWS · K8s · Terraform" },
-                    { icon: "Shield", title: "Data & Analytics", sub: "Spark · Snowflake · dbt" },
+                    { icon: "Database", title: "Data & Analytics", sub: "Spark · Snowflake · dbt" },
                   ].map((item) => (
                     <div key={item.title} className="bg-background-elevated/[0.4] border border-white/[0.05] rounded-[20px] p-5 transition-all hover:bg-primary/[0.08] hover:border-primary/30 cursor-default group">
                       <div className="group-hover:scale-110 transition-transform mb-3 opacity-90 text-primary"><TechIcon icon={item.icon} /></div>
@@ -222,7 +222,7 @@ const HomePage = () => {
               { icon: "Code", title: "Full-Stack Web", desc: "Enterprise-grade web applications using React, Spring, and modern frameworks.", link: "/services" },
               { icon: "Smartphone", title: "Mobile Apps", desc: "Native-performance iOS & Android apps via Flutter and React Native.", link: "/services" },
               { icon: "Cloud", title: "Cloud & DevOps", desc: "Automated pipelines and scalable infrastructure on AWS & Azure.", link: "/services" },
-              { icon: "Shield", title: "Data Engineering", desc: "Robust data pipelines and real-time analytics for business intelligence.", link: "/services" },
+              { icon: "Database", title: "Data Engineering", desc: "Robust data pipelines and real-time analytics for business intelligence.", link: "/services" },
             ].map((svc, i) => (
               <Link
                 key={svc.title}
@@ -315,7 +315,7 @@ const HomePage = () => {
         <div className="container">
           <div className="mb-12 text-center">
             <span className="eyebrow-badge">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" style={{ animation: "blink-dot 2s infinite" }} />
+              <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ animation: "blink-dot 2s infinite" }} />
               Client Love
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground mt-4 mb-4 leading-tight">

@@ -24,7 +24,7 @@ const fallbackProjects = [
 const categoryIcons: { [key: string]: string } = {
   web: "Code",
   mobile: "Smartphone",
-  ai: "Brain",
+  ai: "BrainCircuit",
   cloud: "Cloud",
 };
 

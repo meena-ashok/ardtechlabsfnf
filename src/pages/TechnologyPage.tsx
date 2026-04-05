@@ -145,7 +145,7 @@ const TechnologyPage = () => {
             </article>
 
             <article className="glass-card p-6 sm:p-7 reveal-up hover:border-primary/40 transition-all" style={{ transitionDelay: "0.2s" }}>
-              <div className="mb-4 inline-flex h-12 w-12 items-.center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
                 <TechIcon icon="Lock" />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-2">Security & Compliance</h3>
