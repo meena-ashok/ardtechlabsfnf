@@ -32,7 +32,7 @@ const iconMap: { [key: string]: string } = {
   'AI / ML': 'lucide:brain-circuit',
   'OpenAI': 'simple-icons:openai',
   'LangChain': 'simple-icons:langchain',
-  'LlamaIndex': 'simple-icons:llama', // Placeholder
+  'LlamaIndex': 'simple-icons:llamaindex',
   'TensorFlow': 'devicon:tensorflow-wordmark',
   'PyTorch': 'devicon:pytorch-wordmark',
   'Hugging Face': 'simple-icons:huggingface',
@@ -79,6 +79,7 @@ const iconMap: { [key: string]: string } = {
   'RefreshCw': 'lucide:refresh-cw',
   'Users': 'lucide:users',
   'Palette': 'lucide:palette',
+  'Shield': 'lucide:shield',
   'Full-Stack Web Development': 'lucide:code-2',
   'Mobile App Development': 'lucide:smartphone',
   'AI & Machine Learning': 'lucide:brain-circuit',
