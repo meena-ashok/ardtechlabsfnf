@@ -45,6 +45,7 @@ export const publicApi = {
   getHireTalents: () => request<any[]>('/api/public/hire-talents'),
   submitContact: (data: any) =>
     request<any>('/api/public/contact', { method: 'POST', body: JSON.stringify(data) }),
+  getSettings: () => request<Record<string, string>>('/api/public/settings'),
   getSetting: (key: string) => request<any>(`/api/public/settings/${key}`),
 };
 

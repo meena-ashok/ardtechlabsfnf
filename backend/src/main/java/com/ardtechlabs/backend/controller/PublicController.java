@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
+@CrossOrigin(origins = "https://ardtechlabs.lovable.app")
 @RequestMapping("/api/public")
 public class PublicController {
 
@@ -88,6 +90,12 @@ public class PublicController {
     public ResponseEntity<?> submitContact(@Valid @RequestBody ContactMessage message) {
         contactRepo.save(message);
         return ResponseEntity.ok(Map.of("success", true, "message", "Message sent successfully"));
+    }
+
+    @GetMapping("/settings")
+    public Map<String, String> getAllSettings() {
+        return settingRepo.findAll().stream()
+                .collect(Collectors.toMap(SiteSetting::getSettingKey, SiteSetting::getSettingValue));
     }
 
     @GetMapping("/settings/{key}")

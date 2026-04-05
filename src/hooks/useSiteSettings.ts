@@ -4,32 +4,14 @@ import { defaultSiteSettings } from "@/lib/siteContent";
 
 type SiteSettings = typeof defaultSiteSettings;
 
-const settingKeys = [
-  "company_name",
-  "company_email",
-  "company_phone",
-  "company_address",
-  "site_url",
-  "seo_regions",
-  "hero_words",
-  "marquee_items",
-] as const;
-
 export function useSiteSettings() {
   const [settings, setSettings] = useState<SiteSettings>(defaultSiteSettings);
 
   useEffect(() => {
     let cancelled = false;
 
-    Promise.allSettled(settingKeys.map((key) => publicApi.getSetting(key))).then((results) => {
-      if (cancelled) return;
-
-      const valueMap = results.reduce<Record<string, string>>((acc, result, index) => {
-        if (result.status === "fulfilled" && result.value?.value) {
-          acc[settingKeys[index]] = result.value.value;
-        }
-        return acc;
-      }, {});
+    publicApi.getSettings().then((valueMap) => {
+      if (cancelled || !valueMap) return;
 
       const nextSettings: SiteSettings = {
         companyName: valueMap.company_name || defaultSiteSettings.companyName,
