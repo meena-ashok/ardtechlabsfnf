@@ -53,8 +53,30 @@ const ContactPage = ({ analyticsConfig }) => {
           closes: "18:00",
         },
       ],
+      sameAs: [
+        "https://www.linkedin.com/company/ard-tech-labs/"
+      ]
     },
     areaServed: ["US", "GB", "DE", "FR", "NL", "IN", "AU"],
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ardtechlabs.lovable.app"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact Us",
+        "item": "https://ardtechlabs.lovable.app/contact"
+      }
+    ]
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -81,7 +103,7 @@ const ContactPage = ({ analyticsConfig }) => {
         title="Contact ARD TechLabs for Expert IT Services | Free Consultation"
         description="Get in touch with ARD TechLabs for a free, no-obligation consultation on our IT services. We provide expert full-stack development, AI/ML, cloud, and DevOps solutions for businesses in the USA, UK, Europe, and Australia. Let's build your next project together."
         canonical="/contact"
-        jsonLd={contactJsonLd}
+        jsonLd={[contactJsonLd, breadcrumbJsonLd]}
         analyticsConfig={analyticsConfig}
       />
       <div className="container">
@@ -163,7 +185,7 @@ const ContactPage = ({ analyticsConfig }) => {
                   onChange={(e) => setFormData({ ...formData, privacyAccepted: e.target.checked })}
                   className="mt-0.5 h-4 w-4 accent-[hsl(var(--primary))]"
                 />
-                <span>
+                <span data-speakable>
                   I agree to the Privacy Policy, Terms of Service, and secure processing of my enquiry data under {complianceContent.items.join(", ")} practices.
                 </span>
               </label>
@@ -174,7 +196,7 @@ const ContactPage = ({ analyticsConfig }) => {
                   onChange={(e) => setFormData({ ...formData, cookieConsentAccepted: e.target.checked })}
                   className="mt-0.5 h-4 w-4 accent-[hsl(var(--primary))]"
                 />
-                <span>
+                <span data-speakable>
                   I consent to essential cookie-based preference storage for this enquiry session.
                 </span>
               </label>
@@ -195,16 +217,16 @@ const ContactPage = ({ analyticsConfig }) => {
                   {info.icon}
                   <h3 className="text-xs sm:text-sm font-bold text-foreground">{info.title}</h3>
                 </div>
-                <p className="text-xs sm:text-sm text-muted-foreground pl-8">{info.value}</p>
+                <p data-speakable className="text-xs sm:text-sm text-muted-foreground pl-8">{info.value}</p>
               </div>
             ))}
             <div className="glass-card p-4 sm:p-5">
               <h3 className="text-xs sm:text-sm font-bold text-foreground mb-1.5 sm:mb-2">Response Time</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">We typically respond within 24 hours for enquiries from the USA, UK, Europe, Australia, and global delivery partners.</p>
+              <p data-speakable className="text-xs sm:text-sm text-muted-foreground">We typically respond within 24 hours for enquiries from the USA, UK, Europe, Australia, and global delivery partners.</p>
             </div>
             <div className="glass-card p-4 sm:p-5">
               <h3 className="text-xs sm:text-sm font-bold text-foreground mb-1.5 sm:mb-2">{complianceContent.eyebrow}</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{complianceContent.description}</p>
+              <p data-speakable className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{complianceContent.description}</p>
             </div>
           </div>
         </div>
