@@ -95,19 +95,19 @@ const HomePage = () => {
         <div className="relative z-[2] w-full container py-8 sm:py-12 md:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div className="text-center lg:text-left">
-              <span className="eyebrow-badge reveal-up text-[0.65rem] sm:text-[0.72rem]">
+              <span className="eyebrow-badge reveal-up text-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary" style={{ animation: "blink-dot 2s infinite" }} />
                 IT Services & Consulting · USA & Europe
               </span>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground mt-4 sm:mt-5 mb-3 sm:mb-4 leading-[1.08] reveal-up" style={{ transitionDelay: "0.1s" }}>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-foreground mt-4 sm:mt-5 mb-3 sm:mb-4 leading-[1.08] reveal-up" style={{ transitionDelay: "0.1s" }}>
                 We Build
                 <br />
                 <span className="text-primary">{typed}</span>
                 <span className="inline-block w-[3px] h-[0.85em] bg-primary align-[-0.05em] ml-0.5" style={{ animation: "cursor-blink 1s infinite" }} />
               </h1>
 
-              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-8 max-w-[520px] mx-auto lg:mx-0 reveal-up" style={{ transitionDelay: "0.2s" }}>
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 max-w-[520px] mx-auto lg:mx-0 reveal-up" style={{ transitionDelay: "0.2s" }}>
                 ARD TechLabs delivers award-winning full-stack development, mobile apps, AI/ML, cloud & DevOps for businesses across USA and Europe. 150+ projects · 80+ clients · 9+ years.
               </p>
 
@@ -134,8 +134,8 @@ const HomePage = () => {
               <div className="absolute -top-6 -right-5 z-[3] backdrop-blur-2xl bg-background-card/[0.9] border border-primary/30 rounded-2xl px-5 py-4 flex items-center gap-4 shadow-[0_12px_40px_rgba(0,0,0,0.6)]" style={{ animation: "chip-float-1 4s ease-in-out infinite" }}>
                 <TechIcon icon="AI / ML" className="text-2xl" />
                 <div>
-                  <strong className="text-base font-extrabold text-foreground block">AI Solutions</strong>
-                  <span className="text-[0.7rem] uppercase tracking-wider text-primary font-bold">LLMs · ML · NLP</span>
+                  <strong className="text-lg font-extrabold text-foreground block">AI Solutions</strong>
+                  <span className="text-sm uppercase tracking-wider text-primary font-bold">LLMs · ML · NLP</span>
                 </div>
               </div>
 
@@ -147,7 +147,7 @@ const HomePage = () => {
                     <div className="w-3 h-3 rounded-full bg-[#FEBC2E] shadow-sm" />
                     <div className="w-3 h-3 rounded-full bg-[#28C840] shadow-sm" />
                   </div>
-                  <span className="text-[0.7rem] font-bold text-muted-foreground uppercase tracking-widest border border-white/10 px-3 py-1 rounded-full">System Architecture</span>
+                  <span className="text-sm font-bold text-muted-foreground uppercase tracking-widest border border-white/10 px-3 py-1 rounded-full">System Architecture</span>
                 </div>
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   {[
@@ -158,8 +158,8 @@ const HomePage = () => {
                   ].map((item) => (
                     <div key={item.title} className="bg-background-elevated/[0.4] border border-white/[0.05] rounded-[20px] p-5 transition-all hover:bg-primary/[0.08] hover:border-primary/30 cursor-default group">
                       <div className="group-hover:scale-110 transition-transform mb-3 opacity-90 text-primary"><TechIcon icon={item.icon} /></div>
-                      <h5 className="text-[0.95rem] font-bold text-foreground mb-1 group-hover:text-primary transition-colors">{item.title}</h5>
-                      <p className="text-[0.75rem] text-muted-foreground font-medium">{item.sub}</p>
+                      <h5 className="text-base font-bold text-foreground mb-1 group-hover:text-primary transition-colors">{item.title}</h5>
+                      <p className="text-sm text-muted-foreground font-medium">{item.sub}</p>
                     </div>
                   ))}
                 </div>
@@ -176,7 +176,7 @@ const HomePage = () => {
                     >
                       <div className="absolute inset-0 bg-primary/10 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300" />
                       <strong className="block text-xl font-black text-primary relative z-10">{n.val}</strong>
-                      <span className="text-[0.65rem] font-bold text-muted-foreground uppercase tracking-wider relative z-10">{n.label}</span>
+                      <span className="text-sm font-bold text-muted-foreground uppercase tracking-wider relative z-10">{n.label}</span>
                     </div>
                   ))}
                 </div>
@@ -186,8 +186,8 @@ const HomePage = () => {
               <div className="absolute -bottom-6 -left-5 z-[3] backdrop-blur-2xl bg-background-card/[0.9] border border-primary/30 rounded-2xl px-5 py-4 flex items-center gap-4 shadow-[0_12px_40px_rgba(0,0,0,0.6)]" style={{ animation: "chip-float-2 4.5s ease-in-out infinite" }}>
                 <TechIcon icon="Cloud" className="text-2xl" />
                 <div>
-                  <strong className="text-base font-extrabold text-foreground block">Cloud & DevOps</strong>
-                  <span className="text-[0.7rem] uppercase tracking-wider text-primary font-bold">CI/CD · Docker · K8s</span>
+                  <strong className="text-lg font-extrabold text-foreground block">Cloud & DevOps</strong>
+                  <span className="text-sm uppercase tracking-wider text-primary font-bold">CI/CD · Docker · K8s</span>
                 </div>
               </div>
             </div>
@@ -199,7 +199,7 @@ const HomePage = () => {
       <div className="bg-background-alt border-y border-secondary/20 overflow-hidden py-3">
         <div className="flex gap-0 will-change-transform" style={{ animation: "marquee 30s linear infinite" }}>
           {[...marqueeItems, ...marqueeItems].map((item, i) => (
-            <div key={`${item}-${i}`} className="flex items-center gap-2 whitespace-nowrap px-5 sm:px-8 text-muted-foreground text-xs sm:text-sm font-medium border-r border-secondary/20 flex-shrink-0 hover:text-primary transition-colors">
+            <div key={`${item}-${i}`} className="flex items-center gap-2 whitespace-nowrap px-5 sm:px-8 text-muted-foreground text-sm sm:text-base font-medium border-r border-secondary/20 flex-shrink-0 hover:text-primary transition-colors">
               <TechIcon icon={item} />
             </div>
           ))}
@@ -233,9 +233,9 @@ const HomePage = () => {
                 <div className="icon-box icon-box-orange mb-4 group-hover:scale-110 group-hover:-rotate-3 transition-transform">
                   <TechIcon icon={svc.icon} className="text-primary" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{svc.title}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed mb-4">{svc.desc}</p>
-                <span className="text-[0.65rem] font-bold text-primary uppercase tracking-widest flex items-center gap-2">
+                <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{svc.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{svc.desc}</p>
+                <span className="text-sm font-bold text-primary uppercase tracking-widest flex items-center gap-2">
                   Learn More <span className="group-hover:translate-x-1 transition-transform"><TechIcon icon="ArrowRight" /></span>
                 </span>
               </Link>
@@ -269,12 +269,12 @@ const HomePage = () => {
                   { label: "Backend & Systems", tools: "Spring Boot · Python · Java · Go" },
                 ].map((item, i) => (
                   <div key={item.label} className="group flex gap-5 items-start">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center font-black text-primary text-xs shadow-md group-hover:bg-primary group-hover:text-white transition-all">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center font-black text-primary text-sm shadow-md group-hover:bg-primary group-hover:text-white transition-all">
                       0{i + 1}
                     </div>
                     <div>
-                      <h4 className="text-base font-extrabold text-foreground tracking-wide uppercase mb-1.5 group-hover:text-primary transition-colors">{item.label}</h4>
-                      <p className="text-[0.9rem] text-muted-foreground font-medium">{item.tools}</p>
+                      <h4 className="text-lg font-extrabold text-foreground tracking-wide uppercase mb-1.5 group-hover:text-primary transition-colors">{item.label}</h4>
+                      <p className="text-base text-muted-foreground font-medium">{item.tools}</p>
                     </div>
                   </div>
                 ))}
@@ -301,7 +301,7 @@ const HomePage = () => {
                 ].map((tech, i) => (
                   <div key={tech} className="glass-card shadow-lg bg-background-elevated/[0.4] border border-white/5 rounded-2xl p-5 text-center hover:-translate-y-2 hover:border-primary/40 hover:bg-primary/[0.08] transition-all duration-300" style={{ transitionDelay: `${i * 0.05}s` }}>
                     <TechIcon icon={tech} />
-                    <span className="text-[0.65rem] font-black text-muted-foreground uppercase tracking-widest mt-3 block">{tech}</span>
+                    <span className="text-xs font-black text-muted-foreground uppercase tracking-widest mt-3 block">{tech}</span>
                   </div>
                 ))}
               </div>
@@ -318,7 +318,7 @@ const HomePage = () => {
               <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" style={{ animation: "blink-dot 2s infinite" }} />
               Client Love
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground mt-4 mb-4 leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground mt-4 mb-4 leading-tight">
               What Our Clients <span className="text-primary">Say</span>
             </h2>
             <div className="rule-line my-4 mx-auto"></div>
@@ -326,13 +326,13 @@ const HomePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             <article className="reveal-up glass-card p-5 sm:p-7 flex flex-col">
               <div className="flex gap-1 mb-3 sm:mb-3.5 text-primary">
-                <span className="text-sm sm:text-base">★</span>
-                <span className="text-sm sm:text-base">★</span>
-                <span className="text-sm sm:text-base">★</span>
-                <span className="text-sm sm:text-base">★</span>
-                <span className="text-sm sm:text-base">★</span>
+                <span className="text-lg">★</span>
+                <span className="text-lg">★</span>
+                <span className="text-lg">★</span>
+                <span className="text-lg">★</span>
+                <span className="text-lg">★</span>
               </div>
-              <blockquote className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4 sm:mb-5">
+              <blockquote className="text-base text-muted-foreground leading-relaxed flex-1 mb-4 sm:mb-5">
                 "ARD TechLabs transformed our entire digital infrastructure. Their team delivered a complex microservices architecture on time and under budget."
               </blockquote>
               <div className="flex items-center gap-3 mt-auto">
@@ -340,20 +340,20 @@ const HomePage = () => {
                   <TechIcon icon="Users" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-foreground">Sarah Mitchell</div>
-                  <div className="text-xs text-muted-foreground">CTO, FinFlow Inc. — USA</div>
+                  <div className="text-base font-bold text-foreground">Sarah Mitchell</div>
+                  <div className="text-sm text-muted-foreground">CTO, FinFlow Inc. — USA</div>
                 </div>
               </div>
             </article>
             <article className="reveal-up glass-card p-5 sm:p-7 flex flex-col border-primary/20" style={{ transitionDelay: "0.1s" }}>
               <div className="flex gap-1 mb-3 sm:mb-3.5 text-primary">
-                <span className="text-sm sm:text-base">★</span>
-                <span className="text-sm sm:text-base">★</span>
-                <span className="text-sm sm:text-base">★</span>
-                <span className="text-sm sm:text-base">★</span>
-                <span className="text-sm sm:text-base">★</span>
+                <span className="text-lg">★</span>
+                <span className="text-lg">★</span>
+                <span className="text-lg">★</span>
+                <span className="text-lg">★</span>
+                <span className="text-lg">★</span>
               </div>
-              <blockquote className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4 sm:mb-5">
+              <blockquote className="text-base text-muted-foreground leading-relaxed flex-1 mb-4 sm:mb-5">
                 "The AI recommendation engine increased our conversion rate by 42%. The team understands both tech and business. Simply outstanding work."
               </blockquote>
               <div className="flex items-center gap-3 mt-auto">
@@ -361,20 +361,20 @@ const HomePage = () => {
                   <TechIcon icon="Users" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-foreground">Rahul Sharma</div>
-                  <div className="text-xs text-muted-foreground">CEO, RetailGenius — UK</div>
+                  <div className="text-base font-bold text-foreground">Rahul Sharma</div>
+                  <div className="text-sm text-muted-foreground">CEO, RetailGenius — UK</div>
                 </div>
               </div>
             </article>
             <article className="reveal-up glass-card p-5 sm:p-7 flex flex-col" style={{ transitionDelay: "0.2s" }}>
               <div className="flex gap-1 mb-3 sm:mb-3.5 text-primary">
-                <span className="text-sm sm:text-base">★</span>
-                <span className="text-sm sm:text-base">★</span>
-                <span className="text-sm sm:text-base">★</span>
-                <span className="text-sm sm:text-base">★</span>
-                <span className="text-sm sm:text-base">★</span>
+                <span className="text-lg">★</span>
+                <span className="text-lg">★</span>
+                <span className="text-lg">★</span>
+                <span className="text-lg">★</span>
+                <span className="text-lg">★</span>
               </div>
-              <blockquote className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4 sm:mb-5">
+              <blockquote className="text-base text-muted-foreground leading-relaxed flex-1 mb-4 sm:mb-5">
                 "Their DevOps setup reduced deployment time from 3 hours to 8 minutes. The cloud migration was flawless. ARD TechLabs is our go-to partner."
               </blockquote>
               <div className="flex items-center gap-3 mt-auto">
@@ -382,8 +382,8 @@ const HomePage = () => {
                   <TechIcon icon="Users" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-foreground">Emma Lawson</div>
-                  <div className="text-xs text-muted-foreground">VP Engineering, LogiChain — Germany</div>
+                  <div className="text-base font-bold text-foreground">Emma Lawson</div>
+                  <div className="text-sm text-muted-foreground">VP Engineering, LogiChain — Germany</div>
                 </div>
               </div>
             </article>
@@ -398,12 +398,12 @@ const HomePage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {processes.map((p, i) => (
               <div key={p.step} className="reveal-up relative group" style={{ transitionDelay: `${i * 0.1}s` }}>
-                <span className="text-5xl font-black text-foreground/5 absolute -top-6 -left-2 select-none group-hover:text-primary/10 transition-colors">
+                <span className="text-6xl font-black text-foreground/5 absolute -top-6 -left-2 select-none group-hover:text-primary/10 transition-colors">
                   {p.step}
                 </span>
                 <div className="relative z-10">
-                  <h4 className="text-lg font-bold text-foreground mb-2">{p.title}</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                  <h4 className="text-xl font-bold text-foreground mb-2">{p.title}</h4>
+                  <p className="text-base text-muted-foreground leading-relaxed">{p.desc}</p>
                 </div>
               </div>
             ))}
@@ -419,10 +419,10 @@ const HomePage = () => {
         <div className="container relative z-10 text-center">
           <div className="max-w-[720px] mx-auto reveal-up">
             <span className="eyebrow-badge mb-6 inline-flex">Start Today</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary-foreground mb-6 leading-[1.15]">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-primary-foreground mb-6 leading-[1.15]">
               Ready to <span className="text-primary">Accelerate</span> Your Digital Journey?
             </h2>
-            <p className="text-base sm:text-lg text-primary-foreground/65 mb-10 leading-relaxed">
+            <p className="text-lg sm:text-xl text-primary-foreground/65 mb-10 leading-relaxed">
               Let's build something extraordinary together. Free consultation for USA & European businesses.
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap gap-4 items-center justify-center">

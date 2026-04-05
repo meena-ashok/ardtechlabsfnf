@@ -70,7 +70,7 @@ const TechnologyPage = () => {
                   <div className="p-2.5 rounded-lg bg-primary/[0.12] group-hover:bg-primary/[0.2] transition-all">
                     <TechIcon icon={stack.label} />
                   </div>
-                  <h3 className="text-sm font-bold text-primary group-hover:text-orange-light transition-colors">
+                  <h3 className="text-base font-bold text-primary group-hover:text-orange-light transition-colors">
                     {stack.label}
                   </h3>
                 </div>
@@ -80,7 +80,7 @@ const TechnologyPage = () => {
                   {itemsArr.map((item: string) => (
                     <li
                       key={item}
-                      className="flex items-center gap-3 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-all duration-200 group/item"
+                      className="flex items-center gap-3 text-sm sm:text-base text-muted-foreground hover:text-foreground transition-all duration-200 group/item"
                     >
                       <div className="w-6 h-6 flex-shrink-0 flex items-center justify-center">
                         <TechIcon icon={item} />
@@ -100,7 +100,7 @@ const TechnologyPage = () => {
         <div className="mb-12 sm:mb-16">
           <div className="flex items-center gap-3 mb-5 sm:mb-6">
             <div className="h-1 w-12 rounded-full" style={{ background: "var(--gradient-rule)" }} />
-            <h3 className="text-sm sm:text-base font-bold text-foreground">Tools We Master</h3>
+            <h3 className="text-base sm:text-lg font-bold text-foreground">Tools We Master</h3>
           </div>
 
           <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
@@ -113,7 +113,7 @@ const TechnologyPage = () => {
                 <div className="mb-2.5 flex justify-center group-hover:scale-110 transition-transform duration-300">
                   <TechIcon icon={tool} />
                 </div>
-                <p className="text-[0.68rem] sm:text-xs font-semibold text-muted-foreground group-hover:text-primary transition-colors">
+                <p className="text-xs sm:text-sm font-semibold text-muted-foreground group-hover:text-primary transition-colors">
                   {tool}
                 </p>
               </div>
@@ -128,8 +128,8 @@ const TechnologyPage = () => {
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
                 <TechIcon icon="Zap" />
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary">Battle-Tested Stack</h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">
+              <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary">Battle-Tested Stack</h3>
+              <p className="text-base leading-relaxed text-muted-foreground">
                 Every technology is selected after production testing, performance benchmarks, and proven team expertise across 150+ projects.
               </p>
             </article>
@@ -138,8 +138,8 @@ const TechnologyPage = () => {
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
                 <TechIcon icon="CheckCircle" />
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">Scalable Architecture</h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">
+              <h3 className="text-xl font-bold text-foreground mb-2">Scalable Architecture</h3>
+              <p className="text-base leading-relaxed text-muted-foreground">
                 Modern cloud-native architectures with Kubernetes, microservices, and serverless options for seamless scaling from MVP to enterprise.
               </p>
             </article>
@@ -148,8 +148,8 @@ const TechnologyPage = () => {
               <div className="mb-4 inline-flex h-12 w-12 items-.center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
                 <TechIcon icon="Lock" />
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">Security & Compliance</h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">
+              <h3 className="text-xl font-bold text-foreground mb-2">Security & Compliance</h3>
+              <p className="text-base leading-relaxed text-muted-foreground">
                 ISO 27001, GDPR, and SOC 2 compliance built in from day one. Encryption, audit logs, and security best practices embedded everywhere.
               </p>
             </article>

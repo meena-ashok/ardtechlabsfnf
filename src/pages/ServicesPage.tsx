@@ -44,7 +44,7 @@ const ServicesPage = () => {
           eyebrow="What We Do"
           title="Comprehensive IT"
           accent="Services"
-          description="From concept to deployment -- full-spectrum technology solutions tailored to businesses across the USA, UK, Europe, and Australia."
+          description="From concept to deployment, we provide full-spectrum technology solutions tailored to your business needs."
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {services.map((svc: any, i: number) => (
@@ -55,18 +55,18 @@ const ServicesPage = () => {
             >
               <div
                 className={`icon-box ${
-                  svc.variant === 'navy' ? 'icon-box-blue' : 'icon-box-orange'
+                  svc.variant === 'navy' ? 'icon-box-navy' : 'icon-box-orange'
                 } mb-4 transition-transform group-hover:scale-110 group-hover:-rotate-[8deg]`}
               >
                 <TechIcon icon={svc.icon} />
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">{svc.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">{svc.description}</p>
+              <h3 className="text-xl font-bold text-foreground mb-2">{svc.title}</h3>
+              <p className="text-base text-muted-foreground leading-relaxed mb-4">{svc.description}</p>
               <div className="flex flex-wrap gap-1.5">
                 {(typeof svc.chips === "string" ? svc.chips.split(",") : svc.chips || []).map((chip: string) => (
                   <span
                     key={chip}
-                    className={`chip-tag ${svc.variant === "navy" ? "chip-blue" : "chip-orange"}`}
+                    className={`chip-tag ${svc.variant === "navy" ? "chip-blue" : ""}`}
                   >
                     {chip.trim()}
                   </span>

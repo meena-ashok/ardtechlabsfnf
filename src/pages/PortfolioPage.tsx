@@ -57,7 +57,7 @@ const PortfolioPage = () => {
               <button
                 key={c}
                 onClick={() => setFilter(val)}
-                className={`text-xs font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-[10px] transition-all ${
+                className={`text-sm font-semibold px-4 sm:px-5 py-2 sm:py-2.5 rounded-[12px] transition-all ${
                   filter === val
                     ? "text-primary-foreground shadow-[var(--shadow-orange)]"
                     : "bg-foreground/[0.04] border border-foreground/10 text-muted-foreground hover:text-primary hover:border-primary/30"
@@ -81,18 +81,18 @@ const PortfolioPage = () => {
                 className="reveal-up glass-card overflow-hidden group"
                 style={{ transitionDelay: `${i * 0.04}s` }}
               >
-                <div className="h-36 sm:h-44 flex items-center justify-center bg-gradient-to-br from-primary/10 to-navy/15 relative text-primary">
+                <div className="h-40 sm:h-48 flex items-center justify-center bg-gradient-to-br from-primary/10 to-navy/15 relative text-primary">
                   <TechIcon
                     icon={icon}
-                    className="text-5xl sm:text-6xl transition-transform group-hover:scale-110 group-hover:-rotate-[5deg]"
+                    className="text-6xl sm:text-7xl transition-transform group-hover:scale-110 group-hover:-rotate-[5deg]"
                   />
                 </div>
-                <div className="p-4 sm:p-5">
-                  <div className="text-[0.6rem] sm:text-xs font-bold text-primary tracking-widest uppercase mb-1.5 sm:mb-2">
+                <div className="p-5 sm:p-6">
+                  <div className="text-sm font-bold text-primary tracking-widest uppercase mb-2 sm:mb-2.5">
                     {cat === "ai" ? "AI / ML" : cat.charAt(0).toUpperCase() + cat.slice(1)}
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-foreground mb-2">{p.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{p.description}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">{p.title}</h3>
+                  <p className="text-base text-muted-foreground leading-relaxed mb-4">{p.description}</p>
                   <div className="flex flex-wrap gap-1.5">
                     {(typeof p.chips === "string" ? p.chips.split(",") : p.chips || []).map((c: string) => (
                       <span key={c} className="chip-blue chip-tag">{c.trim()}</span>

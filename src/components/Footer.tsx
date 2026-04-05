@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="relative overflow-hidden bg-background" role="contentinfo">
     {/* Top gradient border */}
-    <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent 5%, hsl(25 89% 54%), hsl(222 65% 43%), hsl(25 89% 54%), transparent 95%)" }} />
+    <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent 5%, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--primary)), transparent 95%)" }} />
 
     {/* Decorative background orbs */}
     <div className="absolute top-20 -left-32 w-72 h-72 rounded-full bg-primary/[0.04] blur-[100px] pointer-events-none" />
@@ -23,12 +23,12 @@ const Footer = () => {
           <div className="text-center lg:text-left">
             <div className="flex items-center gap-2 justify-center lg:justify-start mb-2">
               <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-xs font-bold tracking-widest uppercase text-primary">Let's Collaborate</span>
+              <span className="text-sm font-bold tracking-widest uppercase text-primary">Let's Collaborate</span>
             </div>
-            <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-foreground leading-tight">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-foreground leading-tight">
               Ready to build something <span className="text-primary">extraordinary</span>?
             </h3>
-            <p className="text-[0.82rem] sm:text-sm text-muted-foreground mt-2 max-w-md mx-auto lg:mx-0">
+            <p className="text-sm sm:text-base text-muted-foreground mt-2 max-w-md mx-auto lg:mx-0">
               Free consultation for businesses across the USA, UK, Europe, and Australia.
             </p>
           </div>
@@ -50,23 +50,23 @@ const Footer = () => {
         {/* Brand column */}
         <div className="col-span-2 lg:col-span-4">
           <Link to="/" className="inline-block mb-3.5 sm:mb-5 transition-transform hover:scale-[1.03]" aria-label="ARD TechLabs Home">
-            <img src="/logo.png" alt="ARD TechLabs" className="h-12 sm:h-14 w-auto" />
+            <img src="/logo.png" alt="ARD TechLabs" className="h-14 sm:h-16 w-auto" />
           </Link>
-          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-[300px] mb-4 sm:mb-6">
+          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-[300px] mb-4 sm:mb-6">
             Premier IT services delivering full-stack, AI, cloud, and DevOps solutions for businesses across the USA, UK, Europe, and Australia.
           </p>
         </div>
 
         {/* Services */}
         <div className="lg:col-span-3">
-          <h4 className="text-xs font-bold text-foreground tracking-widest uppercase mb-4 sm:mb-5 flex items-center gap-2">
+          <h4 className="text-sm font-bold text-foreground tracking-widest uppercase mb-4 sm:mb-5 flex items-center gap-2">
             <span className="w-5 h-0.5 rounded-full bg-primary" />
             Services
           </h4>
           <ul className="space-y-2 sm:space-y-2.5">
             {["Full-Stack Development", "Mobile Apps", "AI & Machine Learning", "Cloud Solutions", "DevOps & CI/CD"].map((s) => (
               <li key={s}>
-                <Link to="/services" className="group text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all inline-flex items-center gap-1.5">
+                <Link to="/services" className="group text-sm sm:text-base text-muted-foreground hover:text-primary transition-all inline-flex items-center gap-1.5">
                   <span className="w-0 group-hover:w-2 h-px bg-primary transition-all duration-300" />
                   {s}
                 </Link>
@@ -77,7 +77,7 @@ const Footer = () => {
 
         {/* Company */}
         <div className="lg:col-span-2">
-          <h4 className="text-xs font-bold text-foreground tracking-widest uppercase mb-4 sm:mb-5 flex items-center gap-2">
+          <h4 className="text-sm font-bold text-foreground tracking-widest uppercase mb-4 sm:mb-5 flex items-center gap-2">
             <span className="w-5 h-0.5 rounded-full bg-primary" />
             Company
           </h4>
@@ -90,7 +90,7 @@ const Footer = () => {
               { label: "FAQ", path: "/faq" },
             ].map((l) => (
               <li key={l.path}>
-                <Link to={l.path} className="group text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all inline-flex items-center gap-1.5">
+                <Link to={l.path} className="group text-sm sm:text-base text-muted-foreground hover:text-primary transition-all inline-flex items-center gap-1.5">
                   <span className="w-0 group-hover:w-2 h-px bg-primary transition-all duration-300" />
                   {l.label}
                 </Link>
@@ -101,22 +101,22 @@ const Footer = () => {
 
         {/* Contact */}
         <div className="sm:col-span-1 lg:col-span-3">
-          <h4 className="text-xs font-bold text-foreground tracking-widest uppercase mb-4 sm:mb-5 flex items-center gap-2">
+          <h4 className="text-sm font-bold text-foreground tracking-widest uppercase mb-4 sm:mb-5 flex items-center gap-2">
             <span className="w-5 h-0.5 rounded-full bg-primary" />
             Contact
           </h4>
           <ul className="space-y-3 sm:space-y-4">
             <li className="flex items-start gap-2.5">
-              <Mail className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-              <span className="text-xs sm:text-sm text-muted-foreground">{companyEmail}</span>
+              <Mail className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+              <span className="text-sm sm:text-base text-muted-foreground">{companyEmail}</span>
             </li>
             <li className="flex items-start gap-2.5">
-              <Phone className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-              <span className="text-xs sm:text-sm text-muted-foreground">{companyPhone}</span>
+              <Phone className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+              <span className="text-sm sm:text-base text-muted-foreground">{companyPhone}</span>
             </li>
             <li className="flex items-start gap-2.5">
-              <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-              <span className="text-xs sm:text-sm text-muted-foreground">{companyAddress}</span>
+              <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+              <span className="text-sm sm:text-base text-muted-foreground">{companyAddress}</span>
             </li>
           </ul>
         </div>
@@ -124,14 +124,14 @@ const Footer = () => {
 
       {/* Bottom bar */}
       <div className="relative border-t border-secondary/20 pt-4.5 sm:pt-6">
-        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(25 89% 54% / 0.3), transparent)" }} />
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(var(--primary) / 0.3), transparent)" }} />
         <div className="flex flex-col sm:flex-row justify-between items-center gap-2.5 sm:gap-4">
-          <p className="text-[0.65rem] sm:text-xs text-muted-foreground text-center sm:text-left">
+          <p className="text-sm sm:text-base text-muted-foreground text-center sm:text-left">
             © {new Date().getFullYear()} ARD TechLabs. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <a href="https://www.linkedin.com/company/ardtechlabs/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer">
-              <Linkedin className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
+              <Linkedin className="w-6 h-6 text-muted-foreground hover:text-primary transition-colors" />
             </a>
           </div>
           <div className="flex gap-3 sm:gap-5 flex-wrap justify-center">
@@ -140,7 +140,7 @@ const Footer = () => {
               { label: "Terms of Service", path: "/terms-of-service" },
               { label: "Cookie Policy", path: "/cookie-policy" },
             ].map((t) => (
-              <Link key={t.path} to={t.path} className="text-[0.65rem] sm:text-xs text-muted-foreground hover:text-primary transition-colors">
+              <Link key={t.path} to={t.path} className="text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors">
                 {t.label}
               </Link>
             ))}
