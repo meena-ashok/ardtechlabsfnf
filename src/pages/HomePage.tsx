@@ -39,6 +39,18 @@ const organizationJsonLd = {
   logo: "https://ardtechlabs.lovable.app/favicon.ico",
   description: "Award-winning IT services & consulting for USA, Europe, and India. Full-stack, AI/ML, cloud & DevOps.",
   foundingDate: "2015",
+  founder: {
+    "@type": "Person",
+    name: "Meena Ashok"
+  },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "123 Tech Avenue",
+    addressLocality: "San Francisco",
+    addressRegion: "CA",
+    postalCode: "94107",
+    addressCountry: "US"
+  },
   numberOfEmployees: { "@type": "QuantitativeValue", minValue: 40 },
   areaServed: [
     { "@type": "Country", name: "United States" },
@@ -57,7 +69,9 @@ const organizationJsonLd = {
     availableLanguage: ["English"],
     areaServed: ["US", "GB", "DE", "FR", "NL", "IN", "AU"],
   },
-  sameAs: [],
+  sameAs: [
+    "https://www.linkedin.com/company/ard-tech-labs/"
+  ],
   knowsAbout: ["Full-Stack Development", "Mobile Apps", "AI/ML", "Cloud Computing", "DevOps", "Data Engineering", "UI/UX Design", "IT Consulting"],
 };
 
@@ -91,6 +105,32 @@ const serviceJsonLd = {
     },
 };
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://ardtechlabs.lovable.app"
+  }]
+};
+
+const reviewJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "5",
+    "bestRating": "5"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Sarah Mitchell"
+  },
+  "reviewBody": "ARD TechLabs transformed our entire digital infrastructure. Their team delivered a complex microservices architecture on time and under budget."
+};
+
 const analyticsConfig = {
   ga4Id: "G-XXXXXXXXXX", // Replace with your GA4 ID
   clarityId: "XXXXXXXXXX", // Replace with your Clarity ID
@@ -106,7 +146,7 @@ const HomePage = () => {
         title="ARD TechLabs | Premier IT Services & Consulting Firm"
         description="ARD TechLabs: Your trusted partner for cutting-edge IT services. We specialize in full-stack development, AI/ML, cloud solutions, and DevOps to drive your business forward. Serving clients in the USA, Europe, India, and Australia."
         canonical="/"
-        jsonLd={[organizationJsonLd, websiteJsonLd, serviceJsonLd]}
+        jsonLd={[organizationJsonLd, websiteJsonLd, serviceJsonLd, breadcrumbJsonLd, reviewJsonLd]}
         analyticsConfig={analyticsConfig}
       />
 
@@ -145,7 +185,7 @@ const HomePage = () => {
                 <span className="inline-block w-[3px] h-[0.85em] bg-primary align-[-0.05em] ml-0.5" style={{ animation: "cursor-blink 1s infinite" }} />
               </h1>
 
-              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 max-w-[520px] mx-auto lg:mx-0 reveal-up" style={{ transitionDelay: "0.2s" }}>
+              <p data-speakable className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 max-w-[520px] mx-auto lg:mx-0 reveal-up" style={{ transitionDelay: "0.2s" }}>
                 ARD TechLabs delivers award-winning full-stack development, mobile apps, AI/ML, cloud & DevOps for businesses across USA, Europe, India, and Australia. 150+ projects · 80+ clients · 9+ years.
               </p>
 
@@ -272,7 +312,7 @@ const HomePage = () => {
                   <TechIcon icon={svc.icon} className="text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{svc.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{svc.desc}</p>
+                <p data-speakable className="text-sm text-muted-foreground leading-relaxed mb-4">{svc.desc}</p>
                 <span className="text-sm font-bold text-primary uppercase tracking-widest flex items-center gap-2">
                   Learn More <span className="group-hover:translate-x-1 transition-transform"><TechIcon icon="ArrowRight" /></span>
                 </span>
@@ -312,7 +352,7 @@ const HomePage = () => {
                     </div>
                     <div>
                       <h4 className="text-lg font-extrabold text-foreground tracking-wide uppercase mb-1.5 group-hover:text-primary transition-colors">{item.label}</h4>
-                      <p className="text-base text-muted-foreground font-medium">{item.tools}</p>
+                      <p data-speakable className="text-base text-muted-foreground font-medium">{item.tools}</p>
                     </div>
                   </div>
                 ))}
@@ -370,7 +410,7 @@ const HomePage = () => {
                 <span className="text-lg">★</span>
                 <span className="text-lg">★</span>
               </div>
-              <blockquote className="text-base text-muted-foreground leading-relaxed flex-1 mb-4 sm:mb-5">
+              <blockquote data-speakable className="text-base text-muted-foreground leading-relaxed flex-1 mb-4 sm:mb-5">
                 "ARD TechLabs transformed our entire digital infrastructure. Their team delivered a complex microservices architecture on time and under budget."
               </blockquote>
               <div className="flex items-center gap-3 mt-auto">
@@ -391,7 +431,7 @@ const HomePage = () => {
                 <span className="text-lg">★</span>
                 <span className="text-lg">★</span>
               </div>
-              <blockquote className="text-base text-muted-foreground leading-relaxed flex-1 mb-4 sm:mb-5">
+              <blockquote data-speakable className="text-base text-muted-foreground leading-relaxed flex-1 mb-4 sm:mb-5">
                 "The AI recommendation engine increased our conversion rate by 42%. The team understands both tech and business. Simply outstanding work."
               </blockquote>
               <div className="flex items-center gap-3 mt-auto">
@@ -412,7 +452,7 @@ const HomePage = () => {
                 <span className="text-lg">★</span>
                 <span className="text-lg">★</span>
               </div>
-              <blockquote className="text-base text-muted-foreground leading-relaxed flex-1 mb-4 sm:mb-5">
+              <blockquote data-speakable className="text-base text-muted-foreground leading-relaxed flex-1 mb-4 sm:mb-5">
                 "Their DevOps setup reduced deployment time from 3 hours to 8 minutes. The cloud migration was flawless. ARD TechLabs is our go-to partner."
               </blockquote>
               <div className="flex items-center gap-3 mt-auto">
@@ -441,7 +481,7 @@ const HomePage = () => {
                 </span>
                 <div className="relative z-10">
                   <h4 className="text-xl font-bold text-foreground mb-2">{p.title}</h4>
-                  <p className="text-base text-muted-foreground leading-relaxed">{p.desc}</p>
+                  <p data-speakable className="text-base text-muted-foreground leading-relaxed">{p.desc}</p>
                 </div>
               </div>
             ))}
@@ -460,7 +500,7 @@ const HomePage = () => {
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-primary-foreground mb-6 leading-[1.15]">
               Ready to <span className="text-primary">Accelerate</span> Your Digital Journey?
             </h2>
-            <p className="text-lg sm:text-xl text-primary-foreground/65 mb-10 leading-relaxed">
+            <p data-speakable className="text-lg sm:text-xl text-primary-foreground/65 mb-10 leading-relaxed">
               Let's build something extraordinary together. Free consultation for USA, Europe, India & Australian businesses.
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap gap-4 items-center justify-center">
