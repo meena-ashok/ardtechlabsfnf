@@ -49,14 +49,7 @@ export default function AdminLayout() {
       >
         <div className="flex items-center justify-between h-20 px-4 border-b border-secondary/20">
           <Link to="/admin" className="flex items-center gap-3 group">
-            <div className="relative">
-              <img
-                src="/logo.png"
-                alt="ARD Logo"
-                className="w-10 h-10 object-contain brightness-110 group-hover:scale-105 transition-transform"
-              />
-              <div className="absolute inset-0 bg-primary/20 blur-lg rounded-full -z-1 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
+            <img src="/logo.png" alt="ARD TechLabs Logo" className="h-8 w-auto" />
             <div className="flex flex-col">
               <span className="text-sm font-bold text-foreground leading-none">ARD TechLabs</span>
               <span className="text-[0.65rem] font-semibold text-primary/80 uppercase tracking-wider mt-0.5">Admin Control</span>
@@ -94,7 +87,7 @@ export default function AdminLayout() {
         </nav>
         <div className="absolute bottom-0 left-0 right-0 p-3 border-t border-secondary/20 bg-background-alt">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold text-primary-foreground" style={{ background: "var(--gradient-orange)" }}>
+             <div className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold text-primary-foreground" style={{ background: "var(--gradient-orange)" }}>
               {user?.name?.charAt(0) || "A"}
             </div>
             <div className="flex-1 min-w-0">
@@ -124,6 +117,8 @@ export default function AdminLayout() {
           <div className="flex-1" />
           <Link
             to="/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-xs font-medium text-muted-foreground hover:text-primary transition-colors"
           >
             View Site

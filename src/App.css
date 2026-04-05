@@ -1,58 +1,97 @@
+/* Base styles */
+:root {
+  --toast-bg: #1a1a1a;
+  --toast-fg: #ffffff;
+  --toast-border: #333333;
+}
+
 #root {
   max-width: 100%;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Responsive grid and layout adjustments */
+.container {
+  width: 100%;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
   }
 }
 
-.card {
-  padding: 2em;
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
 }
 
-.read-the-docs {
-  color: #888;
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
 }
 
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+/* Typography adjustments for smaller screens */
 @media (max-width: 768px) {
-  #root {
-    padding: 1rem;
+  h1, .text-5xl {
+    font-size: 2.5rem; /* 40px */
+  }
+
+  h2, .text-4xl {
+    font-size: 2rem; /* 32px */
+  }
+
+  h3, .text-3xl {
+    font-size: 1.75rem; /* 28px */
   }
 }
 
 @media (max-width: 480px) {
-  #root {
-    padding: 0.5rem;
+  h1, .text-5xl {
+    font-size: 2rem; /* 32px */
   }
 
-  .card {
-    padding: 1em;
+  h2, .text-4xl {
+    font-size: 1.75rem; /* 28px */
   }
+
+  h3, .text-3xl {
+    font-size: 1.5rem; /* 24px */
+  }
+
+  .container {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+/* Ensure flexible images and media */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile navigation improvements */
+.mobile-nav {
+  /* Add styles for a hamburger menu or similar mobile navigation pattern */
 }

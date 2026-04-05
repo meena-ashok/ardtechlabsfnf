@@ -85,7 +85,7 @@ public class PublicController {
     }
 
     @PostMapping("/contact")
-    public ResponseEntity<?> submitContact(@RequestBody ContactMessage message) {
+    public ResponseEntity<?> submitContact(@Valid @RequestBody ContactMessage message) {
         contactRepo.save(message);
         return ResponseEntity.ok(Map.of("success", true, "message", "Message sent successfully"));
     }
