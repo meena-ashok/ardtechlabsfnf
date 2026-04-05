@@ -3,7 +3,7 @@ import { useApiData } from "@/hooks/useApiData";
 import { publicApi } from "@/services/api";
 import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
-import TechIcon from "@/components/TechIcon";
+import { TechIcon } from "@/components/TechIcon";
 
 const fallbackServices = [
   { id: 1, icon: "Code", variant: "orange", title: "Full-Stack Web Development", description: "End-to-end web applications built with modern frameworks -- scalable, secure, and performance-optimized.", chips: "React,Next.js,Node.js,Django,PostgreSQL" },
@@ -54,7 +54,7 @@ const ServicesPage = () => {
               style={{ transitionDelay: `${(i % 3) * 0.1}s` }}
             >
               <div className="mb-3 sm:mb-4 transition-transform group-hover:scale-110 group-hover:-rotate-[8deg]">
-                <TechIcon name={svc.icon} size={44} />
+                <TechIcon icon={svc.icon} className="w-11 h-11" />
               </div>
               <h3 className="text-sm sm:text-base font-bold text-foreground mb-1.5 sm:mb-2">{svc.title}</h3>
               <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-3 sm:mb-4">{svc.description}</p>

@@ -1,5 +1,17 @@
 
 services:
+  - type: web
+    name: ardtechlabs-backend
+    env: java
+    buildCommand: ./mvnw clean install -DskipTests
+    startCommand: java -jar target/backend-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ardtechlabs-db
+          property: connectionString
+      - key: VITE_API_URL
+        value: https://ardtechlabs-backend.onrender.com
   - type: static_site
     name: ardtechlabs-frontend
     env: static
@@ -7,5 +19,11 @@ services:
     staticPublishPath: dist
     routes:
       - type: rewrite
+        source: "/api/*"
+        destination: "https://ardtechlabs-backend.onrender.com/api/*"
+      - type: rewrite
         source: "/*"
         destination: "/index.html"
+databases:
+  - name: ardtechlabs-db
+    plan: free

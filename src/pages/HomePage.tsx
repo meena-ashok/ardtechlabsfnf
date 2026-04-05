@@ -4,7 +4,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
 import { FiCode, FiSmartphone, FiCloud, FiShield, FiGlobe, FiHeadphones, FiAward, FiRefreshCw, FiArrowRight } from "react-icons/fi";
-import TechIcon from "@/components/TechIcon";
+import {TechIcon} from "@/components/TechIcon";
 
 const heroWords = ["Technology", "Innovation", "Excellence", "The Future"];
 
@@ -301,7 +301,7 @@ const HomePage = () => {
                   "Flutter",
                 ].map((tech, i) => (
                   <div key={tech} className="glass-card shadow-lg bg-background-elevated/[0.4] border border-white/5 rounded-2xl p-5 text-center hover:-translate-y-2 hover:border-primary/40 hover:bg-primary/[0.08] transition-all duration-300" style={{ transitionDelay: `${i * 0.05}s` }}>
-                    <TechIcon name={tech} size={40} />
+                    <TechIcon icon={tech} />
                     <span className="text-[0.65rem] font-black text-muted-foreground uppercase tracking-widest mt-3 block">{tech}</span>
                   </div>
                 ))}

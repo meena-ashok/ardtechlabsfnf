@@ -3,7 +3,7 @@ import { useApiData } from "@/hooks/useApiData";
 import { publicApi } from "@/services/api";
 import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
-import TechIcon from "@/components/TechIcon";
+import { TechIcon } from "@/components/TechIcon";
 
 const fallbackStacks = [
   { id: 1, label: "Frontend", items: "React.js,Next.js,Vue.js,Nuxt,Angular,TypeScript,Tailwind CSS,JavaScript" },
@@ -68,7 +68,7 @@ const TechnologyPage = () => {
                 {/* Category Header */}
                 <div className="mb-4 pb-4 border-b border-secondary/20 flex items-center gap-3">
                   <div className="p-2.5 rounded-lg bg-primary/[0.12] group-hover:bg-primary/[0.2] transition-all">
-                    <TechIcon name={stack.label} size={32} />
+                    <TechIcon icon={stack.label} />
                   </div>
                   <h3 className="text-sm font-bold text-primary group-hover:text-orange-light transition-colors">
                     {stack.label}
@@ -83,7 +83,7 @@ const TechnologyPage = () => {
                       className="flex items-center gap-3 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-all duration-200 group/item"
                     >
                       <div className="w-6 h-6 flex-shrink-0 flex items-center justify-center">
-                        <TechIcon name={item} size={24} />
+                        <TechIcon icon={item} />
                       </div>
                       <span className="font-medium group-hover/item:translate-x-0.5 transition-transform">
                         {item}
@@ -111,7 +111,7 @@ const TechnologyPage = () => {
                 style={{ transitionDelay: `${(i % 6) * 0.08}s` }}
               >
                 <div className="mb-2.5 flex justify-center group-hover:scale-110 transition-transform duration-300">
-                  <TechIcon name={tool} size={52} />
+                  <TechIcon icon={tool} />
                 </div>
                 <p className="text-[0.68rem] sm:text-xs font-semibold text-muted-foreground group-hover:text-primary transition-colors">
                   {tool}
