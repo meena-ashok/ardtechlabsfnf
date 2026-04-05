@@ -103,11 +103,23 @@ const iconMap: { [key: string]: string } = {
 interface TechIconProps {
   icon: string;
   className?: string;
-  [key: string]: any; // Allow other props
+  [key: string]: any; 
 }
 
 export const TechIcon = ({ icon, className, ...props }: TechIconProps) => {
   const iconName = iconMap[icon] || iconMap['Default'];
+  const isLucide = iconName.startsWith('lucide:');
 
-  return <Icon icon={iconName} className={className} {...props} />;
+  return (
+    <Icon
+      icon={iconName}
+      className={className}
+      style={{ 
+        fontSize: isLucide ? '1em' : undefined, 
+        transform: isLucide ? 'scale(1.5)' : 'scale(1.4)',
+        ...props.style
+      }}
+      {...props}
+    />
+  );
 };

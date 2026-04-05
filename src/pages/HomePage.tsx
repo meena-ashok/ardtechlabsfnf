@@ -117,7 +117,7 @@ const HomePage = () => {
                   className="inline-flex items-center justify-center gap-2 font-bold text-sm px-7 py-3 rounded-[14px] text-primary-foreground shadow-[var(--shadow-orange)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-orange-lg)] active:scale-95 min-h-[48px] w-full sm:w-auto"
                   style={{ background: "var(--gradient-orange)" }}
                 >
-                  Get Free Consultation <TechIcon icon="ArrowRight" className="w-4 h-4" />
+                  Get Free Consultation <TechIcon icon="ArrowRight" />
                 </Link>
                 <Link
                   to="/portfolio"
@@ -157,7 +157,7 @@ const HomePage = () => {
                     { icon: "Shield", title: "Data & Analytics", sub: "Spark · Snowflake · dbt" },
                   ].map((item) => (
                     <div key={item.title} className="bg-background-elevated/[0.4] border border-white/[0.05] rounded-[20px] p-5 transition-all hover:bg-primary/[0.08] hover:border-primary/30 cursor-default group">
-                      <div className="group-hover:scale-110 transition-transform mb-3 opacity-90"><TechIcon icon={item.icon} className="w-5 h-5 text-primary"/></div>
+                      <div className="group-hover:scale-110 transition-transform mb-3 opacity-90 text-primary"><TechIcon icon={item.icon} /></div>
                       <h5 className="text-[0.95rem] font-bold text-foreground mb-1 group-hover:text-primary transition-colors">{item.title}</h5>
                       <p className="text-[0.75rem] text-muted-foreground font-medium">{item.sub}</p>
                     </div>
@@ -231,7 +231,7 @@ const HomePage = () => {
                 style={{ transitionDelay: `${i * 0.1}s` }}
               >
                 <div className="icon-box icon-box-orange mb-4 group-hover:scale-110 group-hover:-rotate-3 transition-transform">
-                  <TechIcon icon={svc.icon} className="w-6 h-6 text-primary" />
+                  <TechIcon icon={svc.icon} className="text-primary" />
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{svc.title}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed mb-4">{svc.desc}</p>
@@ -280,7 +280,7 @@ const HomePage = () => {
                 ))}
               </div>
               <Link to="/technology" className="inline-flex items-center gap-2 font-bold text-sm text-primary mt-12 hover:underline">
-                View All Technologies <TechIcon icon="ArrowRight" className="w-4 h-4" />
+                View All Technologies <TechIcon icon="ArrowRight" />
               </Link>
             </div>
             <div className="reveal-right">
@@ -431,7 +431,7 @@ const HomePage = () => {
                 className="inline-flex items-center justify-center gap-2 font-bold text-sm px-8 py-4 rounded-[14px] text-primary-foreground shadow-[var(--shadow-orange)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-orange-lg)] min-h-[56px] w-full sm:w-auto"
                 style={{ background: "var(--gradient-orange)" }}
               >
-                Get Free Consultation <TechIcon icon="ArrowRight" className="w-4 h-4" />
+                Get Free Consultation <TechIcon icon="ArrowRight" />
               </Link>
               <Link
                 to="/hire"

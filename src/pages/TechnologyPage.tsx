@@ -125,8 +125,8 @@ const TechnologyPage = () => {
         <div className="mt-16 sm:mt-20 pt-12 sm:pt-16 border-t border-secondary/20">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <article className="glass-card p-6 sm:p-7 reveal-up hover:border-primary/40 transition-all">
-              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
-                <TechIcon icon="Zap" className="w-6 h-6 text-primary" />
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
+                <TechIcon icon="Zap" />
               </div>
               <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary">Battle-Tested Stack</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">
@@ -135,8 +135,8 @@ const TechnologyPage = () => {
             </article>
 
             <article className="glass-card p-6 sm:p-7 reveal-up hover:border-primary/40 transition-all" style={{ transitionDelay: "0.1s" }}>
-              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
-                <TechIcon icon="CheckCircle" className="w-6 h-6 text-primary" />
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
+                <TechIcon icon="CheckCircle" />
               </div>
               <h3 className="text-lg font-bold text-foreground mb-2">Scalable Architecture</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">
@@ -145,8 +145,8 @@ const TechnologyPage = () => {
             </article>
 
             <article className="glass-card p-6 sm:p-7 reveal-up hover:border-primary/40 transition-all" style={{ transitionDelay: "0.2s" }}>
-              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
-                <TechIcon icon="Lock" className="w-6 h-6 text-primary" />
+              <div className="mb-4 inline-flex h-12 w-12 items-.center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
+                <TechIcon icon="Lock" />
               </div>
               <h3 className="text-lg font-bold text-foreground mb-2">Security & Compliance</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">
