@@ -3,8 +3,7 @@ import { useTypewriter } from "@/hooks/useTypewriter";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
-import { FiCode, FiSmartphone, FiCloud, FiShield, FiGlobe, FiHeadphones, FiAward, FiRefreshCw, FiArrowRight } from "react-icons/fi";
-import {TechIcon} from "@/components/TechIcon";
+import { TechIcon } from "@/components/TechIcon";
 
 const heroWords = ["Technology", "Innovation", "Excellence", "The Future"];
 
@@ -16,11 +15,11 @@ const stats = [
 ];
 
 const whyUs = [
-  { icon: <FiAward className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />, title: "Award-Winning", desc: "Recognised excellence in software delivery" },
-  { icon: <FiRefreshCw className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />, title: "Agile Delivery", desc: "2-week sprint cycles, always on time" },
-  { icon: <FiShield className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />, title: "Security-First", desc: "ISO 27001 & GDPR compliant" },
-  { icon: <FiHeadphones className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />, title: "24/7 Support", desc: "Always here when you need us" },
-  { icon: <FiGlobe className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />, title: "Global Reach", desc: "USA & Europe — 20+ countries" },
+  { icon: "Award", title: "Award-Winning", desc: "Recognised excellence in software delivery" },
+  { icon: "RefreshCw", title: "Agile Delivery", desc: "2-week sprint cycles, always on time" },
+  { icon: "Shield", title: "Security-First", desc: "ISO 27001 & GDPR compliant" },
+  { icon: "Headphones", title: "24/7 Support", desc: "Always here when you need us" },
+  { icon: "Globe", title: "Global Reach", desc: "USA & Europe — 20+ countries" },
 ];
 
 const processes = [
@@ -118,7 +117,7 @@ const HomePage = () => {
                   className="inline-flex items-center justify-center gap-2 font-bold text-sm px-7 py-3 rounded-[14px] text-primary-foreground shadow-[var(--shadow-orange)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-orange-lg)] active:scale-95 min-h-[48px] w-full sm:w-auto"
                   style={{ background: "var(--gradient-orange)" }}
                 >
-                  Get Free Consultation <FiArrowRight className="w-4 h-4" />
+                  Get Free Consultation <TechIcon icon="ArrowRight" className="w-4 h-4" />
                 </Link>
                 <Link
                   to="/portfolio"
@@ -133,7 +132,7 @@ const HomePage = () => {
             <div className="relative p-4 sm:p-6 hidden lg:block reveal-right" style={{ transitionDelay: "0.3s" }}>
               {/* Floating chip top */}
               <div className="absolute -top-6 -right-5 z-[3] backdrop-blur-2xl bg-background-card/[0.9] border border-primary/30 rounded-2xl px-5 py-4 flex items-center gap-4 shadow-[0_12px_40px_rgba(0,0,0,0.6)]" style={{ animation: "chip-float-1 4s ease-in-out infinite" }}>
-                <span className="text-2xl" role="img" aria-label="AI Solutions">🤖</span>
+                <TechIcon icon="AI / ML" className="text-2xl" />
                 <div>
                   <strong className="text-base font-extrabold text-foreground block">AI Solutions</strong>
                   <span className="text-[0.7rem] uppercase tracking-wider text-primary font-bold">LLMs · ML · NLP</span>
@@ -152,13 +151,13 @@ const HomePage = () => {
                 </div>
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   {[
-                    { icon: <FiCode className="w-5 h-5 text-primary" />, title: "Full-Stack Dev", sub: "React · Spring · Next.js" },
-                    { icon: <FiSmartphone className="w-5 h-5 text-navy-light" />, title: "Mobile Apps", sub: "Flutter · React Native" },
-                    { icon: <FiCloud className="w-5 h-5 text-primary" />, title: "Cloud & DevOps", sub: "AWS · K8s · Terraform" },
-                    { icon: <FiShield className="w-5 h-5 text-navy-light" />, title: "Data & Analytics", sub: "Spark · Snowflake · dbt" },
+                    { icon: "Code", title: "Full-Stack Dev", sub: "React · Spring · Next.js" },
+                    { icon: "Smartphone", title: "Mobile Apps", sub: "Flutter · React Native" },
+                    { icon: "Cloud", title: "Cloud & DevOps", sub: "AWS · K8s · Terraform" },
+                    { icon: "Shield", title: "Data & Analytics", sub: "Spark · Snowflake · dbt" },
                   ].map((item) => (
                     <div key={item.title} className="bg-background-elevated/[0.4] border border-white/[0.05] rounded-[20px] p-5 transition-all hover:bg-primary/[0.08] hover:border-primary/30 cursor-default group">
-                      <div className="group-hover:scale-110 transition-transform mb-3 opacity-90">{item.icon}</div>
+                      <div className="group-hover:scale-110 transition-transform mb-3 opacity-90"><TechIcon icon={item.icon} className="w-5 h-5 text-primary"/></div>
                       <h5 className="text-[0.95rem] font-bold text-foreground mb-1 group-hover:text-primary transition-colors">{item.title}</h5>
                       <p className="text-[0.75rem] text-muted-foreground font-medium">{item.sub}</p>
                     </div>
@@ -185,7 +184,7 @@ const HomePage = () => {
 
               {/* Floating chip bottom */}
               <div className="absolute -bottom-6 -left-5 z-[3] backdrop-blur-2xl bg-background-card/[0.9] border border-primary/30 rounded-2xl px-5 py-4 flex items-center gap-4 shadow-[0_12px_40px_rgba(0,0,0,0.6)]" style={{ animation: "chip-float-2 4.5s ease-in-out infinite" }}>
-                <span className="text-2xl" role="img" aria-label="Cloud DevOps">☁️</span>
+                <TechIcon icon="Cloud" className="text-2xl" />
                 <div>
                   <strong className="text-base font-extrabold text-foreground block">Cloud & DevOps</strong>
                   <span className="text-[0.7rem] uppercase tracking-wider text-primary font-bold">CI/CD · Docker · K8s</span>
@@ -201,7 +200,7 @@ const HomePage = () => {
         <div className="flex gap-0 will-change-transform" style={{ animation: "marquee 30s linear infinite" }}>
           {[...marqueeItems, ...marqueeItems].map((item, i) => (
             <div key={`${item}-${i}`} className="flex items-center gap-2 whitespace-nowrap px-5 sm:px-8 text-muted-foreground text-xs sm:text-sm font-medium border-r border-secondary/20 flex-shrink-0 hover:text-primary transition-colors">
-              {item}
+              <TechIcon icon={item} />
             </div>
           ))}
         </div>
@@ -220,10 +219,10 @@ const HomePage = () => {
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {[
-              { icon: <FiCode className="w-6 h-6 text-primary" />, title: "Full-Stack Web", desc: "Enterprise-grade web applications using React, Spring, and modern frameworks.", link: "/services" },
-              { icon: <FiSmartphone className="w-6 h-6 text-navy-light" />, title: "Mobile Apps", desc: "Native-performance iOS & Android apps via Flutter and React Native.", link: "/services" },
-              { icon: <FiCloud className="w-6 h-6 text-primary" />, title: "Cloud & DevOps", desc: "Automated pipelines and scalable infrastructure on AWS & Azure.", link: "/services" },
-              { icon: <FiShield className="w-6 h-6 text-navy-light" />, title: "Data Engineering", desc: "Robust data pipelines and real-time analytics for business intelligence.", link: "/services" },
+              { icon: "Code", title: "Full-Stack Web", desc: "Enterprise-grade web applications using React, Spring, and modern frameworks.", link: "/services" },
+              { icon: "Smartphone", title: "Mobile Apps", desc: "Native-performance iOS & Android apps via Flutter and React Native.", link: "/services" },
+              { icon: "Cloud", title: "Cloud & DevOps", desc: "Automated pipelines and scalable infrastructure on AWS & Azure.", link: "/services" },
+              { icon: "Shield", title: "Data Engineering", desc: "Robust data pipelines and real-time analytics for business intelligence.", link: "/services" },
             ].map((svc, i) => (
               <Link
                 key={svc.title}
@@ -232,12 +231,12 @@ const HomePage = () => {
                 style={{ transitionDelay: `${i * 0.1}s` }}
               >
                 <div className="icon-box icon-box-orange mb-4 group-hover:scale-110 group-hover:-rotate-3 transition-transform">
-                  {svc.icon}
+                  <TechIcon icon={svc.icon} className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{svc.title}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed mb-4">{svc.desc}</p>
                 <span className="text-[0.65rem] font-bold text-primary uppercase tracking-widest flex items-center gap-2">
-                  Learn More <span className="group-hover:translate-x-1 transition-transform"><FiArrowRight /></span>
+                  Learn More <span className="group-hover:translate-x-1 transition-transform"><TechIcon icon="ArrowRight" /></span>
                 </span>
               </Link>
             ))}
@@ -281,7 +280,7 @@ const HomePage = () => {
                 ))}
               </div>
               <Link to="/technology" className="inline-flex items-center gap-2 font-bold text-sm text-primary mt-12 hover:underline">
-                View All Technologies <FiArrowRight className="w-4 h-4" />
+                View All Technologies <TechIcon icon="ArrowRight" className="w-4 h-4" />
               </Link>
             </div>
             <div className="reveal-right">
@@ -338,7 +337,7 @@ const HomePage = () => {
               </blockquote>
               <div className="flex items-center gap-3 mt-auto">
                 <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex-shrink-0 flex items-center justify-center text-sm border-2 border-foreground/[0.08]" style={{ background: "var(--gradient-orange)" }}>
-                  👤
+                  <TechIcon icon="Users" />
                 </div>
                 <div>
                   <div className="text-sm font-bold text-foreground">Sarah Mitchell</div>
@@ -359,7 +358,7 @@ const HomePage = () => {
               </blockquote>
               <div className="flex items-center gap-3 mt-auto">
                 <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex-shrink-0 flex items-center justify-center text-sm border-2 border-foreground/[0.08]" style={{ background: "var(--gradient-orange)" }}>
-                  👤
+                  <TechIcon icon="Users" />
                 </div>
                 <div>
                   <div className="text-sm font-bold text-foreground">Rahul Sharma</div>
@@ -380,7 +379,7 @@ const HomePage = () => {
               </blockquote>
               <div className="flex items-center gap-3 mt-auto">
                 <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex-shrink-0 flex items-center justify-center text-sm border-2 border-foreground/[0.08]" style={{ background: "var(--gradient-orange)" }}>
-                  👤
+                  <TechIcon icon="Users" />
                 </div>
                 <div>
                   <div className="text-sm font-bold text-foreground">Emma Lawson</div>
@@ -432,7 +431,7 @@ const HomePage = () => {
                 className="inline-flex items-center justify-center gap-2 font-bold text-sm px-8 py-4 rounded-[14px] text-primary-foreground shadow-[var(--shadow-orange)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-orange-lg)] min-h-[56px] w-full sm:w-auto"
                 style={{ background: "var(--gradient-orange)" }}
               >
-                Get Free Consultation <FiArrowRight className="w-4 h-4" />
+                Get Free Consultation <TechIcon icon="ArrowRight" className="w-4 h-4" />
               </Link>
               <Link
                 to="/hire"

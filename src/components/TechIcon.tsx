@@ -1,3 +1,112 @@
-export const TechIcon = ({ icon, className }: { icon: string, className?: string }) => {
-    return <div className={className}>{icon}</div>;
+
+import { Icon } from '@iconify/react';
+
+const iconMap: { [key: string]: string } = {
+  // Frontend
+  'React': 'devicon:react',
+  'React.js': 'devicon:react',
+  'Next.js': 'devicon:nextjs-wordmark',
+  'Vue.js': 'devicon:vuejs',
+  'Nuxt': 'devicon:nuxtjs',
+  'Angular': 'devicon:angular',
+  'TypeScript': 'devicon:typescript',
+  'JavaScript': 'devicon:javascript',
+  'Tailwind CSS': 'devicon:tailwindcss',
+  // Backend
+  'Node.js': 'devicon:nodejs-wordmark',
+  'Express': 'devicon:express-wordmark',
+  'Python': 'logos:python',
+  'Django': 'devicon:django-plain-wordmark',
+  'FastAPI': 'devicon:fastapi',
+  'Go': 'devicon:go-wordmark',
+  'Java': 'devicon:java-wordmark',
+  'Spring Boot': 'devicon:spring-wordmark',
+  'GraphQL': 'devicon:graphql',
+  // Mobile
+  'Flutter': 'devicon:flutter',
+  'React Native': 'devicon:react',
+  'Swift': 'devicon:swift',
+  'Kotlin': 'devicon:kotlin',
+  'Ionic': 'logos:ionic',
+  // AI / ML
+  'AI / ML': 'lucide:brain-circuit',
+  'OpenAI': 'simple-icons:openai',
+  'LangChain': 'simple-icons:langchain',
+  'LlamaIndex': 'simple-icons:llama', // Placeholder
+  'TensorFlow': 'devicon:tensorflow-wordmark',
+  'PyTorch': 'devicon:pytorch-wordmark',
+  'Hugging Face': 'simple-icons:huggingface',
+  'Pinecone': 'simple-icons:pinecone',
+  'Weaviate': 'simple-icons:weaviate',
+  // Cloud
+  'Cloud': 'lucide:cloud',
+  'AWS': 'logos:aws',
+  'Azure': 'devicon:azure-wordmark',
+  'Google Cloud': 'devicon:googlecloud-wordmark',
+  'Terraform': 'devicon:terraform-wordmark',
+  'Pulumi': 'simple-icons:pulumi',
+  'Firebase': 'logos:firebase',
+  // DevOps
+  'DevOps': 'lucide:refresh-cw',
+  'Docker': 'devicon:docker-wordmark',
+  'Kubernetes': 'devicon:kubernetes-wordmark',
+  'GitHub Actions': 'devicon:githubactions',
+  'Jenkins': 'devicon:jenkins',
+  'CircleCI': 'devicon:circleci-wordmark',
+  'ArgoCD': 'simple-icons:argo',
+  'Prometheus': 'devicon:prometheus-wordmark',
+  'Grafana': 'devicon:grafana-wordmark',
+  // Databases
+  'Databases': 'lucide:database',
+  'PostgreSQL': 'devicon:postgresql-wordmark',
+  'MySQL': 'devicon:mysql-wordmark',
+  'MongoDB': 'devicon:mongodb-wordmark',
+  'Redis': 'devicon:redis-wordmark',
+  'Elasticsearch': 'devicon:elasticsearch-wordmark',
+  'Snowflake': 'simple-icons:snowflake',
+  'BigQuery': 'simple-icons:googlebigquery',
+  // Testing
+  'Testing & QA': 'lucide:vial',
+  'Jest': 'devicon:jest',
+  'Playwright': 'devicon:playwright-wordmark',
+  'Cypress': 'devicon:cypressio-wordmark',
+  'Selenium': 'devicon:selenium',
+
+  // Service & Page Icons
+  'Code': 'lucide:code-2',
+  'Smartphone': 'lucide:smartphone',
+  'Brain': 'lucide:brain',
+  'RefreshCw': 'lucide:refresh-cw',
+  'Users': 'lucide:users',
+  'Palette': 'lucide:palette',
+  'Full-Stack Web Development': 'lucide:code-2',
+  'Mobile App Development': 'lucide:smartphone',
+  'AI & Machine Learning': 'lucide:brain-circuit',
+  'Cloud Solutions': 'lucide:cloud',
+  'DevOps & CI/CD': 'lucide:refresh-cw',
+  'IT Consulting & Strategy': 'lucide:users',
+  'Data Engineering & Analytics': 'lucide:database',
+  'UI/UX Design': 'lucide:palette',
+  'Frontend': 'lucide:layout-template',
+  'Backend': 'lucide:server-cog',
+  'Mobile': 'lucide:smartphone',
+  'Zap': 'lucide:zap',
+  'CheckCircle': 'lucide:check-circle',
+  'Lock': 'lucide:lock',
+  'ArrowRight': 'lucide:arrow-right',
+
+  // Default
+  'Default': 'lucide:code',
+};
+
+interface TechIconProps {
+  icon: string;
+  className?: string;
+  [key: string]: any; // Allow other props
+}
+
+export const TechIcon = ({ icon, className, ...props }: TechIconProps) => {
+  const iconName = iconMap[icon] || iconMap['Default'];
+
+  return <Icon icon={iconName} className={className} {...props} />;
 };
