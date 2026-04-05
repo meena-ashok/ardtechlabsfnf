@@ -4,6 +4,7 @@ import { useApiData } from "@/hooks/useApiData";
 import { publicApi } from "@/services/api";
 import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
+import { TechIcon } from "@/components/TechIcon";
 
 const categories = ["All Projects", "Web Apps", "Mobile", "AI / ML", "Cloud"];
 const categoryMap: Record<string, string> = { "All Projects": "all", "Web Apps": "web", "Mobile": "mobile", "AI / ML": "ai", "Cloud": "cloud" };
@@ -19,6 +20,13 @@ const fallbackProjects = [
   { id: 8, category: "cloud", title: "FactoryIoT Hub", description: "Industrial IoT on Azure for real-time machine monitoring in Germany.", chips: "Azure IoT,Kubernetes,Grafana" },
   { id: 9, category: "web", title: "SoundWave Studio", description: "Collaborative music production platform with real-time multi-user sessions.", chips: "React,WebRTC,AWS" },
 ];
+
+const categoryIcons: { [key: string]: string } = {
+  web: "Code",
+  mobile: "Smartphone",
+  ai: "Brain",
+  cloud: "Cloud",
+};
 
 const PortfolioPage = () => {
   const ref = useScrollReveal();
@@ -65,23 +73,26 @@ const PortfolioPage = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {filtered.map((p: any, i: number) => {
             const cat = p.category || p.cat;
+            const icon = categoryIcons[cat] || "Code";
+
             return (
               <article
                 key={p.id || p.title}
                 className="reveal-up glass-card overflow-hidden group"
                 style={{ transitionDelay: `${i * 0.04}s` }}
               >
-                <div className="h-32 sm:h-40 flex items-center justify-center bg-gradient-to-br from-primary/10 to-navy/15 relative">
-                  <span className="text-3xl sm:text-4xl transition-transform group-hover:scale-110 group-hover:-rotate-[5deg]">
-                    {cat === "web" ? "\uD83C\uDF10" : cat === "mobile" ? "\uD83D\uDCF1" : cat === "ai" ? "\uD83E\uDD16" : "\u2601\uFE0F"}
-                  </span>
+                <div className="h-36 sm:h-44 flex items-center justify-center bg-gradient-to-br from-primary/10 to-navy/15 relative text-primary">
+                  <TechIcon
+                    icon={icon}
+                    className="text-5xl sm:text-6xl transition-transform group-hover:scale-110 group-hover:-rotate-[5deg]"
+                  />
                 </div>
                 <div className="p-4 sm:p-5">
-                  <div className="text-[0.6rem] sm:text-[0.65rem] font-semibold text-primary tracking-wider uppercase mb-1 sm:mb-1.5">
+                  <div className="text-[0.6rem] sm:text-xs font-bold text-primary tracking-widest uppercase mb-1.5 sm:mb-2">
                     {cat === "ai" ? "AI / ML" : cat.charAt(0).toUpperCase() + cat.slice(1)}
                   </div>
-                  <h3 className="text-sm sm:text-base font-bold text-foreground mb-1 sm:mb-1.5">{p.title}</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-2.5 sm:mb-3">{p.description}</p>
+                  <h3 className="text-base sm:text-lg font-bold text-foreground mb-2">{p.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{p.description}</p>
                   <div className="flex flex-wrap gap-1.5">
                     {(typeof p.chips === "string" ? p.chips.split(",") : p.chips || []).map((c: string) => (
                       <span key={c} className="chip-blue chip-tag">{c.trim()}</span>

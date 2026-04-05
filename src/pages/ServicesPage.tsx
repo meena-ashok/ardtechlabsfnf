@@ -53,11 +53,15 @@ const ServicesPage = () => {
               className="reveal-up glass-card p-5 sm:p-7 group cursor-default"
               style={{ transitionDelay: `${(i % 3) * 0.1}s` }}
             >
-              <div className="mb-3 sm:mb-4 transition-transform group-hover:scale-110 group-hover:-rotate-[8deg]">
-                <TechIcon icon={svc.icon} className="w-11 h-11" />
+              <div
+                className={`icon-box ${
+                  svc.variant === 'navy' ? 'icon-box-blue' : 'icon-box-orange'
+                } mb-4 transition-transform group-hover:scale-110 group-hover:-rotate-[8deg]`}
+              >
+                <TechIcon icon={svc.icon} />
               </div>
-              <h3 className="text-sm sm:text-base font-bold text-foreground mb-1.5 sm:mb-2">{svc.title}</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-3 sm:mb-4">{svc.description}</p>
+              <h3 className="text-lg font-bold text-foreground mb-2">{svc.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">{svc.description}</p>
               <div className="flex flex-wrap gap-1.5">
                 {(typeof svc.chips === "string" ? svc.chips.split(",") : svc.chips || []).map((chip: string) => (
                   <span

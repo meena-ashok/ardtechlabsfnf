@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Sparkles, Mail, MapPin, Phone, Linkedin, Twitter, Facebook } from "lucide-react";
+import { ArrowUpRight, Sparkles, Mail, MapPin, Phone, Linkedin } from "lucide-react";
 import { useSiteSettings } from "@/hooks/useSiteSettings";
 
 const Footer = () => {
@@ -132,12 +132,6 @@ const Footer = () => {
           <div className="flex items-center gap-4">
             <a href="https://www.linkedin.com/company/ardtechlabs/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer">
               <Linkedin className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
-            </a>
-            <a href="https://twitter.com/ardtechlabs" target="_blank" rel="noopener noreferrer">
-              <Twitter className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
-            </a>
-            <a href="https://facebook.com/ardtechlabs" target="_blank" rel="noopener noreferrer">
-              <Facebook className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
             </a>
           </div>
           <div className="flex gap-3 sm:gap-5 flex-wrap justify-center">
