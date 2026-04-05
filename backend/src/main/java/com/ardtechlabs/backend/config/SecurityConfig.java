@@ -34,13 +34,10 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/api/public/contact").permitAll()
                 // Auth endpoints
                 .requestMatchers("/api/auth/**").permitAll()
-                // H2 console
-                .requestMatchers("/h2-console/**").permitAll()
                 // Admin endpoints require authentication
                 .requestMatchers("/api/admin/**").authenticated()
                 .anyRequest().permitAll()
             )
-            .headers(headers -> headers.frameOptions(fo -> fo.sameOrigin()))
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
