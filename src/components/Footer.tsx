@@ -130,7 +130,7 @@ const Footer = () => {
             © {new Date().getFullYear()} ARD TechLabs. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <a href="https://www.linkedin.com/company/ard-tech-labs/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/company/ardtechlabs/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer">
               <Linkedin className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
             </a>
             <a href="https://twitter.com/ardtechlabs" target="_blank" rel="noopener noreferrer">
