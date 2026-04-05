@@ -30,9 +30,42 @@ const aboutJsonLd = {
     areaServed: ["United States", "United Kingdom", "Germany", "France", "Netherlands"],
     description: "ARD TechLabs is a premier IT services and consulting company with 9+ years of experience delivering innovative software solutions for businesses across the USA, UK, Europe, and Australia.",
     knowsAbout: ["Full-Stack Development", "Mobile Apps", "AI/ML", "Cloud Computing", "DevOps", "Data Engineering", "UI/UX Design", "IT Consulting"],
-    sameAs: [],
+    sameAs: [
+      "https://www.linkedin.com/company/ard-tech-labs/"
+    ],
   },
 };
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ardtechlabs.lovable.app"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About Us",
+      "item": "https://ardtechlabs.lovable.app/about"
+    }
+  ]
+};
+
+const personJsonLd = fallbackTeam.map(member => ({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": member.name,
+  "jobTitle": member.role,
+  "description": member.bio,
+  "worksFor": {
+    "@type": "Organization",
+    "name": "ARD TechLabs"
+  }
+}));
 
 const AboutPage = ({ analyticsConfig }) => {
   const ref = useScrollReveal();
@@ -44,7 +77,7 @@ const AboutPage = ({ analyticsConfig }) => {
         title="About ARD TechLabs | Our Mission, Values, and Team"
         description="Discover ARD TechLabs, a leading IT services and consulting firm. Learn about our mission, our commitment to innovation, and the expert team driving our success. We have over 9 years of experience serving clients across the USA, UK, Europe, and Australia."
         canonical="/about"
-        jsonLd={aboutJsonLd}
+        jsonLd={[aboutJsonLd, breadcrumbJsonLd, ...personJsonLd]}
         analyticsConfig={analyticsConfig}
       />
       <div className="container">
@@ -64,10 +97,10 @@ const AboutPage = ({ analyticsConfig }) => {
           </div>
           <div className="reveal-right">
             <SectionHeader eyebrow="About Us" title="Building the" accent="Future of Tech" />
-            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+            <p data-speakable className="text-sm text-muted-foreground leading-relaxed mb-3">
               ARD TechLabs is a premier IT services and consulting company with 9+ years of experience delivering innovative software solutions for businesses across the USA, UK, Europe, and Australia.
             </p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p data-speakable className="text-sm text-muted-foreground leading-relaxed">
               From startups to Fortune 500 enterprises, we partner with ambitious organisations to design, build, and scale technology that drives real business growth.
             </p>
           </div>
@@ -83,7 +116,7 @@ const AboutPage = ({ analyticsConfig }) => {
             >
               <div className="mb-2 sm:mb-3 transition-transform group-hover:scale-110">{v.icon}</div>
               <h4 className="text-xs sm:text-sm font-bold text-foreground mb-1">{v.title}</h4>
-              <p className="text-[0.68rem] sm:text-xs text-muted-foreground">{v.desc}</p>
+              <p data-speakable className="text-[0.68rem] sm:text-xs text-muted-foreground">{v.desc}</p>
             </div>
           ))}
         </div>
@@ -101,7 +134,7 @@ const AboutPage = ({ analyticsConfig }) => {
               </div>
               <h4 className="text-sm sm:text-base font-bold text-foreground mb-0.5">{member.name}</h4>
               <div className="text-[0.65rem] sm:text-xs font-semibold text-primary mb-2 sm:mb-2.5">{member.role}</div>
-              <p className="text-[0.68rem] sm:text-xs text-muted-foreground leading-relaxed">{member.bio}</p>
+              <p data-speakable className="text-[0.68rem] sm:text-xs text-muted-foreground leading-relaxed">{member.bio}</p>
             </div>
           ))}
         </div>
