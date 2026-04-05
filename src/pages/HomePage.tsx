@@ -61,6 +61,36 @@ const organizationJsonLd = {
   knowsAbout: ["Full-Stack Development", "Mobile Apps", "AI/ML", "Cloud Computing", "DevOps", "Data Engineering", "UI/UX Design", "IT Consulting"],
 };
 
+const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    url: "https://ardtechlabs.lovable.app",
+    potentialAction: {
+        "@type": "SearchAction",
+        target: "https://ardtechlabs.lovable.app/search?q={search_term_string}",
+        "query-input": "required name=search_term_string",
+    },
+};
+
+const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Software Development",
+    provider: {
+        "@type": "Organization",
+        name: "ARD TechLabs",
+    },
+    areaServed: {
+        "@type": "Continent",
+        name: "Europe",
+    },
+    description: "Custom software development, including full-stack, mobile, AI/ML, cloud, and DevOps.",
+    serviceOutput: {
+        "@type": "SoftwareApplication",
+        name: "Custom Software Solutions",
+    },
+};
+
 const analyticsConfig = {
   ga4Id: "G-XXXXXXXXXX", // Replace with your GA4 ID
   clarityId: "XXXXXXXXXX", // Replace with your Clarity ID
@@ -73,10 +103,10 @@ const HomePage = () => {
   return (
     <div ref={revealRef}>
       <SEO
-        title="ARD TechLabs | IT Services & Consulting – Full-Stack, AI, Cloud & DevOps"
-        description="ARD TechLabs delivers award-winning full-stack development, mobile apps, AI/ML, cloud & DevOps for businesses across USA, Europe, India, and Australia. 150+ projects · 80+ clients · 9+ years."
+        title="ARD TechLabs | Premier IT Services & Consulting Firm"
+        description="ARD TechLabs: Your trusted partner for cutting-edge IT services. We specialize in full-stack development, AI/ML, cloud solutions, and DevOps to drive your business forward. Serving clients in the USA, Europe, India, and Australia."
         canonical="/"
-        jsonLd={organizationJsonLd}
+        jsonLd={[organizationJsonLd, websiteJsonLd, serviceJsonLd]}
         analyticsConfig={analyticsConfig}
       />
 
@@ -229,7 +259,7 @@ const HomePage = () => {
             {[
               { icon: "Code", title: "Full-Stack Web", desc: "Enterprise-grade web applications using React, Spring, and modern frameworks.", link: "/services" },
               { icon: "Smartphone", title: "Mobile Apps", desc: "Native-performance iOS & Android apps via Flutter and React Native.", link: "/services" },
-              { icon: "Cloud", title: "Cloud & DevOps", desc: "Automated pipelines and scalable infrastructure on AWS & Azure.", link: "/services" },
+              { icon: "Cloud", title: "Cloud & DevOps", desc: "Automated pipelines and scalable infrastructure on AWS & Azure.", link: " /services" },
               { icon: "Database", title: "Data Engineering", desc: "Robust data pipelines and real-time analytics for business intelligence.", link: "/services" },
             ].map((svc, i) => (
               <Link

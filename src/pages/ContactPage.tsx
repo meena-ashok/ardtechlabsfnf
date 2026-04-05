@@ -39,7 +39,22 @@ const ContactPage = ({ analyticsConfig }) => {
         postalCode: "380060",
         addressCountry: "IN",
       },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+          ],
+          opens: "09:00",
+          closes: "18:00",
+        },
+      ],
     },
+    areaServed: ["US", "GB", "DE", "FR", "NL", "IN", "AU"],
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -63,8 +78,8 @@ const ContactPage = ({ analyticsConfig }) => {
   return (
     <div ref={ref} className="pt-20 sm:pt-24 pb-16 sm:pb-20 bg-background-alt">
       <SEO
-        title="Contact Us -- Free IT Consultation for USA, UK, Europe & Australia"
-        description="Contact ARD TechLabs for a free IT consultation. Serving businesses across the USA, UK, Europe, and Australia with custom software solutions."
+        title="Contact ARD TechLabs for Expert IT Services | Free Consultation"
+        description="Get in touch with ARD TechLabs for a free, no-obligation consultation on our IT services. We provide expert full-stack development, AI/ML, cloud, and DevOps solutions for businesses in the USA, UK, Europe, and Australia. Let's build your next project together."
         canonical="/contact"
         jsonLd={contactJsonLd}
         analyticsConfig={analyticsConfig}

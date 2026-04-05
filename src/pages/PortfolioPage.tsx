@@ -28,6 +28,18 @@ const categoryIcons: { [key: string]: string } = {
   cloud: "Cloud",
 };
 
+const portfolioJsonLd = fallbackProjects.map((project) => ({
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    description: project.description,
+    keywords: project.chips,
+    author: {
+        "@type": "Organization",
+        name: "ARD TechLabs",
+    },
+}));
+
 const PortfolioPage = ({ analyticsConfig }) => {
   const ref = useScrollReveal();
   const [filter, setFilter] = useState("all");
@@ -38,9 +50,10 @@ const PortfolioPage = ({ analyticsConfig }) => {
   return (
     <div ref={ref} className="pt-20 sm:pt-24 pb-16 sm:pb-20 bg-background-alt">
       <SEO
-        title="Portfolio -- Web, Mobile, AI & Cloud Projects"
-        description="Browse ARD TechLabs' portfolio of web apps, mobile apps, AI/ML solutions, and cloud projects delivered for clients across the USA, UK, Europe, and Australia."
+        title="Our Work | ARD TechLabs Portfolio"
+        description="Explore the innovative projects created by ARD TechLabs. Our portfolio showcases our expertise in web and mobile apps, AI/ML solutions, and cloud infrastructure for clients in the USA, UK, Europe, and Australia."
         canonical="/portfolio"
+        jsonLd={portfolioJsonLd}
         analyticsConfig={analyticsConfig}
       />
       <div className="container">

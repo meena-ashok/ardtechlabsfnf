@@ -16,16 +16,22 @@ const fallbackServices = [
   { id: 8, icon: "PenTool", variant: "navy", title: "UI/UX Design", description: "User-centred design, prototypes, design systems, and usability research creating delightful experiences.", chips: "Figma,Design Systems,Prototyping,Research" },
 ];
 
-const serviceJsonLd = {
+const servicesJsonLd = fallbackServices.map((service) => ({
   "@context": "https://schema.org",
-  "@type": "ItemList",
-  name: "IT Services by ARD TechLabs",
-  itemListElement: fallbackServices.map((s, i) => ({
-    "@type": "ListItem",
-    position: i + 1,
-    item: { "@type": "Service", name: s.title, description: s.description },
-  })),
-};
+  "@type": "Service",
+  name: service.title,
+  description: service.description,
+  serviceType: service.title,
+  provider: {
+    "@type": "Organization",
+    name: "ARD TechLabs",
+  },
+  areaServed: {
+    "@type": "GeoShape",
+    description: "USA, UK, Europe, and Australia",
+  },
+  keywords: service.chips,
+}));
 
 const ServicesPage = ({ analyticsConfig }) => {
   const ref = useScrollReveal();
@@ -34,10 +40,10 @@ const ServicesPage = ({ analyticsConfig }) => {
   return (
     <div ref={ref} className="pt-20 sm:pt-24 pb-16 sm:pb-20 bg-background">
       <SEO
-        title="IT Services -- Full-Stack, AI, Cloud, Mobile & DevOps"
-        description="Comprehensive IT services including full-stack web development, mobile apps, AI/ML, cloud solutions, and DevOps for businesses across the USA, UK, Europe, and Australia."
+        title="Expert IT Services for Business Growth | ARD TechLabs"
+        description="Explore the comprehensive IT services offered by ARD TechLabs. We specialize in full-stack web development, mobile apps, AI/ML solutions, cloud computing, and DevOps. Serving clients in the USA, UK, Europe, and Australia."
         canonical="/services"
-        jsonLd={serviceJsonLd}
+        jsonLd={servicesJsonLd}
         analyticsConfig={analyticsConfig}
       />
       <div className="container">

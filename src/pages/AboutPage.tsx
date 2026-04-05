@@ -28,6 +28,9 @@ const aboutJsonLd = {
     foundingDate: "2015",
     numberOfEmployees: { "@type": "QuantitativeValue", minValue: 40 },
     areaServed: ["United States", "United Kingdom", "Germany", "France", "Netherlands"],
+    description: "ARD TechLabs is a premier IT services and consulting company with 9+ years of experience delivering innovative software solutions for businesses across the USA, UK, Europe, and Australia.",
+    knowsAbout: ["Full-Stack Development", "Mobile Apps", "AI/ML", "Cloud Computing", "DevOps", "Data Engineering", "UI/UX Design", "IT Consulting"],
+    sameAs: [],
   },
 };
 
@@ -38,8 +41,8 @@ const AboutPage = ({ analyticsConfig }) => {
   return (
     <div ref={ref} className="pt-20 sm:pt-24 pb-16 sm:pb-20 bg-background">
       <SEO
-        title="About Us -- 9+ Years of IT Excellence"
-        description="Learn about ARD TechLabs: a premier IT services firm with 40+ engineers, 150+ projects, and 9+ years of delivering software solutions across the USA, UK, Europe, and Australia."
+        title="About ARD TechLabs | Our Mission, Values, and Team"
+        description="Discover ARD TechLabs, a leading IT services and consulting firm. Learn about our mission, our commitment to innovation, and the expert team driving our success. We have over 9 years of experience serving clients across the USA, UK, Europe, and Australia."
         canonical="/about"
         jsonLd={aboutJsonLd}
         analyticsConfig={analyticsConfig}
