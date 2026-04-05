@@ -28,13 +28,19 @@ const sections = [
   },
 ];
 
-export default function PrivacyPolicyPage() {
+const analyticsConfig = {
+  ga4Id: "G-XXXXXXXXXX", // Replace with your GA4 ID
+  clarityId: "XXXXXXXXXX", // Replace with your Clarity ID
+};
+
+const PrivacyPolicyPage = () => {
   return (
     <div className="bg-background pt-20 sm:pt-24 pb-16 sm:pb-20">
       <SEO
         title="Privacy Policy"
         description="Privacy Policy for ARD TechLabs covering data handling, security controls, regional compliance, and user rights across the USA, UK, Europe, and Australia."
         canonical="/privacy-policy"
+        analyticsConfig={analyticsConfig}
       />
       <div className="container max-w-4xl">
         <SectionHeader
@@ -54,4 +60,6 @@ export default function PrivacyPolicyPage() {
       </div>
     </div>
   );
-}
+};
+
+export default PrivacyPolicyPage;

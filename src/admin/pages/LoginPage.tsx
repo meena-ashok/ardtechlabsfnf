@@ -81,9 +81,6 @@ export default function LoginPage() {
             {loading ? "Signing in..." : "Sign In"}
           </button>
         </form>
-        <p className="text-center text-[0.65rem] text-muted-foreground mt-4">
-          Default: admin@ardtechlabs.com / admin123
-        </p> 
       </div>
     </div>
   );

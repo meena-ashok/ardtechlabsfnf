@@ -28,7 +28,7 @@ const categoryIcons: { [key: string]: string } = {
   cloud: "Cloud",
 };
 
-const PortfolioPage = () => {
+const PortfolioPage = ({ analyticsConfig }) => {
   const ref = useScrollReveal();
   const [filter, setFilter] = useState("all");
   const { data: projects } = useApiData(() => publicApi.getProjects(), fallbackProjects);
@@ -41,6 +41,7 @@ const PortfolioPage = () => {
         title="Portfolio -- Web, Mobile, AI & Cloud Projects"
         description="Browse ARD TechLabs' portfolio of web apps, mobile apps, AI/ML solutions, and cloud projects delivered for clients across the USA, UK, Europe, and Australia."
         canonical="/portfolio"
+        analyticsConfig={analyticsConfig}
       />
       <div className="container">
         <SectionHeader

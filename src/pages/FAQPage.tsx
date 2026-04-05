@@ -27,7 +27,7 @@ const faqJsonLd = {
   })),
 };
 
-const FAQPage = () => {
+const FAQPage = ({ analyticsConfig }) => {
   const ref = useScrollReveal();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const { data: faqs } = useApiData(() => publicApi.getFaqs(), fallbackFaqs);
@@ -39,6 +39,7 @@ const FAQPage = () => {
         description="Frequently asked questions about ARD TechLabs' IT services, pricing models, project timelines, GDPR compliance, and hiring dedicated developers for the USA, UK, Europe, and Australia."
         canonical="/faq"
         jsonLd={faqJsonLd}
+        analyticsConfig={analyticsConfig}
       />
       <div className="container">
         <SectionHeader eyebrow="FAQ" title="Frequently Asked" accent="Questions" centered />

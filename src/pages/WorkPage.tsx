@@ -14,7 +14,7 @@ const fallbackCases = [
 const emojiForIndex = (i: number) => ["credit-card", "heart", "shopping-cart", "truck"][i % 4];
 const emojiMap: Record<string, string> = { "credit-card": "\uD83D\uDCB3", "heart": "\u2764\uFE0F", "shopping-cart": "\uD83D\uDED2", "truck": "\uD83D\uDE9B" };
 
-const WorkPage = () => {
+const WorkPage = ({ analyticsConfig }) => {
   const ref = useScrollReveal();
   const { data: cases } = useApiData(() => publicApi.getCaseStudies(), fallbackCases);
 
@@ -24,6 +24,7 @@ const WorkPage = () => {
         title="Case Studies -- Real Results for USA, UK, Europe & Australia"
         description="Explore ARD TechLabs case studies: AI fraud detection for US FinTech, telemedicine in the UK, headless commerce in Europe, and smart logistics in Germany."
         canonical="/work"
+        analyticsConfig={analyticsConfig}
       />
       <div className="container">
         <SectionHeader

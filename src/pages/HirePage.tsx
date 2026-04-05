@@ -39,7 +39,7 @@ const fallbackTalents = [
   { id: 6, icon: "Database", title: "Data Engineer", description: "Big data specialists building scalable pipelines, data warehouses, and BI solutions for enterprises.", chips: "Spark,Airflow,Snowflake,dbt", rate: "From $25/hr" },
 ];
 
-const HirePage = () => {
+const HirePage = ({ analyticsConfig }) => {
   const ref = useScrollReveal();
   const { data: talents } = useApiData(() => publicApi.getHireTalents(), fallbackTalents);
 
@@ -49,6 +49,7 @@ const HirePage = () => {
         title="Hire Dedicated Developers -- Senior Engineers On-Demand"
         description="Hire pre-vetted senior developers, AI engineers, cloud architects, and designers from ARD TechLabs. Timezone-aligned for the USA, UK, Europe, and Australia. Start in 48 hours."
         canonical="/hire"
+        analyticsConfig={analyticsConfig}
       />
       <div className="container">
         <SectionHeader

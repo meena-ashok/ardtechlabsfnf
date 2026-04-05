@@ -31,7 +31,7 @@ const aboutJsonLd = {
   },
 };
 
-const AboutPage = () => {
+const AboutPage = ({ analyticsConfig }) => {
   const ref = useScrollReveal();
   const { data: team } = useApiData(() => publicApi.getTeam(), fallbackTeam);
 
@@ -42,6 +42,7 @@ const AboutPage = () => {
         description="Learn about ARD TechLabs: a premier IT services firm with 40+ engineers, 150+ projects, and 9+ years of delivering software solutions across the USA, UK, Europe, and Australia."
         canonical="/about"
         jsonLd={aboutJsonLd}
+        analyticsConfig={analyticsConfig}
       />
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-14 sm:mb-20">

@@ -31,7 +31,7 @@ const tools = [
   "Kubernetes",
 ];
 
-const TechnologyPage = () => {
+const TechnologyPage = ({ analyticsConfig }) => {
   const ref = useScrollReveal();
   const { data: stacks } = useApiData(() => publicApi.getTechStack(), fallbackStacks);
 
@@ -41,6 +41,7 @@ const TechnologyPage = () => {
         title="Technology Stack -- Modern Tools & Frameworks for Enterprise Solutions"
         description="Explore ARD TechLabs' battle-tested technology stack: React, Python, AWS, Docker, Kubernetes, OpenAI, and 50+ tools for building scalable enterprise-grade software."
         canonical="/technology"
+        analyticsConfig={analyticsConfig}
       />
 
       <div className="container">

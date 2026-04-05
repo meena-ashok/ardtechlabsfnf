@@ -1,6 +1,11 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
+const analyticsConfig = {
+  ga4Id: "G-XXXXXXXXXX", // Replace with your GA4 ID
+  clarityId: "XXXXXXXXXX", // Replace with your Clarity ID
+};
+
 const NotFound = () => {
   const location = useLocation();
 

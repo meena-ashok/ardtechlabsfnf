@@ -8,7 +8,7 @@ import { publicApi } from "@/services/api";
 import { useSiteSettings } from "@/hooks/useSiteSettings";
 import { complianceContent } from "@/lib/siteContent";
 
-const ContactPage = () => {
+const ContactPage = ({ analyticsConfig }) => {
   const ref = useScrollReveal();
   const { companyEmail, companyPhone, companyAddress } = useSiteSettings();
   const [formData, setFormData] = useState({
@@ -67,6 +67,7 @@ const ContactPage = () => {
         description="Contact ARD TechLabs for a free IT consultation. Serving businesses across the USA, UK, Europe, and Australia with custom software solutions."
         canonical="/contact"
         jsonLd={contactJsonLd}
+        analyticsConfig={analyticsConfig}
       />
       <div className="container">
         <SectionHeader

@@ -27,7 +27,7 @@ const serviceJsonLd = {
   })),
 };
 
-const ServicesPage = () => {
+const ServicesPage = ({ analyticsConfig }) => {
   const ref = useScrollReveal();
   const { data: services } = useApiData(() => publicApi.getServices(), fallbackServices);
 
@@ -38,6 +38,7 @@ const ServicesPage = () => {
         description="Comprehensive IT services including full-stack web development, mobile apps, AI/ML, cloud solutions, and DevOps for businesses across the USA, UK, Europe, and Australia."
         canonical="/services"
         jsonLd={serviceJsonLd}
+        analyticsConfig={analyticsConfig}
       />
       <div className="container">
         <SectionHeader

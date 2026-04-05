@@ -37,7 +37,7 @@ const organizationJsonLd = {
   name: "ARD TechLabs",
   url: "https://ardtechlabs.lovable.app",
   logo: "https://ardtechlabs.lovable.app/favicon.ico",
-  description: "Award-winning IT services & consulting for USA and Europe. Full-stack, AI/ML, cloud & DevOps.",
+  description: "Award-winning IT services & consulting for USA, Europe, and India. Full-stack, AI/ML, cloud & DevOps.",
   foundingDate: "2015",
   numberOfEmployees: { "@type": "QuantitativeValue", minValue: 40 },
   areaServed: [
@@ -46,6 +46,8 @@ const organizationJsonLd = {
     { "@type": "Country", name: "Germany" },
     { "@type": "Country", name: "France" },
     { "@type": "Country", name: "Netherlands" },
+    { "@type": "Country", name: "India" },
+    { "@type": "Country", name: "Australia" },
   ],
   contactPoint: {
     "@type": "ContactPoint",
@@ -53,10 +55,15 @@ const organizationJsonLd = {
     contactType: "sales",
     email: "hello@ardtechlabs.com",
     availableLanguage: ["English"],
-    areaServed: ["US", "GB", "DE", "FR", "NL"],
+    areaServed: ["US", "GB", "DE", "FR", "NL", "IN", "AU"],
   },
   sameAs: [],
-  knowsAbout: ["Full-Stack Development", "Mobile Apps", "AI/ML", "Cloud Computing", "DevOps"],
+  knowsAbout: ["Full-Stack Development", "Mobile Apps", "AI/ML", "Cloud Computing", "DevOps", "Data Engineering", "UI/UX Design", "IT Consulting"],
+};
+
+const analyticsConfig = {
+  ga4Id: "G-XXXXXXXXXX", // Replace with your GA4 ID
+  clarityId: "XXXXXXXXXX", // Replace with your Clarity ID
 };
 
 const HomePage = () => {
@@ -67,9 +74,10 @@ const HomePage = () => {
     <div ref={revealRef}>
       <SEO
         title="ARD TechLabs | IT Services & Consulting – Full-Stack, AI, Cloud & DevOps"
-        description="ARD TechLabs delivers award-winning full-stack development, mobile apps, AI/ML, cloud & DevOps for businesses across USA and Europe. 150+ projects · 80+ clients · 9+ years."
+        description="ARD TechLabs delivers award-winning full-stack development, mobile apps, AI/ML, cloud & DevOps for businesses across USA, Europe, India, and Australia. 150+ projects · 80+ clients · 9+ years."
         canonical="/"
         jsonLd={organizationJsonLd}
+        analyticsConfig={analyticsConfig}
       />
 
       {/* Hero */}
@@ -97,7 +105,7 @@ const HomePage = () => {
             <div className="text-center lg:text-left">
               <span className="eyebrow-badge reveal-up text-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary" style={{ animation: "blink-dot 2s infinite" }} />
-                IT Services & Consulting · USA & Europe
+                IT Services & Consulting · USA, Europe & India
               </span>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-foreground mt-4 sm:mt-5 mb-3 sm:mb-4 leading-[1.08] reveal-up" style={{ transitionDelay: "0.1s" }}>
@@ -108,7 +116,7 @@ const HomePage = () => {
               </h1>
 
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 max-w-[520px] mx-auto lg:mx-0 reveal-up" style={{ transitionDelay: "0.2s" }}>
-                ARD TechLabs delivers award-winning full-stack development, mobile apps, AI/ML, cloud & DevOps for businesses across USA and Europe. 150+ projects · 80+ clients · 9+ years.
+                ARD TechLabs delivers award-winning full-stack development, mobile apps, AI/ML, cloud & DevOps for businesses across USA, Europe, India, and Australia. 150+ projects · 80+ clients · 9+ years.
               </p>
 
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center lg:justify-start reveal-up" style={{ transitionDelay: "0.3s" }}>
@@ -423,7 +431,7 @@ const HomePage = () => {
               Ready to <span className="text-primary">Accelerate</span> Your Digital Journey?
             </h2>
             <p className="text-lg sm:text-xl text-primary-foreground/65 mb-10 leading-relaxed">
-              Let's build something extraordinary together. Free consultation for USA & European businesses.
+              Let's build something extraordinary together. Free consultation for USA, Europe, India & Australian businesses.
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap gap-4 items-center justify-center">
               <Link

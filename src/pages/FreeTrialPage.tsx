@@ -44,6 +44,11 @@ const countries = [
   "Denmark", "Belgium", "Austria", "Ireland", "Spain", "Italy", "Other",
 ];
 
+const analyticsConfig = {
+  ga4Id: "G-XXXXXXXXXX", // Replace with your GA4 ID
+  clarityId: "XXXXXXXXXX", // Replace with your Clarity ID
+};
+
 const FreeTrialPage = () => {
   const ref = useScrollReveal();
   const [formData, setFormData] = useState({
@@ -93,6 +98,7 @@ ${formData.message}`,
         title="Free Trial Week -- Try Before You Hire | ARD TechLabs"
         description="Get a free one-week trial with a senior developer. 40 hours of dedicated work on your real project for the USA, UK, Europe, and Australia. No credit card, no contracts, no obligation."
         canonical="/free-trial"
+        analyticsConfig={analyticsConfig}
       />
 
       {/* Hero */}

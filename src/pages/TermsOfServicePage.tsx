@@ -28,13 +28,19 @@ const sections = [
   },
 ];
 
-export default function TermsOfServicePage() {
+const analyticsConfig = {
+  ga4Id: "G-XXXXXXXXXX", // Replace with your GA4 ID
+  clarityId: "XXXXXXXXXX", // Replace with your Clarity ID
+};
+
+const TermsOfServicePage = () => {
   return (
     <div className="bg-background pt-20 sm:pt-24 pb-16 sm:pb-20">
       <SEO
         title="Terms of Service"
         description="Terms of Service for ARD TechLabs covering service scope, trial engagements, client responsibilities, IP, and compliance requirements."
         canonical="/terms-of-service"
+        analyticsConfig={analyticsConfig}
       />
       <div className="container max-w-4xl">
         <SectionHeader
@@ -54,4 +60,6 @@ export default function TermsOfServicePage() {
       </div>
     </div>
   );
-}
+};
+
+export default TermsOfServicePage;

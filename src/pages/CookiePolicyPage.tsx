@@ -20,13 +20,19 @@ const sections = [
   },
 ];
 
-export default function CookiePolicyPage() {
+const analyticsConfig = {
+  ga4Id: "G-XXXXXXXXXX", // Replace with your GA4 ID
+  clarityId: "XXXXXXXXXX", // Replace with your Clarity ID
+};
+
+const CookiePolicyPage = () => {
   return (
     <div className="bg-background pt-20 sm:pt-24 pb-16 sm:pb-20">
       <SEO
         title="Cookie Policy"
         description="Cookie Policy for ARD TechLabs explaining essential storage, consent options, and regional compliance for website visitors in the USA, UK, Europe, and Australia."
         canonical="/cookie-policy"
+        analyticsConfig={analyticsConfig}
       />
       <div className="container max-w-4xl">
         <SectionHeader
@@ -46,4 +52,6 @@ export default function CookiePolicyPage() {
       </div>
     </div>
   );
-}
+};
+
+export default CookiePolicyPage;
