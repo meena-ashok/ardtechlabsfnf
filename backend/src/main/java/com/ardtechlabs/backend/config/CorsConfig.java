@@ -19,6 +19,8 @@ public class CorsConfig implements WebMvcConfigurer {
 public void addCorsMappings(CorsRegistry registry) {
     registry.addMapping("/**") // Changed from /api/** to /** for full coverage
             .allowedOrigins(
+                "http://localhost:3000",
+                "http://localhost:5173",
                 "https://ardtechlabs.com", 
                 "https://www.ardtechlabs.com", 
                 "https://ardtechlabs.onrender.com"
