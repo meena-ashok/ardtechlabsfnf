@@ -41,7 +41,7 @@ const fallbackTalents = [
 
 const HirePage = ({ analyticsConfig }) => {
   const ref = useScrollReveal();
-  const { data: talents } = useApiData(() => publicApi.getHireTalents(), fallbackTalents);
+  const { data: talents } = useApiData(() => publicApi.getHireTalents());
 
   return (
     <div ref={ref} className="pt-20 sm:pt-24 pb-16 sm:pb-20 bg-background-alt">
@@ -102,7 +102,7 @@ const HirePage = ({ analyticsConfig }) => {
           Available <span className="text-primary">Talent Profiles</span>
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {talents.map((t: any, i: number) => (
+          {talents && talents.map((t: any, i: number) => (
             <article
               key={t.id || t.title}
               className="reveal-up glass-card p-5 sm:p-6 flex flex-col"
