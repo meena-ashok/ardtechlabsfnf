@@ -29,15 +29,20 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                // Public API endpoints (GET only)
                 .requestMatchers(HttpMethod.GET, "/api/public/**").permitAll()
-                // Contact form submission is public
                 .requestMatchers(HttpMethod.POST, "/api/public/contact").permitAll()
-                // Auth endpoints
                 .requestMatchers("/api/auth/**").permitAll()
-                // Admin endpoints require authentication
-                .requestMatchers("/api/admin/**").authenticated()
-                .anyRequest().permitAll()
+                .requestMatchers("/api/admin/stats",
+                        "/api/admin/services/**",
+                        "/api/admin/projects/**",
+                        "/api/admin/case-studies/**",
+                        "/api/admin/testimonials/**",
+                        "/api/admin/faqs/**",
+                        "/api/admin/team-members/**",
+                        "/api/admin/tech-stacks/**",
+                        "/api/admin/hire-talents/**",
+                        "/api/admin/contact-messages/**",
+                        "/api/admin/site-settings/**").authenticated()
             )
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 

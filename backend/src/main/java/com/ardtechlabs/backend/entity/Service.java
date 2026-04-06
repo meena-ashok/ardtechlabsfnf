@@ -6,16 +6,13 @@ import lombok.*;
 @Entity
 @Table(name = "services")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
-public class Service {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Service extends BaseEntity {
 
     @Column(nullable = false)
-    private String title;
+    private String serviceName;
 
     @Column(columnDefinition = "TEXT")
-    private String description;
+    private String serviceDescription;
 
     private String icon;
 

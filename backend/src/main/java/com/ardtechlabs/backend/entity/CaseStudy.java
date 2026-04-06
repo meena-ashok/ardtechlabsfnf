@@ -6,27 +6,21 @@ import lombok.*;
 @Entity
 @Table(name = "case_studies")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
-public class CaseStudy {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class CaseStudy extends BaseEntity {
 
     @Column(nullable = false)
     private String title;
 
     @Column(columnDefinition = "TEXT")
-    private String description;
-
-    private String sector;
-
-    private String gradient;
-
-    private String emoji;
+    private String problem;
 
     @Column(columnDefinition = "TEXT")
-    private String metrics;
+    private String solution;
 
-    private Integer sortOrder;
+    @Column(columnDefinition = "TEXT")
+    private String result;
+
+    private String coverImage;
 
     private Boolean active;
 }

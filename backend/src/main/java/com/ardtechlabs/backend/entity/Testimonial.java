@@ -6,20 +6,17 @@ import lombok.*;
 @Entity
 @Table(name = "testimonials")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
-public class Testimonial {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(columnDefinition = "TEXT", nullable = false)
-    private String text;
+public class Testimonial extends BaseEntity {
 
     @Column(nullable = false)
-    private String name;
+    private String clientName;
 
-    private String role;
+    private String clientRole;
 
-    private Boolean featured;
+    @Column(columnDefinition = "TEXT", nullable = false)
+    private String testimonialText;
+
+    private Integer rating;
 
     private Integer sortOrder;
 

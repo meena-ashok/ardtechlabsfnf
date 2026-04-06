@@ -6,23 +6,23 @@ import lombok.*;
 @Entity
 @Table(name = "projects")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
-public class Project {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Project extends BaseEntity {
 
     @Column(nullable = false)
-    private String title;
+    private String projectName;
 
     @Column(columnDefinition = "TEXT")
-    private String description;
+    private String projectDescription;
+
+    private String imageUrl;
 
     private String category;
 
-    @Column(columnDefinition = "TEXT")
-    private String chips;
+    private String githubUrl;
 
-    private String emoji;
+    private String websiteUrl;
+
+    private String techStack;
 
     private Integer sortOrder;
 

@@ -6,10 +6,7 @@ import lombok.*;
 @Entity
 @Table(name = "faqs")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
-public class Faq {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Faq extends BaseEntity {
 
     @Column(columnDefinition = "TEXT", nullable = false)
     private String question;

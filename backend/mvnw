@@ -1,0 +1,139 @@
+#!/bin/sh
+
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
+# ----------------------------------------------------------------------------
+# Maven Start Up Script
+#
+# Required ENV vars:
+# ------------------
+#   M2_HOME - location of maven2
+#   MAVEN_HOME - location of maven
+#   MAVEN_OPTS - parameters passed to the Java VM when running Maven
+#     e.g. to debug Maven itself, use
+#       set MAVEN_OPTS=-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
+#   MAVEN_SKIP_RC - flag to disable loading of /etc/mavenrc and ~/.mavenrc
+#
+# Optional ENV vars:
+# ------------------
+#   MAVEN_BATCH_ECHO - set to 'on' to enable the echoing of every command
+#   MAVEN_BATCH_PAUSE - set to 'on' to wait for a key stroke before ending
+#   MAVEN_CLI_RAW_ARGS - raw command line arguments that will be passed to maven
+#   MAVEN_USER_HOME - path to user's home directory
+# ----------------------------------------------------------------------------
+
+# Begin
+
+if [ -z "${MAVEN_HOME}" ] && [ -z "${M2_HOME}" ]; then
+  M2_DEFAULT_HOME="/usr/share/maven"
+  if [ -r "${M2_DEFAULT_HOME}/bin/mvn" ]; then
+    M2_HOME="${M2_DEFAULT_HOME}"
+  fi
+  unset M2_DEFAULT_HOME
+fi
+
+MAVEN_HOME="${MAVEN_HOME:-${M2_HOME}}"
+if [ -n "${MAVEN_HOME}" ]; then
+  if [ -x "${MAVEN_HOME}/bin/mvn" ]; then
+    # In case of expansion in MAVEN_HOME, we need to resolve the absolute path
+    # to have it work correctly.
+    SAVED_PWD="$(pwd)"
+    cd "$(dirname "${MAVEN_HOME}")" > /dev/null
+    MAVEN_HOME="$(pwd)"
+    cd "${SAVED_PWD}"
+    export MAVEN_HOME
+  else
+    # We tried our best, but MAVEN_HOME is not correct. We are not going to use it.
+    # This is to avoid issues with other versions of maven being used, especially when
+    # MAVEN_HOME is pointing to a different version of maven.
+    MAVEN_HOME=
+  fi
+fi
+
+if [ -n "${MAVEN_HOME}" ] && [ -n "${MVNW_VERBOSE}" ]; then
+  echo "[MVNW] Using MAVEN_HOME: ${MAVEN_HOME}"
+fi
+
+if [ -z "${MAVEN_HOME}" ]; then
+  if [ -n "${MVNW_VERBOSE}" ]; then
+    echo "[MVNW] MAVEN_HOME is not set"
+  fi
+  # We are not using an installed maven and not in verbose mode, so we want to see the download progress
+  if [ -z "${MVNW_VERBOSE}" ]; then
+    MAVEN_OPTS="-Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=$(cd "$(dirname "$0")" && pwd)/.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true ${MAVEN_OPTS}"
+  else
+    MAVEN_OPTS="-Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=$(cd "$(dirname "$0")" && pwd)/.m2/repository ${MAVEN_OPTS}"
+  fi
+
+  # Read configuration from .mvn/wrapper/maven-wrapper.properties
+  # In case of expansion in 'dirname $0', we need to resolve the absolute path
+  # to have it work correctly.
+  SAVED_PWD="$(pwd)"
+  cd "$(dirname "$0")" > /dev/null
+  WRAPPER_DIR="$(pwd)"
+  cd "${SAVED_PWD}"
+
+  if [ -f "${WRAPPER_DIR}/.mvn/wrapper/maven-wrapper.properties" ]; then
+    # Use a simple function to read properties, because not all shells support a properties parser.
+    read_property() {
+      grep "${1}" "${WRAPPER_DIR}/.mvn/wrapper/maven-wrapper.properties" | cut -d'=' -f2 | sed 's/\r//'
+    }
+    # The distributionUrl is the only property we need, and it is mandatory.
+    DISTRIBUTION_URL=$(read_property "distributionUrl")
+    if [ -z "${DISTRIBUTION_URL}" ]; then
+      echo "[MVNW] ERROR: The distributionUrl property is missing from .mvn/wrapper/maven-wrapper.properties" >&2
+      exit 1
+    fi
+    if [ -n "${MVNW_VERBOSE}" ]; then
+      echo "[MVNW] Using distributionUrl: ${DISTRIBUTION_URL}"
+    fi
+  else
+    echo "[MVNW] ERROR: .mvn/wrapper/maven-wrapper.properties file not found." >&2
+    exit 1
+  fi
+
+  # The wrapper jar is mandatory
+  WRAPPER_JAR="${WRAPPER_DIR}/.mvn/wrapper/maven-wrapper.jar"
+  if [ ! -f "${WRAPPER_JAR}" ]; then
+    echo "[MVNW] ERROR: ${WRAPPER_JAR} file not found." >&2
+    exit 1
+  fi
+  if [ -n "${MVNW_VERBOSE}" ]; then
+    echo "[MVNW] Using wrapper jar: ${WRAPPER_JAR}"
+  fi
+
+  # The wrapper will download maven, so we want to use the same MAVEN_USER_HOME if the user has
+  # set it.
+  if [ -n "${MAVEN_USER_HOME}" ]; then
+    MAVEN_OPTS="-Dmaven.user.home=\"${MAVEN_USER_HOME}\" ${MAVEN_OPTS}"
+  fi
+
+  # We need to pass the distributionUrl to the wrapper, because it will be used to download maven.
+  MAVEN_OPTS="-Dmaven.home=\"${MAVEN_HOME}\" -Dmaven.multiModuleProjectDirectory=\"${maven_multiModuleProjectDirectory}\" -DdistributionUrl=\"${DISTRIBUTION_URL}\" -DwrapperJar=\"${WRAPPER_JAR}\" ${MAVEN_OPTS}"
+
+  if [ -n "${MVNW_VERBOSE}" ]; then
+    echo "[MVNW] Launching the wrapper with MAVEN_OPTS: ${MAVEN_OPTS}"
+  fi
+
+  "$JAVA_HOME/bin/java" ${MAVEN_OPTS} \
+    -cp "${WRAPPER_JAR}" \
+    org.apache.maven.wrapper.MavenWrapperMain "$@"
+else
+  # An installed maven is available, so we are going to use it.
+  "${MAVEN_HOME}/bin/mvn" "$@"
+fi
