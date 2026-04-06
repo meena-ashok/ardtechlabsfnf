@@ -98,6 +98,7 @@ public class AdminController {
             existingProject.setGithubUrl(projectDetails.getGithubUrl());
             existingProject.setWebsiteUrl(projectDetails.getWebsiteUrl());
             existingProject.setTechStack(projectDetails.getTechStack());
+            existingProject.setActive(projectDetails.getActive());
             return ResponseEntity.ok(projectRepo.save(existingProject));
         }).orElse(ResponseEntity.notFound().build());
     }
@@ -123,6 +124,7 @@ public class AdminController {
             existingCaseStudy.setSolution(csDetails.getSolution());
             existingCaseStudy.setResult(csDetails.getResult());
             existingCaseStudy.setCoverImage(csDetails.getCoverImage());
+            existingCaseStudy.setActive(csDetails.getActive());
             return ResponseEntity.ok(caseStudyRepo.save(existingCaseStudy));
         }).orElse(ResponseEntity.notFound().build());
     }
@@ -148,6 +150,7 @@ public class AdminController {
             existingTestimonial.setTestimonialText(testimonialDetails.getTestimonialText());
             existingTestimonial.setRating(testimonialDetails.getRating());
             existingTestimonial.setSortOrder(testimonialDetails.getSortOrder());
+            existingTestimonial.setActive(testimonialDetails.getActive());
             return ResponseEntity.ok(testimonialRepo.save(existingTestimonial));
         }).orElse(ResponseEntity.notFound().build());
     }
@@ -222,6 +225,7 @@ public class AdminController {
             existingTechStack.setTechType(tsDetails.getTechType());
             existingTechStack.setIconUrl(tsDetails.getIconUrl());
             existingTechStack.setSortOrder(tsDetails.getSortOrder());
+            existingTechStack.setActive(tsDetails.getActive());
             return ResponseEntity.ok(techStackRepo.save(existingTechStack));
         }).orElse(ResponseEntity.notFound().build());
     }
@@ -242,12 +246,13 @@ public class AdminController {
     @PutMapping("/hire-talents/{id}")
     public ResponseEntity<HireTalent> updateHireTalent(@PathVariable Long id, @RequestBody HireTalent htDetails) {
         return hireTalentRepo.findById(id).map(existingHireTalent -> {
-            existingHireTalent.setName(htDetails.getName());
-            existingHireTalent.setEmail(htDetails.getEmail());
-            existingHireTalent.setPhone(htDetails.getPhone());
-            existingHireTalent.setTalentType(htDetails.getTalentType());
-            existingHireTalent.setRequirements(htDetails.getRequirements());
-            existingHireTalent.setContacted(htDetails.getContacted());
+            existingHireTalent.setTitle(htDetails.getTitle());
+            existingHireTalent.setDescription(htDetails.getDescription());
+            existingHireTalent.setIcon(htDetails.getIcon());
+            existingHireTalent.setChips(htDetails.getChips());
+            existingHireTalent.setRate(htDetails.getRate());
+            existingHireTalent.setSortOrder(htDetails.getSortOrder());
+            existingHireTalent.setActive(htDetails.getActive());
             return ResponseEntity.ok(hireTalentRepo.save(existingHireTalent));
         }).orElse(ResponseEntity.notFound().build());
     }
