@@ -4,12 +4,10 @@ WORKDIR /app
 
 COPY . .
 
-WORKDIR /app/backend
+RUN chmod +x backend/mvnw
 
-RUN chmod +x ./mvnw
-
-RUN ./mvnw clean install -DskipTests
+RUN backend/mvnw -f backend/pom.xml clean install -DskipTests
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "target/backend-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "backend/target/backend-0.0.1-SNAPSHOT.jar"]
