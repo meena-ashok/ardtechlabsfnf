@@ -4,6 +4,10 @@ WORKDIR /app
 
 COPY . .
 
+WORKDIR /app/backend
+
+RUN chmod +x ./mvnw
+
 RUN ./mvnw clean install -DskipTests
 
 EXPOSE 8080
