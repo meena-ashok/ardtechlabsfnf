@@ -64,10 +64,13 @@ public class AdminController {
     public Service createService(@RequestBody Service service) { return serviceRepo.save(service); }
 
     @PutMapping("/services/{id}")
-    public ResponseEntity<Service> updateService(@PathVariable Long id, @RequestBody Service service) {
-        return serviceRepo.findById(id).map(existing -> {
-            service.setId(id);
-            return ResponseEntity.ok(serviceRepo.save(service));
+    public ResponseEntity<Service> updateService(@PathVariable Long id, @RequestBody Service serviceDetails) {
+        return serviceRepo.findById(id).map(existingService -> {
+            existingService.setServiceName(serviceDetails.getServiceName());
+            existingService.setServiceDescription(serviceDetails.getServiceDescription());
+            existingService.setActive(serviceDetails.getActive());
+            existingService.setSortOrder(serviceDetails.getSortOrder());
+            return ResponseEntity.ok(serviceRepo.save(existingService));
         }).orElse(ResponseEntity.notFound().build());
     }
 
@@ -85,10 +88,17 @@ public class AdminController {
     public Project createProject(@RequestBody Project project) { return projectRepo.save(project); }
 
     @PutMapping("/projects/{id}")
-    public ResponseEntity<Project> updateProject(@PathVariable Long id, @RequestBody Project project) {
-        return projectRepo.findById(id).map(existing -> {
-            project.setId(id);
-            return ResponseEntity.ok(projectRepo.save(project));
+    public ResponseEntity<Project> updateProject(@PathVariable Long id, @RequestBody Project projectDetails) {
+        return projectRepo.findById(id).map(existingProject -> {
+            existingProject.setProjectName(projectDetails.getProjectName());
+            existingProject.setProjectDescription(projectDetails.getProjectDescription());
+            existingProject.setImageUrl(projectDetails.getImageUrl());
+            existingProject.setSortOrder(projectDetails.getSortOrder());
+            existingProject.setCategory(projectDetails.getCategory());
+            existingProject.setGithubUrl(projectDetails.getGithubUrl());
+            existingProject.setWebsiteUrl(projectDetails.getWebsiteUrl());
+            existingProject.setTechStack(projectDetails.getTechStack());
+            return ResponseEntity.ok(projectRepo.save(existingProject));
         }).orElse(ResponseEntity.notFound().build());
     }
 
@@ -106,10 +116,14 @@ public class AdminController {
     public CaseStudy createCaseStudy(@RequestBody CaseStudy cs) { return caseStudyRepo.save(cs); }
 
     @PutMapping("/case-studies/{id}")
-    public ResponseEntity<CaseStudy> updateCaseStudy(@PathVariable Long id, @RequestBody CaseStudy cs) {
-        return caseStudyRepo.findById(id).map(existing -> {
-            cs.setId(id);
-            return ResponseEntity.ok(caseStudyRepo.save(cs));
+    public ResponseEntity<CaseStudy> updateCaseStudy(@PathVariable Long id, @RequestBody CaseStudy csDetails) {
+        return caseStudyRepo.findById(id).map(existingCaseStudy -> {
+            existingCaseStudy.setTitle(csDetails.getTitle());
+            existingCaseStudy.setProblem(csDetails.getProblem());
+            existingCaseStudy.setSolution(csDetails.getSolution());
+            existingCaseStudy.setResult(csDetails.getResult());
+            existingCaseStudy.setCoverImage(csDetails.getCoverImage());
+            return ResponseEntity.ok(caseStudyRepo.save(existingCaseStudy));
         }).orElse(ResponseEntity.notFound().build());
     }
 
@@ -127,10 +141,14 @@ public class AdminController {
     public Testimonial createTestimonial(@RequestBody Testimonial t) { return testimonialRepo.save(t); }
 
     @PutMapping("/testimonials/{id}")
-    public ResponseEntity<Testimonial> updateTestimonial(@PathVariable Long id, @RequestBody Testimonial t) {
-        return testimonialRepo.findById(id).map(existing -> {
-            t.setId(id);
-            return ResponseEntity.ok(testimonialRepo.save(t));
+    public ResponseEntity<Testimonial> updateTestimonial(@PathVariable Long id, @RequestBody Testimonial testimonialDetails) {
+        return testimonialRepo.findById(id).map(existingTestimonial -> {
+            existingTestimonial.setClientName(testimonialDetails.getClientName());
+            existingTestimonial.setClientRole(testimonialDetails.getClientRole());
+            existingTestimonial.setTestimonialText(testimonialDetails.getTestimonialText());
+            existingTestimonial.setRating(testimonialDetails.getRating());
+            existingTestimonial.setSortOrder(testimonialDetails.getSortOrder());
+            return ResponseEntity.ok(testimonialRepo.save(existingTestimonial));
         }).orElse(ResponseEntity.notFound().build());
     }
 
@@ -148,10 +166,13 @@ public class AdminController {
     public Faq createFaq(@RequestBody Faq faq) { return faqRepo.save(faq); }
 
     @PutMapping("/faqs/{id}")
-    public ResponseEntity<Faq> updateFaq(@PathVariable Long id, @RequestBody Faq faq) {
-        return faqRepo.findById(id).map(existing -> {
-            faq.setId(id);
-            return ResponseEntity.ok(faqRepo.save(faq));
+    public ResponseEntity<Faq> updateFaq(@PathVariable Long id, @RequestBody Faq faqDetails) {
+        return faqRepo.findById(id).map(existingFaq -> {
+            existingFaq.setQuestion(faqDetails.getQuestion());
+            existingFaq.setAnswer(faqDetails.getAnswer());
+            existingFaq.setSortOrder(faqDetails.getSortOrder());
+            existingFaq.setActive(faqDetails.getActive());
+            return ResponseEntity.ok(faqRepo.save(existingFaq));
         }).orElse(ResponseEntity.notFound().build());
     }
 
@@ -169,10 +190,15 @@ public class AdminController {
     public TeamMember createTeamMember(@RequestBody TeamMember tm) { return teamRepo.save(tm); }
 
     @PutMapping("/team/{id}")
-    public ResponseEntity<TeamMember> updateTeamMember(@PathVariable Long id, @RequestBody TeamMember tm) {
-        return teamRepo.findById(id).map(existing -> {
-            tm.setId(id);
-            return ResponseEntity.ok(teamRepo.save(tm));
+    public ResponseEntity<TeamMember> updateTeamMember(@PathVariable Long id, @RequestBody TeamMember tmDetails) {
+        return teamRepo.findById(id).map(existingTeamMember -> {
+            existingTeamMember.setName(tmDetails.getName());
+            existingTeamMember.setRole(tmDetails.getRole());
+            existingTeamMember.setBio(tmDetails.getBio());
+            existingTeamMember.setImageUrl(tmDetails.getImageUrl());
+            existingTeamMember.setSortOrder(tmDetails.getSortOrder());
+            existingTeamMember.setActive(tmDetails.getActive());
+            return ResponseEntity.ok(teamRepo.save(existingTeamMember));
         }).orElse(ResponseEntity.notFound().build());
     }
 
@@ -190,10 +216,13 @@ public class AdminController {
     public TechStack createTechStack(@RequestBody TechStack ts) { return techStackRepo.save(ts); }
 
     @PutMapping("/tech-stack/{id}")
-    public ResponseEntity<TechStack> updateTechStack(@PathVariable Long id, @RequestBody TechStack ts) {
-        return techStackRepo.findById(id).map(existing -> {
-            ts.setId(id);
-            return ResponseEntity.ok(techStackRepo.save(ts));
+    public ResponseEntity<TechStack> updateTechStack(@PathVariable Long id, @RequestBody TechStack tsDetails) {
+        return techStackRepo.findById(id).map(existingTechStack -> {
+            existingTechStack.setTechName(tsDetails.getTechName());
+            existingTechStack.setTechType(tsDetails.getTechType());
+            existingTechStack.setIconUrl(tsDetails.getIconUrl());
+            existingTechStack.setSortOrder(tsDetails.getSortOrder());
+            return ResponseEntity.ok(techStackRepo.save(existingTechStack));
         }).orElse(ResponseEntity.notFound().build());
     }
 
@@ -211,10 +240,15 @@ public class AdminController {
     public HireTalent createHireTalent(@RequestBody HireTalent ht) { return hireTalentRepo.save(ht); }
 
     @PutMapping("/hire-talents/{id}")
-    public ResponseEntity<HireTalent> updateHireTalent(@PathVariable Long id, @RequestBody HireTalent ht) {
-        return hireTalentRepo.findById(id).map(existing -> {
-            ht.setId(id);
-            return ResponseEntity.ok(hireTalentRepo.save(ht));
+    public ResponseEntity<HireTalent> updateHireTalent(@PathVariable Long id, @RequestBody HireTalent htDetails) {
+        return hireTalentRepo.findById(id).map(existingHireTalent -> {
+            existingHireTalent.setName(htDetails.getName());
+            existingHireTalent.setEmail(htDetails.getEmail());
+            existingHireTalent.setPhone(htDetails.getPhone());
+            existingHireTalent.setTalentType(htDetails.getTalentType());
+            existingHireTalent.setRequirements(htDetails.getRequirements());
+            existingHireTalent.setContacted(htDetails.getContacted());
+            return ResponseEntity.ok(hireTalentRepo.save(existingHireTalent));
         }).orElse(ResponseEntity.notFound().build());
     }
 
