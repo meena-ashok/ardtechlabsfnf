@@ -9,7 +9,12 @@ const columns = [
   { key: "sector", label: "Sector", type: "text" as const },
   { key: "gradient", label: "Gradient", type: "text" as const },
   { key: "emoji", label: "Emoji", type: "text" as const },
-  { key: "metrics", label: "Metrics (JSON)", type: "textarea" as const },
+  {
+    key: "metrics",
+    label: "Metrics (JSON)",
+    type: "textarea" as const,
+    render: (value: any) => <pre className="text-xs bg-foreground/5 p-2 rounded whitespace-pre-wrap">{JSON.stringify(value, null, 2)}</pre>,
+  },
   { key: "sortOrder", label: "Sort Order", type: "number" as const },
   { key: "active", label: "Active", type: "boolean" as const },
 ];
@@ -26,6 +31,17 @@ export default function AdminCaseStudiesPage() {
   useEffect(() => { load(); }, []);
 
   const handleSave = async (item: any) => {
+    // The metrics field might be a string, so we need to parse it
+    if (typeof item.metrics === 'string') {
+      try {
+        item.metrics = JSON.parse(item.metrics);
+      } catch (e) {
+        console.error("Error parsing metrics JSON:", e);
+        // Handle error appropriately, maybe show a message to the user
+        return;
+      }
+    }
+
     if (item.id) await adminApi.update("case-studies", item.id, item);
     else await adminApi.create("case-studies", item);
     load();

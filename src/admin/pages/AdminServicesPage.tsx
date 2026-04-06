@@ -4,11 +4,8 @@ import AdminCrudTable from "@/admin/components/AdminCrudTable";
 
 const columns = [
   { key: "id", label: "ID", type: "number" as const },
-  { key: "title", label: "Title", type: "text" as const },
-  { key: "description", label: "Description", type: "textarea" as const },
-  { key: "icon", label: "Icon", type: "select" as const, options: ["Code", "Smartphone", "Brain", "Cloud", "RefreshCw", "Users", "Database", "Palette"] },
-  { key: "variant", label: "Variant", type: "select" as const, options: ["orange", "navy"] },
-  { key: "chips", label: "Chips (comma-separated)", type: "text" as const },
+  { key: "serviceName", label: "Service Name", type: "text" as const },
+  { key: "serviceDescription", label: "Service Description", type: "textarea" as const },
   { key: "sortOrder", label: "Sort Order", type: "number" as const },
   { key: "active", label: "Active", type: "boolean" as const },
 ];

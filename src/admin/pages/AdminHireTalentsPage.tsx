@@ -25,8 +25,11 @@ export default function AdminHireTalentsPage() {
   useEffect(() => { load(); }, []);
 
   const handleSave = async (item: any) => {
-    if (item.id) await adminApi.update("hire-talents", item.id, item);
-    else await adminApi.create("hire-talents", item);
+    if (item.id) {
+      await adminApi.update("hire-talents", item.id, item);
+    } else {
+      await adminApi.create("hire-talents", item);
+    }
     load();
   };
 
@@ -35,5 +38,5 @@ export default function AdminHireTalentsPage() {
     load();
   };
 
-  return <AdminCrudTable title="Hire Talent" data={data} columns={columns} onSave={handleSave} onDelete={handleDelete} loading={loading} />;
+  return <AdminCrudTable title="Hire Talents" data={data} columns={columns} onSave={handleSave} onDelete={handleDelete} loading={loading} />;
 }

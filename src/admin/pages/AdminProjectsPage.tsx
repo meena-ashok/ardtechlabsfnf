@@ -4,10 +4,13 @@ import AdminCrudTable from "@/admin/components/AdminCrudTable";
 
 const columns = [
   { key: "id", label: "ID", type: "number" as const },
-  { key: "title", label: "Title", type: "text" as const },
-  { key: "description", label: "Description", type: "textarea" as const },
+  { key: "projectName", label: "Project Name", type: "text" as const },
+  { key: "projectDescription", label: "Project Description", type: "textarea" as const },
+  { key: "imageUrl", label: "Image URL", type: "text" as const },
   { key: "category", label: "Category", type: "select" as const, options: ["web", "mobile", "ai", "cloud"] },
-  { key: "chips", label: "Chips (comma-separated)", type: "text" as const },
+  { key: "githubUrl", label: "Github URL", type: "text" as const },
+  { key: "websiteUrl", label: "Website URL", type: "text" as const },
+  { key: "techStack", label: "Tech Stack (comma-separated)", type: "text" as const },
   { key: "sortOrder", label: "Sort Order", type: "number" as const },
   { key: "active", label: "Active", type: "boolean" as const },
 ];

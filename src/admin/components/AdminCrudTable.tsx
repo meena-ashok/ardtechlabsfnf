@@ -139,19 +139,21 @@ export default function AdminCrudTable({ title, data, columns, onSave, onDelete,
           >
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-base font-bold text-foreground">
-                {isNew ? "Create New" : "Edit"} {title.replace(/s$/, "")}
+                {isNew ? "Create New" : `Edit ${title.replace(/s$/, "")} #${editingItem.id}`}
               </h2>
               <button onClick={() => setEditingItem(null)} className="p-1 text-muted-foreground hover:text-foreground">
                 <X className="w-4 h-4" />
               </button>
             </div>
             <div className="space-y-3">
-              {columns.filter(c => c.key !== "id").map((col) => (
+              {columns.map((col) => (
                 <div key={col.key}>
                   <label className="block text-[0.68rem] font-semibold text-muted-foreground tracking-widest uppercase mb-1">
                     {col.label}
                   </label>
-                  {col.type === "textarea" ? (
+                  {col.key === "id" ? (
+                    <input type="text" readOnly value={editingItem.id} className="w-full px-3 py-2 bg-foreground/[0.02] border border-foreground/[0.05] rounded-lg text-muted-foreground text-sm" />
+                  ) : col.type === "textarea" ? (
                     <textarea
                       value={editingItem[col.key] ?? ""}
                       onChange={(e) => setEditingItem({ ...editingItem, [col.key]: e.target.value })}
