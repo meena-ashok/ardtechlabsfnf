@@ -28,7 +28,7 @@ const sections = [
   },
   {
     title: "7. Payment conditions",
-    body: "If you received any payment related email from other domain , this is our main domain - ardtechlabs.com",
+    body: "If you received any payment related email from other domain , this is our main domain - ardtechlabs.com, so we are not responsible.",
   },
 ];
 
