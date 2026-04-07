@@ -6,14 +6,14 @@ import SEO from "@/components/SEO";
 import { TechIcon } from "@/components/TechIcon";
 
 const fallbackServices = [
-  { id: 1, icon: "Code", variant: "orange", title: "Full-Stack Web Development", description: "End-to-end web applications built with modern frameworks -- scalable, secure, and performance-optimized.", chips: "React,Next.js,Node.js,Django,PostgreSQL" },
-  { id: 2, icon: "Smartphone", variant: "navy", title: "Mobile App Development", description: "Native and cross-platform iOS & Android applications with exceptional UX and seamless performance.", chips: "Flutter,React Native,Swift,Kotlin" },
-  { id: 3, icon: "BrainCircuit", variant: "orange", title: "AI & Machine Learning", description: "NLP, computer vision, predictive analytics, and LLM integrations that automate and enhance your business.", chips: "OpenAI,LangChain,TensorFlow,PyTorch" },
-  { id: 4, icon: "Cloud", variant: "navy", title: "Cloud Solutions", description: "Cloud architecture design, migration, and optimization across AWS, Azure, and GCP.", chips: "AWS,Azure,GCP,Terraform,CDK" },
-  { id: 5, icon: "GitMerge", variant: "orange", title: "DevOps & CI/CD", description: "Streamlined pipelines, infrastructure as code, container orchestration, and automated testing.", chips: "Docker,Kubernetes,GitHub Actions,Jenkins" },
-  { id: 6, icon: "Users", variant: "navy", title: "IT Consulting & Strategy", description: "Technology roadmap planning, digital transformation strategy, architecture reviews, and CTO advisory.", chips: "Architecture,Transformation,Roadmapping" },
-  { id: 7, icon: "Database", variant: "orange", title: "Data Engineering & Analytics", description: "End-to-end data pipelines, warehousing, BI dashboards, and real-time analytics for actionable insights.", chips: "Spark,Snowflake,Airflow,dbt,Tableau" },
-  { id: 8, icon: "PenTool", variant: "navy", title: "UI/UX Design", description: "User-centred design, prototypes, design systems, and usability research creating delightful experiences.", chips: "Figma,Design Systems,Prototyping,Research" },
+  { id: 1, icon: "Full-Stack Web Development", variant: "orange", title: "Full-Stack Web Development", description: "End-to-end web applications built with modern frameworks -- scalable, secure, and performance-optimized.", chips: "React,Next.js,Node.js,Django,PostgreSQL" },
+  { id: 2, icon: "Mobile App Development", variant: "navy", title: "Mobile App Development", description: "Native and cross-platform iOS & Android applications with exceptional UX and seamless performance.", chips: "Flutter,React Native,Swift,Kotlin" },
+  { id: 3, icon: "AI & Machine Learning", variant: "orange", title: "AI & Machine Learning", description: "NLP, computer vision, predictive analytics, and LLM integrations that automate and enhance your business.", chips: "OpenAI,LangChain,TensorFlow,PyTorch" },
+  { id: 4, icon: "Cloud Solutions", variant: "navy", title: "Cloud Solutions", description: "Cloud architecture design, migration, and optimization across AWS, Azure, and GCP.", chips: "AWS,Azure,GCP,Terraform,CDK" },
+  { id: 5, icon: "DevOps & CI/CD", variant: "orange", title: "DevOps & CI/CD", description: "Streamlined pipelines, infrastructure as code, container orchestration, and automated testing.", chips: "Docker,Kubernetes,GitHub Actions,Jenkins" },
+  { id: 6, icon: "IT Consulting & Strategy", variant: "navy", title: "IT Consulting & Strategy", description: "Technology roadmap planning, digital transformation strategy, architecture reviews, and CTO advisory.", chips: "Architecture,Transformation,Roadmapping" },
+  { id: 7, icon: "Data Engineering & Analytics", variant: "orange", title: "Data Engineering & Analytics", description: "End-to-end data pipelines, warehousing, BI dashboards, and real-time analytics for actionable insights.", chips: "Spark,Snowflake,Airflow,dbt,Tableau" },
+  { id: 8, icon: "UI/UX Design", variant: "navy", title: "UI/UX Design", description: "User-centred design, prototypes, design systems, and usability research creating delightful experiences.", chips: "Figma,Design Systems,Prototyping,Research" },
 ];
 
 const servicesJsonLd = fallbackServices.map((service) => ({
@@ -33,6 +33,25 @@ const servicesJsonLd = fallbackServices.map((service) => ({
   keywords: service.chips,
 }));
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.ardtechlabs.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://www.ardtechlabs.com/services"
+    }
+  ]
+};
+
 const ServicesPage = ({ analyticsConfig }) => {
   const ref = useScrollReveal();
   const { data: services } = useApiData(() => publicApi.getServices(), fallbackServices);
@@ -43,7 +62,7 @@ const ServicesPage = ({ analyticsConfig }) => {
         title="Expert IT Services for Business Growth | ARD TechLabs"
         description="Explore the comprehensive IT services offered by ARD TechLabs. We specialize in full-stack web development, mobile apps, AI/ML solutions, cloud computing, and DevOps. Serving clients in the USA, UK, Europe, and Australia."
         canonical="/services"
-        jsonLd={servicesJsonLd}
+        jsonLd={[...servicesJsonLd, breadcrumbJsonLd]}
         analyticsConfig={analyticsConfig}
       />
       <div className="container">
