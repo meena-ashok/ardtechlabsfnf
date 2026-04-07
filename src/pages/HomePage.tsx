@@ -7,13 +7,6 @@ import { TechIcon } from "@/components/TechIcon";
 
 const heroWords = ["Technology", "Innovation", "Excellence", "The Future"];
 
-const stats = [
-  { value: "150+", label: "Projects Delivered" },
-  { value: "80+", label: "Happy Clients" },
-  { value: "9+", label: "Years of Excellence" },
-  { value: "40+", label: "Expert Engineers" },
-];
-
 const whyUs = [
   { icon: "Award", title: "Award-Winning", desc: "Recognised excellence in software delivery" },
   { icon: "RefreshCw", title: "Agile Delivery", desc: "2-week sprint cycles, always on time" },
