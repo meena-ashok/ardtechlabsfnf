@@ -1,10 +1,11 @@
-
 services:
   - type: web
     name: api-backend
     env: docker
     repo: https://github.com/meena-ashok/ardtechlabsfnf
     autoDeploy: true
+    dockerContext: backend
+    dockerfilePath: Dockerfile
     envVars:
       - key: DATABASE_URL
         fromDatabase:
