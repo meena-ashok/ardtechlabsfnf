@@ -73,12 +73,12 @@ export const adminApi = {
     request<any>(`/api/admin/${resource}/${id}`, { method: 'DELETE' }),
 
   // Messages
-  getMessages: () => request<any[]>('/api/admin/messages'),
-  getUnreadMessages: () => request<any[]>('/api/admin/messages/unread'),
+  getMessages: () => request<any[]>('/api/admin/contact-messages'),
+  getUnreadMessages: () => request<any[]>('/api/admin/contact-messages/unread'),
   markMessageRead: (id: number) =>
-    request<any>(`/api/admin/messages/${id}/read`, { method: 'PUT' }),
+    request<any>(`/api/admin/contact-messages/${id}/read`, { method: 'PUT' }),
   deleteMessage: (id: number) =>
-    request<any>(`/api/admin/messages/${id}`, { method: 'DELETE' }),
+    request<any>(`/api/admin/contact-messages/${id}`, { method: 'DELETE' }),
 
   // Settings
   getSettings: () => request<any[]>('/api/admin/settings'),
