@@ -10,6 +10,9 @@ import ScrollToTop from "@/components/ScrollToTop";
 import PublicLayout from "@/components/PublicLayout";
 import AdminLayout from "@/admin/components/AdminLayout";
 
+// Public Pages
+import DesignProcessPage from "@/pages/DesignProcessPage";
+
 // Admin
 import ProtectedRoute from "@/admin/components/ProtectedRoute";
 import LoginPage from "@/admin/pages/LoginPage";
@@ -38,6 +41,7 @@ const App = () => (
             <Routes>
               {/* Public Routes */}
               <Route path="/*" element={<PublicLayout />} />
+              <Route path="/design-process" element={<DesignProcessPage />} />
 
               {/* Admin Routes */}
               <Route path="/admin/login" element={<LoginPage />} />

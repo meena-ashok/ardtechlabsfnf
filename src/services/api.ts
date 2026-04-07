@@ -1,5 +1,29 @@
 const API_BASE = import.meta.env.VITE_API_URL || '';
 
+// Helper function to convert snake_case to camelCase
+const toCamel = (s: string) => {
+  return s.replace(/([-_][a-z])/ig, ($1) => {
+    return $1.toUpperCase()
+      .replace('-', '')
+      .replace('_', '');
+  });
+};
+
+const convertKeysToCamelCase = (obj: any): any => {
+  if (Array.isArray(obj)) {
+    return obj.map(v => convertKeysToCamelCase(v));
+  } else if (obj !== null && obj.constructor === Object) {
+    return Object.keys(obj).reduce(
+      (result, key) => ({
+        ...result,
+        [toCamel(key)]: convertKeysToCamelCase(obj[key]),
+      }),
+      {},
+    );
+  }
+  return obj;
+};
+
 async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   const token = localStorage.getItem('admin_token');
   const headers: Record<string, string> = {
@@ -26,7 +50,8 @@ async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   }
 
   if (isJson) {
-    return res.json();
+    const data = await res.json();
+    return convertKeysToCamelCase(data); // Convert keys before returning
   }
 
   return undefined as T;
