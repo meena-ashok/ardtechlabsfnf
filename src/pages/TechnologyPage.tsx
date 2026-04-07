@@ -31,10 +31,10 @@ const TechnologyPage = ({ analyticsConfig }) => {
           <div className="flex items-center gap-3 mb-5 sm:mb-6">
             <div className="h-1 w-12 rounded-full" style={{ background: "var(--gradient-rule)" }} />
             <h3 className="text-base sm:text-lg font-bold text-foreground">Artificial Intelligence</h3>
-             <p className="text-base leading-relaxed text-muted-foreground">
-                Our team is highly skilled in a broad range of AI technologies, enabling us to develop intelligent solutions tailored to your requirements. Whether it's machine learning, natural language processing, or computer vision, we possess the expertise to create cutting-edge and efficient AI-driven applications.
-              </p>
           </div>
+          <p className="text-base leading-relaxed text-muted-foreground mb-6">
+            Our team is highly skilled in a broad range of AI technologies, enabling us to develop intelligent solutions tailored to your requirements. Whether it's machine learning, natural language processing, or computer vision, we possess the expertise to create cutting-edge and efficient AI-driven applications.
+          </p>
 
           <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
             {["TensorFlow", "PyTorch", "OpenAI GPT", "IBM Watson", "Microsoft Cognitive Toolkit", "H2O.ai"].map((tool, i) => (
@@ -59,10 +59,10 @@ const TechnologyPage = ({ analyticsConfig }) => {
           <div className="flex items-center gap-3 mb-5 sm:mb-6">
             <div className="h-1 w-12 rounded-full" style={{ background: "var(--gradient-rule)" }} />
             <h3 className="text-base sm:text-lg font-bold text-foreground">Machine Learning</h3>
-             <p className="text-base leading-relaxed text-muted-foreground">
-                Our team excels in various machine learning technologies, allowing us to design intelligent systems that meet your specific needs. From predictive analytics to natural language processing, we possess the expertise to develop cutting-edge and data-driven solutions.
-              </p>
           </div>
+           <p className="text-base leading-relaxed text-muted-foreground mb-6">
+                Our team excels in various machine learning technologies, allowing us to design intelligent systems that meet your specific needs. From predictive analytics to natural language processing, we possess the expertise to develop cutting-edge and data-driven solutions.
+           </p>
 
           <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
             {["Scikit-learn", "Keras", "XGBoost", "LightGBM", "Apache Mahout", "MLlib (Apache Spark)"].map((tool, i) => (
@@ -87,10 +87,10 @@ const TechnologyPage = ({ analyticsConfig }) => {
           <div className="flex items-center gap-3 mb-5 sm:mb-6">
             <div className="h-1 w-12 rounded-full" style={{ background: "var(--gradient-rule)" }} />
             <h3 className="text-base sm:text-lg font-bold text-foreground">Block Chain</h3>
-             <p className="text-base leading-relaxed text-muted-foreground">
-                With expertise in diverse blockchain technologies, we excel at developing robust solutions tailored to your requirements. From smart contracts to decentralized applications, we possess the skills to create secure and efficient blockchain-based systems. Whether it's for financial services, supply chain management, or any other industry, we deliver innovative and reliable blockchain applications that meet your needs.
-              </p>
           </div>
+            <p className="text-base leading-relaxed text-muted-foreground mb-6">
+                With expertise in diverse blockchain technologies, we excel at developing robust solutions tailored to your requirements. From smart contracts to decentralized applications, we possess the skills to create secure and efficient blockchain-based systems. Whether it's for financial services, supply chain management, or any other industry, we deliver innovative and reliable blockchain applications that meet your needs.
+            </p>
 
           <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
             {["Ethereum", "Hyperledger Fabric", "Corda", "Quorum", "Bitcoin", "Ripple"].map((tool, i) => (
@@ -115,10 +115,10 @@ const TechnologyPage = ({ analyticsConfig }) => {
           <div className="flex items-center gap-3 mb-5 sm:mb-6">
             <div className="h-1 w-12 rounded-full" style={{ background: "var(--gradient-rule)" }} />
             <h3 className="text-base sm:text-lg font-bold text-foreground">Mobile</h3>
-             <p className="text-base leading-relaxed text-muted-foreground">
-                Our team is well-versed in a variety of mobile technologies, making us adept at building apps that cater to your needs. Whether it's Android or iOS development, we've got the skills to create innovative and user-friendly applications.
-              </p>
           </div>
+            <p className="text-base leading-relaxed text-muted-foreground mb-6">
+                Our team is well-versed in a variety of mobile technologies, making us adept at building apps that cater to your needs. Whether it's Android or iOS development, we've got the skills to create innovative and user-friendly applications.
+            </p>
 
           <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
             {["iOS", "Android", "React Native", "Flutter", "Xamarin", "Ionic"].map((tool, i) => (
@@ -143,10 +143,10 @@ const TechnologyPage = ({ analyticsConfig }) => {
           <div className="flex items-center gap-3 mb-5 sm:mb-6">
             <div className="h-1 w-12 rounded-full" style={{ background: "var(--gradient-rule)" }} />
             <h3 className="text-base sm:text-lg font-bold text-foreground">Frontend</h3>
-             <p className="text-base leading-relaxed text-muted-foreground">
-                Get our team of skilled frontend developers to make your ideas real. We can create great websites, web apps, or mobile apps just for you. We work closely with you to make sure everything looks perfect and works smoothly.
-              </p>
           </div>
+            <p className="text-base leading-relaxed text-muted-foreground mb-6">
+                Get our team of skilled frontend developers to make your ideas real. We can create great websites, web apps, or mobile apps just for you. We work closely with you to make sure everything looks perfect and works smoothly.
+            </p>
 
           <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
             {["AngularJS", "ReactJS", "VueJS", "JavaScript", "Tailwind", "HTML/CSS"].map((tool, i) => (
@@ -171,10 +171,10 @@ const TechnologyPage = ({ analyticsConfig }) => {
           <div className="flex items-center gap-3 mb-5 sm:mb-6">
             <div className="h-1 w-12 rounded-full" style={{ background: "var(--gradient-rule)" }} />
             <h3 className="text-base sm:text-lg font-bold text-foreground">Backend</h3>
-             <p className="text-base leading-relaxed text-muted-foreground">
-                Expand your team with our Backend Developers for contract or full-time roles, tailored to your needs. Our experts bring specialized skills and dedication to simplify your development process and achieve your goals.
-              </p>
           </div>
+            <p className="text-base leading-relaxed text-muted-foreground mb-6">
+                Expand your team with our Backend Developers for contract or full-time roles, tailored to your needs. Our experts bring specialized skills and dedication to simplify your development process and achieve your goals.
+            </p>
 
           <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
             {[".NET", "PHP", "JAVA", "Node.js", "Python", "Laravel"].map((tool, i) => (
@@ -199,10 +199,10 @@ const TechnologyPage = ({ analyticsConfig }) => {
           <div className="flex items-center gap-3 mb-5 sm:mb-6">
             <div className="h-1 w-12 rounded-full" style={{ background: "var(--gradient-rule)" }} />
             <h3 className="text-base sm:text-lg font-bold text-foreground">Database</h3>
-             <p className="text-base leading-relaxed text-muted-foreground">
-                Safeguard your business data with our Database Management Services. We handle data governance, warehousing, integration, migration, and security. Trust us to manage your data while you focus on business growth.
-              </p>
           </div>
+            <p className="text-base leading-relaxed text-muted-foreground mb-6">
+                Safeguard your business data with our Database Management Services. We handle data governance, warehousing, integration, migration, and security. Trust us to manage your data while you focus on business growth.
+            </p>
 
           <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
             {["SQL Server", "MySQL", "MongoDB", "DynamoDB", "Oracle", "Firebase"].map((tool, i) => (
@@ -227,10 +227,10 @@ const TechnologyPage = ({ analyticsConfig }) => {
           <div className="flex items-center gap-3 mb-5 sm:mb-6">
             <div className="h-1 w-12 rounded-full" style={{ background: "var(--gradient-rule)" }} />
             <h3 className="text-base sm:text-lg font-bold text-foreground">Ecommerce</h3>
-             <p className="text-base leading-relaxed text-muted-foreground">
-                We use powerful systems like WordPress, Joomla, and others for easy content management. With our CMS development, you get scalable solutions and creative design freedom. Choose NinjaTech for your CMS needs.
-              </p>
           </div>
+            <p className="text-base leading-relaxed text-muted-foreground mb-6">
+                We use powerful systems like WordPress, Joomla, and others for easy content management. With our CMS development, you get scalable solutions and creative design freedom. Choose NinjaTech for your CMS needs.
+            </p>
 
           <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
             {["Magento", "WordPress", "Drupal", "Shopify", "Joomla", "Umbraco"].map((tool, i) => (
@@ -255,10 +255,10 @@ const TechnologyPage = ({ analyticsConfig }) => {
           <div className="flex items-center gap-3 mb-5 sm:mb-6">
             <div className="h-1 w-12 rounded-full" style={{ background: "var(--gradient-rule)" }} />
             <h3 className="text-base sm:text-lg font-bold text-foreground">Others</h3>
-             <p className="text-base leading-relaxed text-muted-foreground">
-                Contact us for expert services on cloud computing or collaboration tools? We'll assist with AWS, Google Cloud, SharePoint, and more, whether it's migration, optimization, or exploring collaboration.
-              </p>
           </div>
+            <p className="text-base leading-relaxed text-muted-foreground mb-6">
+                Contact us for expert services on cloud computing or collaboration tools? We'll assist with AWS, Google Cloud, SharePoint, and more, whether it's migration, optimization, or exploring collaboration.
+            </p>
 
           <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
             {["AWS", "Google Cloud", "SharePoint", "Microsoft Dynamics", "Azure", ".Net Core"].map((tool, i) => (
