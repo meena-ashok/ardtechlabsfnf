@@ -9,7 +9,7 @@ const TechnologyPage = ({ analyticsConfig }) => {
   const ref = useScrollReveal();
 
   return (
-    <div ref={ref} className="pt-20 sm:pt-24 pb-16 sm:pb-20 bg-background">
+    <div ref={ref} className="pt-16 pb-12 sm:pt-20 sm:pb-16 bg-background">
       <SEO
         title="Technology Stack -- Modern Tools & Frameworks for Enterprise Solutions"
         description="Explore ARD TechLabs' battle-tested technology stack: React, Python, AWS, Docker, Kubernetes, OpenAI, and 50+ tools for building scalable enterprise-grade software."
@@ -36,7 +36,7 @@ const TechnologyPage = ({ analyticsConfig }) => {
             Our team is highly skilled in a broad range of AI technologies, enabling us to develop intelligent solutions tailored to your requirements. Whether it's machine learning, natural language processing, or computer vision, we possess the expertise to create cutting-edge and efficient AI-driven applications.
           </p>
 
-          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
             {["TensorFlow", "PyTorch", "OpenAI GPT", "IBM Watson", "Microsoft Cognitive Toolkit", "H2O.ai"].map((tool, i) => (
               <div
                 key={tool}
@@ -64,7 +64,7 @@ const TechnologyPage = ({ analyticsConfig }) => {
                 Our team excels in various machine learning technologies, allowing us to design intelligent systems that meet your specific needs. From predictive analytics to natural language processing, we possess the expertise to develop cutting-edge and data-driven solutions.
            </p>
 
-          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
             {["Scikit-learn", "Keras", "XGBoost", "LightGBM", "Apache Mahout", "MLlib (Apache Spark)"].map((tool, i) => (
               <div
                 key={tool}
@@ -92,7 +92,7 @@ const TechnologyPage = ({ analyticsConfig }) => {
                 With expertise in diverse blockchain technologies, we excel at developing robust solutions tailored to your requirements. From smart contracts to decentralized applications, we possess the skills to create secure and efficient blockchain-based systems. Whether it's for financial services, supply chain management, or any other industry, we deliver innovative and reliable blockchain applications that meet your needs.
             </p>
 
-          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
             {["Ethereum", "Hyperledger Fabric", "Corda", "Quorum", "Bitcoin", "Ripple"].map((tool, i) => (
               <div
                 key={tool}
@@ -120,7 +120,7 @@ const TechnologyPage = ({ analyticsConfig }) => {
                 Our team is well-versed in a variety of mobile technologies, making us adept at building apps that cater to your needs. Whether it's Android or iOS development, we've got the skills to create innovative and user-friendly applications.
             </p>
 
-          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
             {["iOS", "Android", "React Native", "Flutter", "Xamarin", "Ionic"].map((tool, i) => (
               <div
                 key={tool}
@@ -148,7 +148,7 @@ const TechnologyPage = ({ analyticsConfig }) => {
                 Get our team of skilled frontend developers to make your ideas real. We can create great websites, web apps, or mobile apps just for you. We work closely with you to make sure everything looks perfect and works smoothly.
             </p>
 
-          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
             {["AngularJS", "ReactJS", "VueJS", "JavaScript", "Tailwind", "HTML/CSS"].map((tool, i) => (
               <div
                 key={tool}
@@ -176,7 +176,7 @@ const TechnologyPage = ({ analyticsConfig }) => {
                 Expand your team with our Backend Developers for contract or full-time roles, tailored to your needs. Our experts bring specialized skills and dedication to simplify your development process and achieve your goals.
             </p>
 
-          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
             {[".NET", "PHP", "JAVA", "Node.js", "Python", "Laravel"].map((tool, i) => (
               <div
                 key={tool}
@@ -204,7 +204,7 @@ const TechnologyPage = ({ analyticsConfig }) => {
                 Safeguard your business data with our Database Management Services. We handle data governance, warehousing, integration, migration, and security. Trust us to manage your data while you focus on business growth.
             </p>
 
-          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
             {["SQL Server", "MySQL", "MongoDB", "DynamoDB", "Oracle", "Firebase"].map((tool, i) => (
               <div
                 key={tool}
@@ -232,7 +232,7 @@ const TechnologyPage = ({ analyticsConfig }) => {
                 We use powerful systems like WordPress, Joomla, and others for easy content management. With our CMS development, you get scalable solutions and creative design freedom. Choose NinjaTech for your CMS needs.
             </p>
 
-          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
             {["Magento", "WordPress", "Drupal", "Shopify", "Joomla", "Umbraco"].map((tool, i) => (
               <div
                 key={tool}
@@ -260,7 +260,7 @@ const TechnologyPage = ({ analyticsConfig }) => {
                 Contact us for expert services on cloud computing or collaboration tools? We'll assist with AWS, Google Cloud, SharePoint, and more, whether it's migration, optimization, or exploring collaboration.
             </p>
 
-          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
             {["AWS", "Google Cloud", "SharePoint", "Microsoft Dynamics", "Azure", ".Net Core"].map((tool, i) => (
               <div
                 key={tool}
