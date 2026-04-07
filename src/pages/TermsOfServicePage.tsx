@@ -26,6 +26,10 @@ const sections = [
     title: "6. Liability & Jurisdiction",
     body: "Our services are provided with professional diligence. Any legal disputes arising from engagements in the USA, UK, Europe, or Australia will be governed by the jurisdiction specified in the primary service agreement.",
   },
+  {
+    title: "7. Payment conditions",
+    body: "If you received any payment related email from other domain , this is our main domain - ardtechlabs.com",
+  },
 ];
 
 const analyticsConfig = {
