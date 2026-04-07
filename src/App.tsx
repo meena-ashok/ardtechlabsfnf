@@ -4,28 +4,13 @@ import { HelmetProvider } from "react-helmet-async";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "@/contexts/AuthContext";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import BackgroundOrbs from "@/components/BackgroundOrbs";
-import CookieBanner from "@/components/CookieBanner";
-import HomePage from "@/pages/HomePage";
-import ServicesPage from "@/pages/ServicesPage";
-import TechnologyPage from "@/pages/TechnologyPage";
-import WorkPage from "@/pages/WorkPage";
-import PortfolioPage from "@/pages/PortfolioPage";
-import AboutPage from "@/pages/AboutPage";
-import HirePage from "@/pages/HirePage";
-import FAQPage from "@/pages/FAQPage";
-import ContactPage from "@/pages/ContactPage";
-import FreeTrialPage from "@/pages/FreeTrialPage";
-import PrivacyPolicyPage from "@/pages/PrivacyPolicyPage";
-import TermsOfServicePage from "@/pages/TermsOfServicePage";
-import CookiePolicyPage from "@/pages/CookiePolicyPage";
-import NotFound from "@/pages/NotFound";
 import ScrollToTop from "@/components/ScrollToTop";
 
-// Admin imports
+// Layouts
+import PublicLayout from "@/components/PublicLayout";
 import AdminLayout from "@/admin/components/AdminLayout";
+
+// Admin
 import ProtectedRoute from "@/admin/components/ProtectedRoute";
 import LoginPage from "@/admin/pages/LoginPage";
 import DashboardPage from "@/admin/pages/DashboardPage";
@@ -51,6 +36,9 @@ const App = () => (
           <BrowserRouter>
             <ScrollToTop />
             <Routes>
+              {/* Public Routes */}
+              <Route path="/*" element={<PublicLayout />} />
+
               {/* Admin Routes */}
               <Route path="/admin/login" element={<LoginPage />} />
               <Route
@@ -73,39 +61,6 @@ const App = () => (
                 <Route path="messages" element={<AdminMessagesPage />} />
                 <Route path="settings" element={<AdminSettingsPage />} />
               </Route>
-
-              {/* Public Routes */}
-              <Route
-                path="*"
-                element={
-                  <>
-                    <BackgroundOrbs />
-                    <div className="relative z-[2]">
-                      <Navbar />
-                      <main>
-                        <Routes>
-                          <Route path="/" element={<HomePage />} />
-                          <Route path="/services" element={<ServicesPage />} />
-                          <Route path="/technology" element={<TechnologyPage />} />
-                          <Route path="/work" element={<WorkPage />} />
-                          <Route path="/portfolio" element={<PortfolioPage />} />
-                          <Route path="/about" element={<AboutPage />} />
-                          <Route path="/hire" element={<HirePage />} />
-                          <Route path="/faq" element={<FAQPage />} />
-                          <Route path="/free-trial" element={<FreeTrialPage />} />
-                          <Route path="/contact" element={<ContactPage />} />
-                          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-                          <Route path="/terms-of-service" element={<TermsOfServicePage />} />
-                          <Route path="/cookie-policy" element={<CookiePolicyPage />} />
-                          <Route path="*" element={<NotFound />} />
-                        </Routes>
-                      </main>
-                      <Footer />
-                      <CookieBanner />
-                    </div>
-                  </>
-                }
-              />
             </Routes>
           </BrowserRouter>
         </AuthProvider>
