@@ -31,12 +31,13 @@ const steps = [
 ];
 
 const fallbackTalents = [
-  { id: 1, icon: "Code", title: "Full-Stack Developer", description: "React/Node.js or Python/Django experts with API design, database architecture, and cloud deployment experience.", chips: "React,Node.js,PostgreSQL,AWS", rate: "From $25/hr" },
+  { id: 1, icon: "Code", title: "Full-Stack Developer", description: "Java,PHP,Node.Js, SpringbootPython/Django experts withMEAN,MEARN,API  design, database architecture, and cloud deployment experience.", chips: "React,Spring Boot,PostgreSQL,AWS", rate: "From $25/hr" },
   { id: 2, icon: "Smartphone", title: "Mobile Developer", description: "Flutter and React Native specialists building cross-platform apps with native-level performance.", chips: "Flutter,React Native,Firebase,Swift", rate: "From $25/hr" },
   { id: 3, icon: "Brain", title: "AI / ML Engineer", description: "Data scientists specialising in LLMs, computer vision, NLP, and predictive modelling solutions.", chips: "Python,TensorFlow,OpenAI,LangChain", rate: "From $35/hr" },
-  { id: 4, icon: "Cloud", title: "Cloud / DevOps Engineer", description: "AWS/Azure/GCP certified architects who design, migrate, and optimise cloud-native infrastructure.", chips: "AWS,Kubernetes,AzuTerraform,Docker", rate: "From $25/hr" },
+  { id: 4, icon: "Cloud", title: "Cloud / DevOps Engineer", description: "AWS/Azure/GCP certified architects who design, migrate, and optimise cloud-native infrastructure.", chips: "AWS,Kubernetes,Terraform,Docker", rate: "From $25/hr" },
   { id: 5, icon: "Palette", title: "UI / UX Designer", description: "Product designers combining user research, interaction design, and visual craft into delightful experiences.", chips: "Figma,Prototyping,Design Systems", rate: "From $20/hr" },
   { id: 6, icon: "Database", title: "Data Engineer", description: "Big data specialists building scalable pipelines, data warehouses, and BI solutions for enterprises.", chips: "Spark,Airflow,Snowflake,dbt", rate: "From $25/hr" },
+  { id: 7, icon: "Code", title: "Enterprise solutions engineer", description: "SAP, Salesforce, Microsoft 365 Dyanamic, ERP, CRM, Hupspot", chips: "SAP,Salesforce,Microsoft 365 Dyanamic,ERP,CRM,Hupspot", rate: "From $30/hr" },
 ];
 
 const HirePage = ({ analyticsConfig }) => {
@@ -102,7 +103,7 @@ const HirePage = ({ analyticsConfig }) => {
           Available <span className="text-primary">Talent Profiles</span>
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {talents && talents.map((t: any, i: number) => (
+          {(talents || fallbackTalents).map((t: any, i: number) => (
             <article
               key={t.id || t.title}
               className="reveal-up glass-card p-5 sm:p-6 flex flex-col"
