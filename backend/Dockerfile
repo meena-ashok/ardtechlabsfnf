@@ -2,21 +2,15 @@ FROM eclipse-temurin:17-jdk-jammy
 
 WORKDIR /app
 
-# Copy the Maven wrapper files
-COPY mvnw .
-COPY .mvn ./.mvn
-
-# Copy the project's POM file
+# Copy the project files
 COPY pom.xml .
-
-# Copy the source code
 COPY src ./src
 
-# Make the Maven wrapper executable
-RUN chmod +x mvnw
+# Download and install the Maven wrapper
+RUN apt-get update && apt-get install -y maven
 
-# Build the application using the Maven wrapper
-RUN ./mvnw clean install -DskipTests
+# Build the application
+RUN mvn clean install -DskipTests
 
 EXPOSE 8080
 
