@@ -36,7 +36,7 @@ const iconMap: { [key: string]: string } = {
   'Flutter': 'devicon:flutter-original',
   'React Native': 'devicon:react-original',
   'Swift': 'devicon:swift-original',
-  'Kotlin': 'devicon:kotlin-original',
+  'Kotlin': 'devicon:kotlin-original-wordmark',
   'Ionic': 'logos:ionic-icon',
   'iOS': 'devicon:apple-original',
   'Android': 'devicon:android-original',
@@ -48,7 +48,7 @@ const iconMap: { [key: string]: string } = {
   'LangChain': 'simple-icons:langchain',
   'LlamaIndex': 'simple-icons:llamaindex',
   'TensorFlow': 'devicon:tensorflow-original-wordmark',
-  'PyTorch': 'devicon:pytorch-original',
+  'PyTorch': 'devicon:pytorch-original-wordmark',
   'Hugging Face': 'logos:hugging-face-icon',
   'Pinecone': 'logos:pinecone-icon',
   'Weaviate': 'logos:weaviate-icon',
@@ -56,11 +56,11 @@ const iconMap: { [key: string]: string } = {
   'Microsoft Cognitive Toolkit': 'simple-icons:microsoftcognitive',
   'H2O.ai': 'simple-icons:h2o',
   'Scikit-learn': 'devicon:scikit-learn-original',
-  'Keras': 'devicon:keras-original',
+  'Keras': 'devicon:keras-original-wordmark',
   'XGBoost': 'simple-icons:xgboost',
   'LightGBM': 'simple-icons:lightgbm',
   'Apache Mahout': 'simple-icons:apachemahout',
-  'MLlib (Apache Spark)': 'devicon:apache-spark-original',
+  'MLlib (Apache Spark)': 'devicon:apache-spark-original-wordmark',
   // Cloud
   'Cloud': 'lucide:cloud',
   'AWS': 'logos:aws',
@@ -75,6 +75,7 @@ const iconMap: { [key: string]: string } = {
   'DevOps': 'lucide:refresh-cw',
   'Docker': 'devicon:docker-original-wordmark',
   'Kubernetes': 'devicon:kubernetes-original-wordmark',
+  'K8s': 'devicon:kubernetes-original-wordmark',
   'GitHub Actions': 'devicon:github-actions-original',
   'Jenkins': 'devicon:jenkins-original',
   'CircleCI': 'devicon:circleci-plain-wordmark',
@@ -87,7 +88,7 @@ const iconMap: { [key: string]: string } = {
   'MySQL': 'devicon:mysql-original-wordmark',
   'MongoDB': 'devicon:mongodb-original-wordmark',
   'Redis': 'devicon:redis-original-wordmark',
-  'Elasticsearch': 'devicon:elasticsearch-original',
+  'Elasticsearch': 'devicon:elasticsearch-original-wordmark',
   'Snowflake': 'devicon:snowflake-original-wordmark',
   'BigQuery': 'logos:google-cloud-bigquery',
   'SQL Server': 'devicon:microsoft-sql-server-original-wordmark',
@@ -155,12 +156,9 @@ export const TechIcon = ({ icon, className, ...props }: TechIconProps) => {
     <Icon
       icon={iconName}
       className={className}
-      // Switch to font-size for sizing to avoid blurry scaling
-      // Lucide icons are textual, so they scale with `em`
-      // Tech logos get a default explicit size, which can be overridden by Tailwind classes
-      style={{ 
-        fontSize: isLucide ? '1.5em' : '2.5rem', 
-        ...props.style
+      style={{
+        fontSize: isLucide ? '1.5em' : '2.5rem',
+        ...props.style,
       }}
       {...props}
     />
