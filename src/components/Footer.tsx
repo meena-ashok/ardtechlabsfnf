@@ -26,10 +26,10 @@ const Footer = () => {
               <span className="text-sm font-bold tracking-widest uppercase text-primary">Let's Collaborate</span>
             </div>
             <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-foreground leading-tight">
-              Ready to build something <span className="text-primary">extraordinary</span>?
+              Ready to build something <span className="text-primary">great</span>?
             </h3>
             <p className="text-sm sm:text-base text-muted-foreground mt-2 max-w-md mx-auto lg:mx-0">
-              Free consultation for businesses across the USA, UK, Europe, and Australia.
+              Free consultation for businesses across the USA, Europe, and Australia.
             </p>
           </div>
           <Link
@@ -53,7 +53,7 @@ const Footer = () => {
             <img src="/logo.png" alt="ARD TechLabs" className="h-14 sm:h-16 w-auto" />
           </Link>
           <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-[300px] mb-4 sm:mb-6">
-            Premier IT services delivering full-stack, AI, cloud, and DevOps solutions for businesses across the USA, UK, Europe, and Australia.
+            Premier IT services delivering full-stack, AI, cloud, and DevOps solutions for businesses across the USA, Europe, and Australia.
           </p>
         </div>
 

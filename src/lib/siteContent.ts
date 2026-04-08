@@ -26,7 +26,7 @@ export const complianceContent = {
   eyebrow: "Compliance & Data Protection",
   title: "Fully compliant with regional regulations",
   description:
-    "All fully compliant with regional regulations including GDPR (Europe), CAN-SPAM Act (USA), CASL (Canada), and other local data protection laws. Your prospects' data is always handled with the highest security standards.",
+    "Fully compliant with regional regulations including GDPR (Europe), CAN-SPAM Act (USA), and other local data protection laws. Your prospects' data is always handled with the highest security standards.",
   items: [
     "GDPR Compliant",
     "CAN-SPAM Compliant",

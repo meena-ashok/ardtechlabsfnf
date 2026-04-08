@@ -5,6 +5,12 @@ import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
 import { TechIcon } from "@/components/TechIcon";
 
+const meta = {
+  title: "ARD TechLabs | Premier IT Services & Consulting",
+  description: "ARD TechLabs: Your trusted partner for cutting-edge IT services. We specialize in full-stack development, AI/ML, cloud solutions, and DevOps to drive your business forward. Serving clients in the USA, Europe, and Australia.",
+  keywords: "IT services, IT consulting, software development, full-stack development, AI, ML, cloud solutions, DevOps, USA, Europe, Australia",
+};
+
 const heroWords = ["Technology", "Innovation", "Excellence", "The Future"];
 
 const whyUs = [
@@ -12,7 +18,7 @@ const whyUs = [
   { icon: "RefreshCw", title: "Agile Delivery", desc: "2-week sprint cycles, always on time" },
   { icon: "Shield", title: "Security-First", desc: "ISO 27001 & GDPR compliant" },
   { icon: "Headphones", title: "24/7 Support", desc: "Always here when you need us" },
-  { icon: "Globe", title: "Global Reach", desc: "USA & Europe — 20+ countries" },
+  { icon: "Globe", title: "Global Reach", desc: "USA, Europe & Australia — 20+ countries" },
 ];
 
 const processes = [
@@ -28,9 +34,9 @@ const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "ARD TechLabs",
-  url: "https://ardtechlabs.lovable.app",
-  logo: "https://ardtechlabs.lovable.app/favicon.ico",
-  description: "Award-winning IT services & consulting for USA, Europe, and India. Full-stack, AI/ML, cloud & DevOps.",
+  url: "https://ardtechlabs.com",
+  logo: "https://ardtechlabs.com/favicon.ico",
+  description: "Award-winning IT services & consulting for USA, Europe, and Australia. Full-stack, AI/ML, cloud & DevOps.",
   foundingDate: "2015",
   founder: {
     "@type": "Person",
@@ -71,10 +77,10 @@ const organizationJsonLd = {
 const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    url: "https://ardtechlabs.lovable.app",
+    url: "https://ardtechlabs.com",
     potentialAction: {
         "@type": "SearchAction",
-        target: "https://ardtechlabs.lovable.app/search?q={search_term_string}",
+        target: "https://ardtechlabs.com/search?q={search_term_string}",
         "query-input": "required name=search_term_string",
     },
 };
@@ -105,28 +111,8 @@ const breadcrumbJsonLd = {
     "@type": "ListItem",
     "position": 1,
     "name": "Home",
-    "item": "https://ardtechlabs.lovable.app"
+    "item": "https://ardtechlabs.com"
   }]
-};
-
-const reviewJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Review",
-  "reviewRating": {
-    "@type": "Rating",
-    "ratingValue": "5",
-    "bestRating": "5"
-  },
-  "author": {
-    "@type": "Person",
-    "name": "Sarah Mitchell"
-  },
-  "reviewBody": "ARD TechLabs transformed our entire digital infrastructure. Their team delivered a complex microservices architecture on time and under budget."
-};
-
-const analyticsConfig = {
-  ga4Id: "G-XXXXXXXXXX", // Replace with your GA4 ID
-  clarityId: "XXXXXXXXXX", // Replace with your Clarity ID
 };
 
 const HomePage = () => {
@@ -136,11 +122,11 @@ const HomePage = () => {
   return (
     <div ref={revealRef}>
       <SEO
-        title="ARD TechLabs | Premier IT Services & Consulting Firm"
-        description="ARD TechLabs: Your trusted partner for cutting-edge IT services. We specialize in full-stack development, AI/ML, cloud solutions, and DevOps to drive your business forward. Serving clients in the USA, Europe, India, and Australia."
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
         canonical="/"
-        jsonLd={[organizationJsonLd, websiteJsonLd, serviceJsonLd, breadcrumbJsonLd, reviewJsonLd]}
-        analyticsConfig={analyticsConfig}
+        jsonLd={[organizationJsonLd, websiteJsonLd, serviceJsonLd, breadcrumbJsonLd]}
       />
 
       {/* Hero */}
@@ -168,7 +154,7 @@ const HomePage = () => {
             <div className="text-center lg:text-left">
               <span className="eyebrow-badge reveal-up text-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary" style={{ animation: "blink-dot 2s infinite" }} />
-                IT Services & Consulting · USA, Europe & India
+                IT Services & Consulting · USA, Europe & Australia
               </span>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-foreground mt-4 sm:mt-5 mb-3 sm:mb-4 leading-[1.08] reveal-up" style={{ transitionDelay: "0.1s" }}>
@@ -179,7 +165,7 @@ const HomePage = () => {
               </h1>
 
               <p data-speakable className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 max-w-[520px] mx-auto lg:mx-0 reveal-up" style={{ transitionDelay: "0.2s" }}>
-                ARD TechLabs delivers award-winning full-stack development, mobile apps, AI/ML, cloud & DevOps for businesses across USA, Europe, India, and Australia. 150+ projects · 80+ clients · 9+ years.
+                ARD TechLabs delivers award-winning full-stack development, mobile apps, AI/ML, cloud & DevOps for businesses across USA, Europe, and Australia. 150+ projects · 80+ clients · 9+ years.
               </p>
 
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center lg:justify-start reveal-up" style={{ transitionDelay: "0.3s" }}>
@@ -381,87 +367,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Client Testimonials */}
-      <section className="py-14 sm:py-20 bg-background">
-        <div className="container">
-          <div className="mb-12 text-center">
-            <span className="eyebrow-badge">
-              <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ animation: "blink-dot 2s infinite" }} />
-              Client Love
-            </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground mt-4 mb-4 leading-tight">
-              What Our Clients <span className="text-primary">Say</span>
-            </h2>
-            <div className="rule-line my-4 mx-auto"></div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-            <article className="reveal-up glass-card p-5 sm:p-7 flex flex-col">
-              <div className="flex gap-1 mb-3 sm:mb-3.5 text-primary">
-                <span className="text-lg">★</span>
-                <span className="text-lg">★</span>
-                <span className="text-lg">★</span>
-                <span className="text-lg">★</span>
-                <span className="text-lg">★</span>
-              </div>
-              <blockquote data-speakable className="text-base text-muted-foreground leading-relaxed flex-1 mb-4 sm:mb-5">
-                "ARD TechLabs transformed our entire digital infrastructure. Their team delivered a complex microservices architecture on time and under budget."
-              </blockquote>
-              <div className="flex items-center gap-3 mt-auto">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex-shrink-0 flex items-center justify-center text-sm border-2 border-foreground/[0.08]" style={{ background: "var(--gradient-orange)" }}>
-                  <TechIcon icon="Users" />
-                </div>
-                <div>
-                  <div className="text-base font-bold text-foreground">Sarah Mitchell</div>
-                  <div className="text-sm text-muted-foreground">CTO, FinFlow Inc. — USA</div>
-                </div>
-              </div>
-            </article>
-            <article className="reveal-up glass-card p-5 sm:p-7 flex flex-col border-primary/20" style={{ transitionDelay: "0.1s" }}>
-              <div className="flex gap-1 mb-3 sm:mb-3.5 text-primary">
-                <span className="text-lg">★</span>
-                <span className="text-lg">★</span>
-                <span className="text-lg">★</span>
-                <span className="text-lg">★</span>
-                <span className="text-lg">★</span>
-              </div>
-              <blockquote data-speakable className="text-base text-muted-foreground leading-relaxed flex-1 mb-4 sm:mb-5">
-                "The AI recommendation engine increased our conversion rate by 42%. The team understands both tech and business. Simply outstanding work."
-              </blockquote>
-              <div className="flex items-center gap-3 mt-auto">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex-shrink-0 flex items-center justify-center text-sm border-2 border-foreground/[0.08]" style={{ background: "var(--gradient-orange)" }}>
-                  <TechIcon icon="Users" />
-                </div>
-                <div>
-                  <div className="text-base font-bold text-foreground">Rahul Sharma</div>
-                  <div className="text-sm text-muted-foreground">CEO, RetailGenius — UK</div>
-                </div>
-              </div>
-            </article>
-            <article className="reveal-up glass-card p-5 sm:p-7 flex flex-col" style={{ transitionDelay: "0.2s" }}>
-              <div className="flex gap-1 mb-3 sm:mb-3.5 text-primary">
-                <span className="text-lg">★</span>
-                <span className="text-lg">★</span>
-                <span className="text-lg">★</span>
-                <span className="text-lg">★</span>
-                <span className="text-lg">★</span>
-              </div>
-              <blockquote data-speakable className="text-base text-muted-foreground leading-relaxed flex-1 mb-4 sm:mb-5">
-                "Their DevOps setup reduced deployment time from 3 hours to 8 minutes. The cloud migration was flawless. ARD TechLabs is our go-to partner."
-              </blockquote>
-              <div className="flex items-center gap-3 mt-auto">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex-shrink-0 flex items-center justify-center text-sm border-2 border-foreground/[0.08]" style={{ background: "var(--gradient-orange)" }}>
-                  <TechIcon icon="Users" />
-                </div>
-                <div>
-                  <div className="text-base font-bold text-foreground">Emma Lawson</div>
-                  <div className="text-sm text-muted-foreground">VP Engineering, LogiChain — Germany</div>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
       {/* Our Process */}
       <section className="py-16 sm:py-24 bg-background">
         <div className="container">
@@ -494,7 +399,7 @@ const HomePage = () => {
               Ready to <span className="text-primary">Accelerate</span> Your Digital Journey?
             </h2>
             <p data-speakable className="text-lg sm:text-xl text-primary-foreground/65 mb-10 leading-relaxed">
-              Let's build something extraordinary together. Free consultation for USA, Europe, India & Australian businesses.
+             Contact us for a free consultation and let's discuss how we can help your business grow. We serve clients in the USA, Europe, India, and Australia.
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap gap-4 items-center justify-center">
               <Link

@@ -3,21 +3,17 @@ import { Helmet } from "react-helmet-async";
 interface SEOProps {
   title: string;
   description: string;
+  keywords?: string;
   canonical?: string;
   type?: string;
   jsonLd?: object | object[];
-  analyticsConfig?: {
-    ga4Id?: string;
-    clarityId?: string;
-  };
-  children?: React.ReactNode;
 }
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || "https://www.ardtechlabs.com";
-const OG_IMAGE = "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c5a3f923-aec0-42ce-b210-facce1cc9921/id-preview-4bfca26b--6cbdb877-b645-4a3e-9d3f-a81630931298.lovable.app-1773426989607.png";
+const OG_IMAGE = "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c5a3f923-aec0-42ce-b210-facce1cc9921/id-preview-4bfca26b--6cbdb877-b645-4a3e-9d3f-a81630931298.png";
 const SITE_NAME = "ARD TechLabs";
 
-const SEO = ({ title, description, canonical = "", type = "website", jsonLd, analyticsConfig, children }: SEOProps) => {
+const SEO = ({ title, description, keywords, canonical = "", type = "website", jsonLd }: SEOProps) => {
   const url = `${SITE_URL}${canonical}`;
   const fullTitle = canonical === "/" || canonical === ""
     ? title
@@ -30,8 +26,10 @@ const SEO = ({ title, description, canonical = "", type = "website", jsonLd, ana
       {/* Essential Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={url} />
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta name="google-site-verification" content="" /> {/* Add your Google Search Console verification code here */}
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
@@ -61,8 +59,9 @@ const SEO = ({ title, description, canonical = "", type = "website", jsonLd, ana
 
       {/* Geo-targeting Tags */}
       <meta name="geo.region" content="US" />
-      <meta name="geo.placename" content="United States" />
-      {/* Add more regions as needed */}
+      <meta name="geo.region" content="GB" />
+      <meta name="geo.region" content="AU" />
+      <meta name="geo.placename" content="United States, Europe, Australia" />
 
       {/* AI & Voice Search Optimization */}
       <meta name="speakable" content="true" />
@@ -71,29 +70,6 @@ const SEO = ({ title, description, canonical = "", type = "website", jsonLd, ana
       {jsonLdScripts.map((script, index) => (
         script && <script key={index} type="application/ld+json">{JSON.stringify(script)}</script>
       ))}
-
-      {/* Analytics Scripts */}
-      {analyticsConfig?.ga4Id && (
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${analyticsConfig.ga4Id}`}></script>
-      )}
-      {analyticsConfig?.ga4Id && (
-        <script>
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${analyticsConfig.ga4Id}');
-          `}
-        </script>
-      )}
-      {analyticsConfig?.clarityId && (
-        <script>
-          {`
-            (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "${analyticsConfig.clarityId}");
-          `}
-        </script>
-      )}
-      {children}
     </Helmet>
   );
 };
